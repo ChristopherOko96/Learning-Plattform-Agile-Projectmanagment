@@ -1,0 +1,237 @@
+# 1. Projektkontext
+
+## 1.1 Projekt-Titel
+
+**Projekt:** Konzeption und Implementierung eines fallstudienbasierten Planspiels zur spielerischen Vermittlung von agilen Projektmanagement Methodiken mit Scrum und Kanban am Beispiel eines smarten Fahrradschlosses
+
+## 1.2 Projektart
+
+**Projekttyp:**
+
+IT-Projekt / Konzeptions-,Entwicklung- und Umsetzungsprojekt im Bereich agiles Projektmanagement, didaktische Vermittlung und Lernspielentwicklung.
+
+**Laufzeit** 
+
+Bis zur Abgabe der Bachelorarbeit
+
+**Erfolgskriterium:**
+
+Erfolgreiche Konzeption und prototypische Implementierung eines digitalen Planspiels, das zentrale **Scrum-Inhalte** und **Kanban** anhand einer Fallstudie verständlich , spielerisch und nachvollziehbar vermittelt.
+
+## 1.3 Rollen
+
+| **Rolle** | **Person** |
+| --- | --- |
+| **Auftraggeber** | Prof.Dr. Kai Kreisköter |
+| **Projektleiter / Autor** | Christopher Warren Okoh |
+| **Projektteam** | Christopher Warren Okoh |
+| **Erstbetreuer der Bachelorarbeit** | Prof.Dr. Kai Kreisköter |
+| **Zielgruppe** | Informatikstudierende | Quereinsteiger im Projekt Management im agilen Bereich |
+| **Spätere Nutzer** | Studierende , die Scrum und Kanban praxisnah lernen sollen und AGE ( Agiles Systems Engineering ) Vorlesungsbesucher |
+
+## 1.4 Einführung und Problemstellung
+
+In der modernen Softwareentwicklung ändern sich Anforderungen häufig so schnell, dass starre Pläne zu Beginn eines Projekts kaum noch funktionieren. Vor diesem Hintergrund haben sich agile Ansätze im Projektmanagement etabliert, die auf Flexibilität, iterative Entwicklung und kontinuierliche Anpassung ausgerichtet sind. Zu den bekanntesten und am weitesten verbreiteten agilen Vorgehensweisen zählen Scrum und Kanban.
+Scrum bietet als leichtgewichtiges Framework eine klare Struktur durch definierte Rollen, Artefakte und Ereignisse. Teams arbeiten dabei in kurzen Zeitabschnitten, den sogenannten Sprints, schrittweise an einem Produkt und stimmen ihre Ergebnisse regelmäßig mit dem Stakeholder ab (Schwaber und Sutherland, 2020, S1-3). Kanban hingegen verfolgt einen flexibleren Ansatz und fokussiert insbesondere die Visualisierung von Arbeitsprozessen sowie die kontinuierliche Steuerung und Verbesserung des Arbeitsflusses.
+Obwohl diese Ansätze darauf abzielen, komplexe Projekte besser handhabbar zu machen, zeigt sich in der akademischen Lehre häufig das Problem: Agile Methoden sind für Einsteiger ohne einen durchgängigen Rahmen und konkreten Anwendungsbeispiele nur schwer nachvollziehbar. Insbesondere das Zusammenspiel verschiedener Konzepte sowie deren praktische Anwendung bleibt oft abstrakt. Es besteht daher ein klarer Bedarf an didaktisch aufbereiteten Fallstudien, die als “roter Faden” dienen und den Zusammenhang zwischen theoretischen Inhalten und praktischer Anwendung strukturiert darstellen.
+
+Diese Bachelorarbeit setzt an diesem Punkt an. Ziel ist die Konzeption und prototypische Implementierung eines fallstudienbasierten Planspiels, das Inhalte des agilen Projektmanagements praxisnah vermittelt. Als Anwendungsszenario dient die Entwicklung eines smarten Fahrradschlossesm anhand dessen typische Situationen eines agilen Projekts nachvollzogen werden können.
+Der Schwerpunkt des Planspiels liegt auf Scrum, da dieses Framework durch seine klar definierten Strukturen besonders geeignet ist, agile Zusammenarbeit didaktisch erfahrbar zu machen. Ergänzend werden ausgewählte Elemente aus Kanban integriert, insbesondere zur Visualisierung von Arbeitsprozessen und zur Unterstützung des Verständnisses von Arbeitsfluss und kontinuierlicher Verbesserung.
+
+## 1.5 Projektziel
+
+Das übergeordnete Ziel dieser Bachelorarbeit ist die Entwicklung eines **didaktisch aufbereiteten Planspiels**, das als interaktives Werkzeug zur Vermittlung des Scrum-Rahmenwerks dient. Konkret sollen folgende Teilziele erreicht werden:
+
+- **Wissensvermittelung:** Die Teilnehmenden sollen die theoretischen Grundlagen von Scrum - insbesondere die **Empirie** (Transparenz, Überprüfung und Anpassung) - sowie die **Scrum-Werte** (Commitment, Focus, Offenheit, Respekt, Mut) verstehen und anwenden können.
+- **Rollenverständnis:** Das Spiel soll die spezifischen Verantwortlichkeiten von **Produkt Owner:in, Scrum Master:in und Developer:innen** innerhalb eines Teams erlebbar machen.
+- **Prozessverständnis:** Die Lernenden sollen den Ablauf der **Scrum-Events** (vom Sprint Planning bis zur Retrospektive) sowie den Umgang mit den **Scrum-Artefakten** praxisnah am Beispiel eines smarten Fahrradschlosses erproben.
+- **Implementierung**: Als technisches Ergebnis der Arbeit wird ein prototypischer Web-Prototyp entwickelt, der zentrale Planspiel-Elemente, Quiz-Fragen und eine Speicherung des Lernfortschritts enthält. (**Schwaber/Sutherland 2020, S. 3–7)**
+- **Integration von Workflow-Konzepten:** Einbindung ausgewählter **Kanban-Elemente** ( bspw. ein Taskboard ), um die Visualisierung von Arbeitsprozessen und das Verständnis für den kontinuierlichen Arbeitsfluss (Flow) zu fördern.
+
+## 1.6 Rahmenbedingungen
+
+- **Bearbeitungszeitraum:** Die Durchführung ist als eigenständiges Projekt parallel zum laufenden Studium geplant.
+- **Methodische Grundlage:** Verbindliche Basis sind offizielle Literaturen zum Scrum und die Vorlesungsskripte des Prof.Dr. Kai Kreisköter.
+- **Theoretische Säulen:** Das Projekt stützt sich auf die Prinzipien der **Empirie** (Transparenz, Überprüfung, Anpassung) sowie auf in anderen Literatur genannten Vorgehensweisen.
+- **Abstimmungszyklus:** Regelmäßiger Austausch und Feedbackschleifen mit dem Erstbetreuer der Bachelorarbeit zur Qualitätssicherung.
+- **Dokumentation und Werkzeuge:** Die gesamte Arbeitsorganisation und -dokumentation erfolgt innerhalb der Software **Notion**.
+- **Qualitätsanspruch:** Die Darstellung muss strukturiert, wissenschaftlich nachvollziehbar sowie für den Einsatz in der Lehre geeignet sein.
+
+# Lastenheft(Was?)
+
+## 2.1 Einsatzkontext & Zweck
+
+Das Planspiel dient der Einführung von Informatikstudierenden in das agile Projektmanagment. Zweck ist die spielerische Überbrückung der Transferlücke zwischen Scrum- und Kanban theorie und praktischer Anwendung am Beispiel einer vorgegebene Fallstudie.
+
+## 2.2 Zielsetzung der Bacheloarbeit
+
+Das Hauptziel dieser Arbeit ist die Schaffung eines **didaktischen Instruments**, das die theoretischen Komplexität von Scrum und Kanban in eine interaktive Lernumgebung überführt, um die Transferlücke zwischen Wissen und Anwendung zu schließen. Die Arbeit soll nachweisen, dass ein fallstudienbasierter Ansatz die Verinnerlichung agiler Werte und Prinzipien maßgeblich fördert.
+
+Die Arbeit verfolgt dabei folgende **Qualität-** **und** **Ergebnisziele**:
+
+- **Befähigung der Lernenden:** Nach der Durchführung des Planspiels sollen Studierende in der Lage sein, die Scrum-Rollen, Events und Artefakte nicht nur zu benennen, sondern deren funktionales Zusammenspiel in einem Projektkontext zu begreifen.Außerdem müssen die Studierenden in der Lage sein die Prinzipien und Praktiken sowie die jeweiligen Kennzahlen von Scrum und Kanban erläutern und anwenden zu können.
+- **Vermittlung des agilen Mindsets:** Ein Kernziel ist das Erlebnis der **Empirie** sowie der Scrum-Werte als notwendige Basis für erfolgreiche Selbstorganisation.
+- **Methodische Sicherheit:** Die Teilnehmer sollen verstehen, wie Anforderungen durch User-Stories flexible verwaltet werden, um Kundennutzen stetig zu maximieren.
+- **Nachhaltiger Lernerfolg:** Das Planspiel soll als **funktionsfähiges Lehrmodul** so konzipiert sein, dass es ohne tiefgreifende Vorkenntnisse in den Lehrbetrieb integriert werden kann und durch spielerische Elemente die Lernmotivation der Studierenden steigert.
+
+## 2.3 Umfang
+
+Der Umfang der Bachelorarbeit definiert die konkreten inhaltlichen Bausteine und die Breite der Untersuchung, die zur Erreichung der oben genannten Ziele notwendig sind. Die Arbeit umfasst die folgenden Punkte:
+
+- **Theoretischer Rahmen:** Eine systematische Aufarbeitung des Scrum- und Kanban Rahmenwerks auf Basis von Fachliteratur oder Wissenschaftlicher oder fundierter Lehrbücher.
+- **Fachliche Fallstudie “Smart-Lock”:** Erstellung eines vollständigen Product-Backlogs für die Entwicklung eines Smarten Fahrradschlosses. Dies beinhaltet die Ausarbeitung von **Epics**, detaillierten **User-Stories** und deren **Akzeptanzkritierien**.
+- **Didaktische Spieldesign:** Konzeption der Spielmechanik, welche die Sprints als “Herzschlag”von Scrum abbildet.
+- **Interaktives Prüfungsmodul:** Integration von Quiz-Elementen zur Lernkontrolle sowie die Einbindung von Rollen-basierten Aufgaben.
+- **Prototypische Implementierung:** Entwicklung eines **Minimum Viable Products ( MVP )** des Planspiels in einer geeigneten Software-Umgebung, das mindestens einen vollständigen Sprint-Zyklus funktional simuliert.
+- **Methodischer Ausblick:** Herstellung von Bezügen zum **VOPA-Modell** (Vernetzung, Offenheit, Partizipation und Agilität) und eine Einordnung in den Kontext des **Agile Systems Engineering.**
+- 
+
+## 2.5 Lieferobjekte
+
+Die nachfolgenden Lieferobjekte stellen die prüfbaren Ergebnisse der Bachelorarbeit dar und decken sowohl die theoretischen Analyse als auch die praktische Implementierung dar.
+
+1. **Schriftliche Bachelorarbeit ( Wissenschaftliche Ausarbeitung ):** Eine umfassende Dokumentation, welche die theoretischen Grundlagen von Scrum sowie Kanban auf Basis von Fachliteraturen und Wissenschaftlichen Artikeln systematisch aufarbeitet. Die Arbeit ordnet das Projekt in den Kontext der **VUCA-Welt** ein und stellt Bezüge zum **VOPA-Modell**  sowie die **Agilen Systems Engineering** her. Zudem enthält sie die methodische Herleitung der Fallstudie und die technische Dokumentation des Software-Prototyps.
+2. **Fachliches Artefakt-Repository “Smartes Fahrradschloss-Entwicklung”:** Dieses Packet umfasst ein strukturiertes **Product-Backlog**, welches ein langfristiges Produkt-Ziel sowie priorisierte User-Stories nach dem **INVEST-Kriterien** enthält.Eventuell wird ein initiales Design für ein digitales Kanban-Board geliefert, das den Arbeitsfluss ( Flow ) für die Fallstudie visualisiert.
+3. **Implementierter Software-Prototyp( MVP ):** Eine funktionsfähige digitale Anwendung, die mindestens einen vollständigen Sprint-Zyklus simuliert. Der Prototyp enthält eine Form einer Fortschrittskontrolle des gefragten Wissens.
+
+## 2.6 Stakeholder und deren Erwartungen
+
+Im Rahmen der Planung und Durchführung der Bachelorarbeit lassen sich folgende Stakeholder identifizieren:
+
+| Stakeholder | Rolle / Interesse | Erwartungen an Ergebnisse |
+| --- | --- | --- |
+| Studierende | Nutzer des Planspiels | Inhalte systematisch vertiefen und Anwenden können |
+| Modulverantwortliche / Lehrende | Einsatz in der Lehre | Wiederverwendbarkeit des Planspiels und zusätzliche Vermittlung des Vorlesungsinhaltes durch Planspiels |
+| Erstbetreuer der Bachelorarbeit | Auftraggeber der Bachelorarbeit | Eine methodische und sauberer Vermittlung des Lehrinhaltes durch Planspiel |
+| Prüfungsausschluss / Hochschule  | formaler Rahmen | Abgabe in geforderten Abgabeformat und nachvollziehbare wissenschaftliche Ausarbeitung. |
+
+## 2.7 Muss-Anforderungen
+
+Diese Kritikern sind zwingend zu erfüllen, um die Zielsetzung der Arbeit zu erreichen:
+
+- **M-01: Agile Basis:** Vermittlung von Agilität , Empirie ( Transparenz, Inspektion, Adaption) und Einordnung in den VUCA-Kontext.
+- **M-02: Scrum-Framework:** Vollständige Abbildung der Rollen, Artefakte und Ereignisse gemäß fundierter wissenschaftlicher Literaturen.
+- **M-03: Fallstudie “Smart Lock”:** Nutzung der Entwicklung eines smarten Fahrradschlosses als durchgängiger didaktischer roter Faden.
+- **M-04: Scrum-Rollen:** Funktionale Implementierung der Verantwortlichkeiten von Product-Owner, Scrum Master und Developers.
+- **M-05: Scrum-Artefakte.** Darstellung eines priorisierten Product Backlogs, des Sprint Backlogs sowie des resultierenden Inkrements.
+- **M-06: Sprint-Zyklus.** Simulation eines vereinfachten Sprints inklusive Planning, Execution, Review und Retrospektive.
+- **M-07: Kanban-Integration.** Visualisierung des Arbeitsflusses (”Flow”) über ein digitales Taskboard mit Statusspalten.
+- **M-08: User Stories.** Methodische Anforderungensbeschreibung aus Kundensicht als Basis für das Product Backlog.
+- **M-09: Lernerfolgskontrolle.** Einbindung interaktiver Quiz- oder Reflexionsmodule zur Überprüfung agiler Kernkonzepte.
+- **M-10: Web-MVP:** Realisierung eines funktionalen Software-Prototyps mit Phasen-Navigation und Fortschrittsanzeige.
+- **M-11: Wissenschaftliche Konsistenz.** Fachliche korrekte und didaktische begründete Verknüpftung von Theorie, Fallstudie und Spielmechanik.
+
+## 2.8 Soll-Anforderungen
+
+**Für die Fallstudie des smarten Fahrradschlosses sollen :**
+
+- **S-01: Qualitative Modellierung nach INVEST**. Sämtliche User Stories der Fallstudie entsprechen, konsequent den Kriterien independent, Negotiable, Valuable, Estimatable, Small und Testable um als methodische Best-Pratice-Beispiele zu dienen.
+- **S-02: Erweiterte Fluss-Steuerung ( WIP-Limits ).** Das digitale Taskboard ermöglicht die optionale Festlegung von **Work-in-Progress-Limits** für die Spalte “In Arbeit”, um das Prinzip der Fluss-Optimierungund den Umgang mit Engpässen zu demonstrieren.
+- **S-03: Visuelle Inkrement-Historie.** Das System visualisieren am Ende jedes simulierten Sprints das funktionale Wachstum des “Smart Lock” ( Beispielsweise als grafische Darstellung oder textuelle Darstellung )
+
+## 2.9 Kann-Anforderungen
+
+- **K-01: Methodische Ausblick auf alternative Frameworks:**  Herstellung von Bezügen zu weiteren agilen Ansätzen wie bspw. **Kanban** oder dem **Lean Start-up-Modell**
+- **K-02: Internationalisierung:** Umsetzung der Benutzeroberfläche des Software-Prototyps in zwei Sprachen ( Deutsch und Englisch ), um den Einsatz in internationalen Studiengängen zu ermöglichen.
+- **K-03: Erstellung ergänzender Begleitmaterialien:** Ausarbeitung zusätzlicher Handouts, Kurzanleitungen oder Skript-Verweise als Hinweise die über das Planspiel hinausgehen.
+- **K-04: Vertiefung technischer Aspekte:** Einbindung von Spielszenarien zur Identifikation und zum Management von **Technical Debits** (technische Schulden), um deren negative Auswirkungen auf die Produktivität zu verdeutlichen.
+- **K-05: Relatives Schätzen:** Für die Fallstudie soll Komplexität der Anforderungen mittels Story Points ( basierend auf der Fibonacci-Folge) bewertet werden, um den Teilnehmenden den Unterschied zwischen Zeitaufwand und Komplexität zu vermitteln.
+- **K-06:** Einbindung von Reflexionselementen zur Qualität der Führung, angelehnt an die acht Erfolgsmerkmale des **“Projekt Oxygen”**, um das Verständnis für agiles Rollenbewusstsein weiter zu vertiefen.
+
+# 3.Pflichtenheft (Wie?)
+
+Dieses Pflichtenheft beschreibt, wie die im Lastenheft definierten Anforderungen an die Bachelorarbeit umgesetzt werden sollen. Es beschreibt Vorgehen, Arbeitsschritte, Artefakte und Prüfkritieren zur Erstellung der geforderten Projektergebnisse.
+
+## 3.1 Vorgehenskonzept zur Umsetzung der Bachelorarbeit
+
+Die Umsetzung der Arbeit erfolgt in fünf Phasen, die den Weg von der theoretischen Konzeption bis hin zum funktionsfähigen Software-Prototyps beschreibt. Dabei wird ein iterativer Ansatz verfolgt, der regelmäßige Abgleiche zwischen Theorie und Implementierung vorsieht.
+
+**Phase 1: Fachliche und didaktische Fundierung:** In der Initialphase wird das theoretische Fundament für das Planspiel gelegt. Hierzu erfolgt eine systematische Auswertung des verschiedener fundierter Quellen.(z.B Kenneth Rubin u.s.w ) zur Einordnung der Scrum-Rollen , Ereignisse und Artefakte. Parallel werden die Prinzipien der Kanban-Methodik ( Visualisierung des Arbeitsflusses, WIP-Limits) analysiert, um sie als ergänzende Elemente für das Planspiel-Design vorzubereiten. Zusätzlich werden noch die Werte des Agilen Projekt Managments übermittelt.
+
+**Phase 2: Modellierung der Fallstudie “Smart Lock”:** Hier werden die inhaltlichen Komponenten des Planspiels entwickelt. Basierend auf der Entwicklung eines smarten Fahrradschlosses wird ein fachlich fundiertes **Product Backlog** erstellt. Die Anforderungen werden in Form von **User Stories** modelliert, die den wissenschaftlichen anerkannten **INVEST-Kriterien** entsprechen. Die Phase dient als inhaltliche “Datenbasis” für den späteren Prototypen.
+
+**Phase 3: Didaktische Spieldesign und Interatkionenskonzept:** In der Phase wird festgelegt, wie der vereinfachte **Sprint-Zyklus** im Websystem abgebildet wird. Es wird ein Interaktionskonzept entworfen, das den Spielen durch die Phasen Sprint Planning, Spring Execution und Wissenstransfer führt. Zudem werden die Quiz-Elemente zur Lernkontrolle inhaltlich konzipiert und mit den Lernzielen verknüpft.
+
+**Phase 4: Prototypische Implementierung (MVP):** Die Technische Realisierung konzentriert sich auf die Kernfunktionalitäten als Webanwendung. Im Fokus steht jedoch ein lauffähiger **MVP-Prototyp,** der eine einfache Nutzerführung, die Visualisierung der Fallstudie sowieein funktionales, **Kanban-orientiertes Taskboard** beinhaltet. Die Implementierung umfasst zudem die Logik zur Fortschrittsanzeige und die Integration der Quiz-Module.
+
+**Phase 5: Validierung, Dokumentation und Reflexion:** In der Abschlussphase werden die Ergebnisse in die schriftliche Bachelorarbeit überführt. Der Prototyp wird einer kritischen fachlichen Prüfung unterzogen (Review). Abschließend erfolgt eine Reflexion über die didaktische Eignung des hybriden Ansatzes aus Scrum und Kanban sowie ein Ausblick auf mögliche Erweiterungen im Kontext des Agilen Systems Engineering.  ****
+
+## 3.2 Umsetzung je Projektergebnis
+
+In diesem Abschnitt wird definiert wie für jedes im Lastenheft definierte **Lieferobjekt** genau festgelegt, wie es erarbeitet wird.
+
+### 3.2.1 Projektergebnis 1: Fachliche Fallstudien-Modellierung(Smart Lock)
+
+- **Ziel:** Erstellung einer konsistenten Datenbasis für das Planspiel in Form eines agilen Backlogs.
+- **Arbeitsschritte.**
+    - Identifikation der fiktiven Nutzergruppen des smarten Fahrradschlosses.
+    - Formulierung von Epics und Zerlegung in User Stories.
+    - Überprüfung der Stories gegen die **INVEST-Kriterien**.
+- **Artefakte: Priorisierten Product Backlog ( Tabelle)**
+- **Prüfkriterien:** Das Backlog enthält mindestens ein Produkt-Ziel sowie ausreichend Stories für einen Sprint, die alle die “Definitionen of Ready” erfüllen,
+
+### 3.2.2 Projektergebnis 2: Didaktisches Handbuch oder Spielanleitung( Textform ).
+
+- **Ziel:** Festlegung der Spielmechanik und der Wissensvermittlungspunkte.
+- **Arbeitsschritte**:
+    - **Phasen-Design:** Definition der Spielstufen ( Anmeldung →Einführung Fallstudie → Sprint-Zyklus → Abschluss )
+    - **Quiz-Erstellung:** Ausarbeitung von Fragen zu Scrum-Rollen, Events und Kanban-Prinzipien.
+    - **Feedback-Konzept:** Gestaltung der Reflexionsseite zur Auswertung des Spielerfolgs.
+- **Artefakte :** Didaktisches Handbuch oder Spielanleitung
+- **Prüfkriterien:** Die Lerninhalte decken die Muss-Anforderungen M-01 bis M-09 ab und sind für Scrum-Einsteiger verständlich.
+
+### 3.2.3 Projektergebnis 3: Technischer Software-Prototyp (MVP)
+
+- **Ziel:** Prototypische Implementierung der Webanwendung zur Demonstration der Spielidee.
+- **Arbeitsschritte:**
+    - **Systemarchitektur:** Auswahl der Web-Technologien und einfaches Datenbank-Schema zur Fortschrittspeicherung.
+    - **Frontend-Entwicklung:** Programmierung der Navigation und des digitalen Taskboards.
+    - **Logik-Implementierung:** Einbau der Quiz-Funktionalität und der Fortschrittsanzeige.
+- **Artefakte:** Lauffähiger Web-Prototyp ( URL oder Lokaler Build )
+- **Prüfkriterien:** Ein vollständiger Sprint-Zyklus kann ohne kritische Fehler durchlaufen werden( M-10).
+
+### 3.2.4 Projektergebnis 4: Schriftliche Bachelorarbeit
+
+- **Ziel:** Wissenschaftliche Dokumentation und Reflexion des gesamten Projekts.
+- **Arbeitsschritte:**
+    - **Theorie-Kapitel:** Aufarbeitung von Scrum, Kanban und dem VUCA-Kontext.
+    - **Methodik & Dokumentation:** Herleitung der Fallstudie und technische Beschreibung des Prototyps.
+    - **Reflexion:** Kritische Würdigung des hybriden Ansatzes und Ausblick auf Agile System Engineering.
+- **Artefakte:** Finale Bachelorarbeit ( PDF )
+- **Prüfkriterien:** Die Arbeit erfüllt die formalen und wissenschaftlichen Standards der Hochschule und weist auf die Konsistenz zwischen Text und Modell nach.
+
+# 4. Projektstrukturplan ( PSP )
+
+## 4.1 Zweck und Bedeutung des Projektstrukturplans
+
+Der Projektstrukturplan zerlegt die Bachelorarbeit in handhabbare Einheiten. Er schafft Transparenz über den gesamten Leistungsumfang und stellt sicher, dass alle notwendigen Schritte zur Erreichung des Projektziels ( MVP-Planspiel und wissenschaftliche Arbeit ) berücksichtigt werden.
+
+## 4.2 Strukturierungsprinzip des PSP
+
+Der PSP ist **ergebnisorientiert** aufgebaut. Die Ebene 2 entspricht den vier zentralen Projektergebnissen aus dem Lastenheft. Die Ebene 3 bildet konkreten Arbeitsschritte (Tasks) ab, die wir im Vorgehenskonzept festgelegt haben.
+
+## 4.3 Hierarchischer Projektstrukturplan
+
+**Ebene 1: Gesamtprojekt**
+
+- **Bachelorarbeit**: Konzeption und Implementierung eines hybriden Planspiels ( Scrum/Kanban ) am Beispiel eines smarten Fahrradschlosses.
+
+**Ebene 2 & 3: Phasen und Arbeitspakete**
+
+- **Projektergebnis 1: Fachliche Fallstudien-Modellierung**
+    - Stakeholder-Analyse ( Kundenbedürfnisse Smart Lock ).
+    - Erstellung des Product Backlogs ( Epics & User Stories ).
+    - Qualitäts-Check nach INVEST-Kriterien.
+- **Projektergebnis 2: Didaktisches Spieldesign & Lernmodule**
+    - Design des Spielablaufs ( Sprint-Phasen & Rollen-Interaktion )
+    - Konzeption der inaktiven Quizzen ( Scrum-Werte & Empirie ).
+    - Design des Kanban-Boards ( Taskboard-Logik ).
+    - Erweiterungen basierend auf Fachliteraturen.
+- **Projektergebnis 3: Technischer Software-Prototyp ( MVP )**
+    - Setup der Web-Entwicklungsumgebung.
+    - Implementierung der Kernfunktionen ( Login, Backlog, Taskboard )
+    - Integration von Fortschrittanzeigen & Feedback-Modul
+- **Projektergebnis 4: Schriftliche Bachelorarbeit**
+    - Erstellung des theoretischen Rahmens ( VUCA, Scrum, Kanban).
+    - Methodik-Dokumentation ( Fallstudien-Herleitung & technische Umsetzung ).
+    - Reflexion des hybriden Ansatzes & Finale Korrektur

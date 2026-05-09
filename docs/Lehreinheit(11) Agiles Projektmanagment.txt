@@ -1,0 +1,762 @@
+<aside>
+💡
+
+Für die Lehreinheiten zu agilem Projektmanagement orientiere ich mich u.a. an den Ausarbeitungen von Juliane Pilster ([Professional Scrum Master und Product Owner für Dummies](https://www.wiley-vch.de/de/fachgebiete/finanzen-wirtschaft-recht/professional-scrum-master-und-product-owner-fuer-dummies-978-3-527-72226-6)), Susanne Bartel ([Kanban kurz & gut, 2023](https://content-select.com/de/portal/media/view/62d68bd8-70d4-4322-bd96-0d688677ec64?forceauth=1)) sowie Holger Timinger ([Modernes Projektmanagement, 2024](https://ebookcentral.proquest.com/lib/koln/detail.action?docID=31129485)), denen ich meinen herzlichen Dank aussprechen möchte. Diese Bücher sind eine grundsätzliche Empfehlung für einen Einstieg in das Thema agiles Projektmanagement. Ich habe mir erlaubt, für Ausbildungszwecke Abbildungen aus ihren Büchern zu entnehmen.
+
+</aside>
+
+# Kanban
+
+https://www.hanser-elibrary.com/doi/book/10.3139/9783446446540
+
+https://content-select.com/de/portal/media/view/62d68bd8-70d4-4322-bd96-0d688677ec64?forceauth=1
+
+https://www.hanser-elibrary.com/doi/fpi/10.3139/9783446457164.fm
+
+https://www.scrum.org/scrum-kanban
+
+https://www.scrum.org/resources/kanban-guide-scrum-teams
+
+## Was ist Kanban?
+
+Der Begriff “Kanban” stammt aus dem Japanischen und heißt übersetzt “Karte”.  Als Toyota in der Mitte des 20. Jahrhunderts eine Methode zur Flexibilisierung und Effizienzsteigerung seiner Produktion entwickelte, entstand im Umfeld der Entwicklung von “Lean Production” auch Kanban. Später übertrug David J. Anderson die Ideen von Kanban auf das Management von Projekten. Er beschrieb die Kanban-Methode für die **Wissensarbeit** erstmals 2010 im “Blue Book” **(David J. Anderson: [Kanban: Successful Evolutionary Change for Your Technology Business, 2011](https://www.bookbeat.com/de/book/kanban-1397993?gad_source=5&gad_campaignid=21878386001&gclid=EAIaIQobChMI1uKCnffdkwMVhqiDBx2-TAx8EAAYASAAEgKM1vD_BwE)). Die Methode wurde vom Kartensystem der Lean Produktion inspiriert. Dieses System gilt als Quelle für die Praktik von Kanban “Limitiere die parallele Arbeit (WIP)” (dazu später mehr), die nur eine von mehreren Praktiken und Prinzipien der Kanban-Methode ist.
+
+Peter Drucker definierte den “Wissensarbeiter” als eine Person, deren Hauptbeitrag zur Wertschöpfung in einer Organisation davon abhängt, dass sie ihr Wissen anwendet, statt Muskelkraft und -koordination einzusetzen.
+
+Kanban basiert auf **vier Grundprinzipien** und **sechs Praktiken**. Zudem geht es hier um einen evolutionären Veränderungsmanagementansatz und die kontinuierliche Verbesserung der Arbeitsweise. 
+
+## Warum Kanban?
+
+<aside>
+💡
+
+Im Kern geht es um Veränderung: “Menschen sind die treibende Kraft hinter jeder Veränderung. […] Kanban ist nicht mehr als ein Werkzeug.”
+(Quelle: Klaus Leopold: Kanban in der Praxis, 2016)
+
+</aside>
+
+Damit ist gemeint, dass die Wirksamkeit nicht durch den Kauf, sondern durch das Handeln entfaltet wird (Analogie: Wird man schlanker, wenn man neben einem Heimtrainer sitzt? (*Quelle: Klaus Leopold: Kanban in der Praxis, 2016*)). Es ist nicht ausreichend, die zu erledigenden Aufgaben mit bunten Zetteln zu visualisieren. Dadurch werden nicht die Schwächen eines Systems gelöst. Dafür ist es notwendig die Arbeit sichtbar zu machen und effektiv zu steuern. Die Kanban-Methode adressiert eine zentrale Herausforderung der heutigen Arbeitswelt an: Bei fehlender **Steuerung** der Arbeitsprozesse und durch Multitasking entstehen aufgrund mehrerer gleichzeitig vorliegender Anfragen Zeitverluste und Überlastung.
+
+Es gibt drei Beweggründe für den Einsatz von Kanban, die als **Kanban-Agenden** bezeichnet werden. Die erste Agenda ist die **Nachhaltigkeit**: Heraustreten aus der Überlastung und hin zu einer nachhaltigen Arbeitsweise. Hierbei ist es wichtig, die große Anzahl an Kontextwechseln und die damit verbundenen negativen Effekte zu verringern. Die zweite Motivation ist die **Serviceorientierung**. Hier liegt der Fokus darauf, die Dienstleistung aus Sicht der Kunden zu optimieren. Es geht hier also nicht nur um die Verbesserung der Arbeitsumgebung für Einzelne und Teams. Der letzte Beweggrund ist die **Überlebensfähigkeit der Organisation**. Diese Agenda richtet sich an das obere Management in Organisationen, das durch Kanban-Techniken dabei unterstützt wird, das Geschäft hinsichtlich der Strategie und Positionierung zu führen.   
+
+Es gibt zwei Voraussetzungen, die erfüllt sein sollen, damit die Kanban-Methode hilfreich bei der Lösung der Schwächen eines Systems sein kann:
+
+1. Die Teammitglieder entwerfen ihr eigenes Arbeitssystem statt Best Practices zu übernehmen, ohne diese zu hinterfragen. 
+2. Die Teammitglieder haben das Problem verstanden, bevor sie sich Lösungen überlegen.
+
+## Die **Kanban-Methode**
+
+Kanban ist eine **Methode**, um Dienstleistungen (bspw. Entwicklungstätigkeiten), die auf Wissensarbeit basieren, zu managen und sie in kleinen Schritten kontinuierlich zu verbessern. Die oben erwähnten **Kanban-Prinzipien und -Praktiken** bieten dabei konkrete Hilfestellungen. **Kanban-Boards** dienen der Visualisierung der Arbeit und des Fortschritts und somit auch der Transparenz. Kanban-Systeme umfassen neben dem Board auch Vereinbarungen. Zum Beispiel können diese der Begrenzung angefangener Arbeit oder Regelmeetings oder Feedback-Schleifen dienen. Somit wird eine systematische Steuerung und Verbesserung verankert. Kanban ist demnach ein Hilfsmittel für alle, die aktiv ihre Arbeit steuern und verbessern wollen. 
+
+### Grundlegende Kanban-Begriffe
+
+Im Folgenden werden einige grundlegenden Begriffe, die einem bei der Arbeit mit Kanban häufig begegnen, erläutert.
+
+<aside>
+📢
+
+"*Als* **Arbeitsfluss (Workflow)** *bezeichnet man den Weg der Arbeit in einem bestimmten Teilabschnitt oder dem gesamten Prozess von der Anfrage bis zur Lieferung. Mit einer wiederkehrenden Folge von Aktivitäten werden Anfragen z.B. näher erkundet, deren Umsetzung wird geplant, die Umsetzung wird durchgeführt und abgeschlossen.*”
+Quelle: Susanne Bartel: Kanban kurz & gut, 2023
+
+</aside>
+
+<aside>
+📢
+
+“*Diejenigen Personen oder Parteien, die Anfragen für Services platzieren und die Lieferung entgegennehmen*. **Kunden** *können von innerhalb oder außerhalb der eigenen Organisation kommen.* ”
+ Quelle: Susanne Bartel: Kanban kurz & gut, 2023
+
+</aside>
+
+→ Die Anfrage des Kunden markiert den Startpunkt des Arbeitsflusses!
+
+<aside>
+📢
+
+“*Ein* **Service** *beginnt mit einer Kundenanfrage, die an die Organisation gerichtet wird. Die entsprechende Leistung wird durch eine Reihe von Aktivitäten (den Arbeitsfluss) erbracht. […] Das Ergebnis wird an den Kunden geliefert und von diesem akzeptiert.*”
+Quelle: Susanne Bartel: Kanban kurz & gut, 2023
+
+</aside>
+
+Die Anwendung der Kanban-Methode führt zu der Etablierung eines sogenannten “**Kanban-Systems**”. Ein Kanban-System besteht aus dem (analogen oder digitalen) Kanban-Board, den Kanban-Karten und den zwischen den Beteiligten getroffenen Vereinbarungen zur Steuerung der Arbeit sowie Regelmeetings. Zudem können Kennzahlen erfasst und in Diagrammen/auf Dashboards dargestellt werden. Mit Kanban wird ein Steuerungssystem etabliert, das sich mit der Zeit immer weiter ausreift (kontinuierliche Verbesserung) und die Erbringung und Verbesserung von Dienstleistungen durch mehrere Beteiligte transparent steuert. 
+
+<aside>
+📢
+
+**Charakterisierung eines Kanban-Systems:**
+
+- “Welche Dienstleistung(en) bzw. Team(s) werden gesteuert?
+- Welche Anfragen werden dazu bearbeitet, und wer stellt diese?
+- Wie sind das Board und die Karten sowie Vereinbarungen und Regelmeetings definiert?
+- Welche Personen arbeiten mit diesem System?”
+
+Quelle: Susanne Bartel: Kanban kurz & gut, 2023
+
+</aside>
+
+<aside>
+📝
+
+**Beispiel: Ein Kanban-System eines Softwareentwicklungsteams**
+
+Das beispielhafte Kanban-System steuert die **Entwicklung einer Applikation**. Die **User Stories** werden auf den Karten des Boards festgehalten. Das **Kanban-Board** stellt den **Arbeitsfluss** von der Produktidee bis zum Release in den Applikations-Store dar. Insgesamt arbeiten acht Softwareentwickler/Tester, zwei UX-Designer, ein Teamleiter und die Produktmanagerin mit dem Board und steuern somit ihre Arbeit. Alle zwei Wochen reflektiert das Team die eigene Arbeitsweise sowie die Dienstleistung aus der Sicht des Kunden.
+Quelle: Susanne Bartel: Kanban kurz & gut, 2023
+
+</aside>
+
+<aside>
+💡
+
+**Hinweis zur Terminologie**: Im Kanban-Kontext wird der Begriff “Arbeitspaket” häufig verwendet, um eine kleinere Arbeitseinheit (Work Item) zu bezeichnen, die auf dem Kanban-Board visualisiert wird. Damit ist jedoch nicht das umfangreich und detailliert beschriebene Arbeitspaket des planbasierten Projektmanagements gemeint, sondern eine flexibel durch den Work Flow fließende Einheit. Alternativ könnten auch die in Scrum üblichen Begriffe wie “User Story” oder “Task“ genutzt werden.
+
+</aside>
+
+### Kanban-Werte
+
+Ähnlich wie in Scrum, gibt es auch in Kanban Werte. Die Kanban-Prinzipien und -Praktiken bauen auf diesen Werten auf. Ohne die Werte zu befolgen, kann man Kanban nicht passend anwenden. Die Reihenfolge der Kanban-Werte ist nicht relevant, da alle Werte nur gemeinsam funktionieren und gleichermaßen wichtig sind. 
+
+<aside>
+💡
+
+**Die neun Kanban-Werte:**
+
+- *Respekt*: Menschen sollen sich gegenseitig schätzen und verstehen. Die Berücksichtigung unterschiedlicher Ansichten und Hintergründe ermöglicht die Zusammenarbeit und alle anderen Werte.
+- *Transparenz*: Die Sichtbarkeit von Arbeit und Problemen ermöglicht die Reflexion von Vorgängen und die damit verbundenen Maßnahmen zur Verbesserung.
+- *Arbeitsfluss*: Die Vermeidung von Blockaden und Störungen führt zur gleichmäßigen Verteilung der Arbeit durch das Arbeitssystem.
+- *Verständnis*: Damit Veränderungen durchgeführt werden können, ist ein gemeinsames Verständnis über die Situation erforderlich.
+- *Kollaboration*: Zusammenarbeit ist der entscheidende Faktor für den Erfolg. Gemeinsam erledigen die Beteiligten ihre Aufgaben und verbessern sich.
+- *Balance*: Es soll ein Gleichgewicht zwischen den zu erledigenden Aufgaben und der Kapazität des Teams hergestellt werden.
+- *Führung*: Jedes Teammitglied wird dazu ermutigt, Verantwortung zu übernehmen und einen Beitrag zur Verbesserung von Prozessen beizutragen.
+- *Kundenfokus*: Die Kundenbedürfnisse stehen stets im Mittelpunkt und werden bei der Bearbeitung der Aufgaben berücksichtigt.
+- *Vereinbarung*: Alle Beteiligten sollen sich auf gemeinsame Ziele einigen. Stetige Veränderung kann nur erfolgen, wenn die Teammitglieder eine gemeinsame Vereinbarung getroffen haben.
+</aside>
+
+### Bestandteile der Methode
+
+Die **vier Grundprinzipien**, nach denen sich alle Handlungen richten sollten, lauten wie folgt:
+
+- *Veränderungsprinzipien* als oberster Leitsatz, sowie die fortgeschritteneren
+- *Dienstleistungsprinzipien,*
+- *Skalierungsprinzipien und*
+- *Coaching-Prinzipien.*
+
+Die **sechs allgemeinen Kanban-Praktiken** lauten wie folgt:
+
+- Visualisiere
+- Limitiere die parallele Arbeit (das WIP)
+- Manage den Arbeitsfluss
+- Mache Prozessregeln explizit
+- Implementiere Feedback-Schleifen
+- Verbessere gemeinsam, entwickle experimentell weiter
+
+### Die vier Kanban-Prinzipien
+
+<aside>
+📌
+
+**Überblick: Prinzipien**
+
+Für alle Kanban-Implementierungen gültig:
+
+- Die *Veränderungsprinzipien* gelten als oberste Leitsätze für den Umgang mit Veränderungen.
+
+Bei der teamübergreifenden Anwendung von Kanban gelten zusätzlich diese fortgeschritteneren Sätze:
+
+- *Dienstleistungsprinzipien* dienen der Unterstützung bei der Entwicklung einer Serviceorientierung.
+- *Skalierungsprinzipien* leiten die Etablierung übergreifender und verknüpfter Kanban-Systeme.
+
+Aufbauend auf den Veränderungsprinzipien wurden die *Coaching-Prinzipien* definiert. Diese dienen dazu, Veränderungen zu beschleunigen.  
+
+Quelle: Susanne Bartel: Kanban kurz & gut, 2023
+
+</aside>
+
+#### **Veränderungsprinzipien**
+
+- Starte mit dem, was jetzt getan wird.
+- Strebe inkrementelle, evolutionäre Veränderungen an.
+- Respektiere aktuelle Prozesse, Rollen, Verantwortlichkeiten und Titel.
+- Fördere Führung und Verantwortung auf allen Ebenen der Organisation.
+**Quelle: Holger Timinger: Modernes Projektmanagement, 2024
+
+Durch die Anwendung von Kanban wird angestrebt, schrittweise zu einem Optimum zu gelangen. 
+
+Das **erste Prinzip** besagt, dass Kanban dort ansetzt, wo man gerade im Projekt steht. Dies vereinfacht die Einführung von Kanban, jedoch wird vorausgesetzt, dass man weiß, wo man gerade steht. Dafür sollte man die folgenden Fragen beantworten können:
+
+- “Wer ist wie intensiv im Projekt involviert? Wer hat welche Verantwortlichkeiten und Befugnisse?”
+- “Wie wird im Projekt gearbeitet? Welche Vorgehensmodelle und Prozesse werden angewandt? Gibt es vom Unternehmen
+vorgeschriebene Abläufe?”
+- “Mit welchen Werkzeugen wird gearbeitet?”
+- “Wie lange dauert typischerweise die Bearbeitung von Arbeitspaketen im Projekt?”
+- “Worin liegen die Stärken des aktuellen Projektmanagements, worin die Schwächen?”
+- “Was motiviert uns, jetzt über Veränderungen nachzudenken?”
+Quelle: Holger Timinger: Modernes Projektmanagement, 2024
+
+Das **zweite Prinzip** “Strebe inkrementelle, evolutionäre Veränderungen an.” besagt, dass Veränderungen schrittweise erfolgen. Hierbei geht es zudem um die kontinuierliche Planung von Verbesserungen, deren Umsetzung und Steuerung. Aufgrund der schrittweisen Veränderungen sollen wichtige Stakeholder nicht verloren werden. Sobald der aktuelle Status bekannt ist, können Verbesserungen geplant werden. Wichtige Kennzahlen sind die Durchlaufzeit und der Durchsatz (dazu später mehr). 
+
+Das **dritte Prinzip** “Respektiere aktuelle Prozesse, Rollen, Verantwortlichkeiten und Titel” setzt darauf, die betroffenen Personen in den Veränderungsprozess einzubinden. Es kann auch sinnvoll sein, Prozesse, Rollen, Verantwortlichkeiten und Titel zu verändern, um die Abläufe in der Organisation zu verbessern. Hierbei sollte das zweite Prinzip befolgt werden.
+
+Beim **vierten Prinzip** “Fördere Führung und Verantwortung auf allen Ebenen der Organisation” geht es um die Selbstorganisation der Teams. Denn bei der Transformation zum agil geführten Unternehmen, ist eine gute Vorbereitung notwendig. Die Mitarbeiter sollten qualifiziert und die etablierten Führungsstrukturen sollten transformiert werden.
+
+#### **Dienstleistungsprinzipien**
+
+- *“Verstehe die Bedürfnisse und Erwartungen der Kunden und fokussiere dich auf diese.”*
+- *“Manage die Arbeit, lass die Menschen sich selbst um die Arbeit herum organisieren.”*
+- *“Entwickle das Netzwerk aus Services und dessen Vereinbarungen beständig weiter, um Ergebnisse zu verbessern.”*
+Quelle: Susanne Bartel: Kanban kurz & gut, 2023
+
+Die Dienstleistungsprinzipien beziehen sich besonders auf die Serviceorientierung und den Kundenfokus.
+
+Das **erste Prinzip** richtet sich nicht nur darauf, Teams effektiv und effizient arbeiten zu lassen, sondern auch darauf, sich schrittweise an den Kundenbedürfnissen auszurichten. Hierbei ist es notwendig, den Bedarf des Kunden in der täglichen Arbeit und hinsichtlich der Verbesserungen zu berücksichtigen.
+
+Das **zweite Prinzip** stellt gemeinsam mit der Praktik “Visualisiere” die Grundlage für die Selbstorganisation der Teams dar. Hier gilt folgendes zu differenzieren: Es geht nicht um die direkte Steuerung von Menschen, sondern vielmehr um die Fokussierung auf die Arbeitsgegenstände im Rahmen des Arbeitsflusses. Das bedeutet, dass die Beteiligten mit dem Kanban-System arbeiten und sich eigenständig organisieren.
+
+Beim **dritten Prinzip** steht die serviceorientierte Sicht- und Denkweise im Vordergrund. Die sogenannte **Kanban-Linse** (David J. Anderson: [Kanban Lens, 2013](https://web.archive.org/web/20190222212839/http://djaa.com/kanban-lens)) ist ein Denkmodell, das die Anwendung der Serviceorientierung unterstützt. Das Modell beschreibt eine Vorgehensweise, die aktuelle Struktur und Funktionsweise der Organisation wahrzunehmen und diese ohne Reorganisation zu “kanbanisieren”:
+
+> 
+> 
+> - “Serviceorientierung”
+> - “Die Leistungserbringung umfasst Arbeitsabläufe”
+> - “Die Arbeitsabläufe durchlaufen eine Reihe von Wissensfindungsaktivitäten”
+> Quelle: David J. Anderson: Kanban Lens, 2013
+
+Die Kanban-Linse und die oben aufgeführten Dienstleistungsprinzipien zielen darauf ab, das Denken in Teams und Abteilungen schrittweise durch den Fokus auf den Kunden und die erbrachten Dienstleistungen zu ersetzen. Kanban unterstützt dabei, diese Dienstleistungen organisationsübergreifend zu verbessern. Diese Dienstleistungsprinzipien bilden die Grundlage für die Skalierungsprinzipien.
+
+#### **Skalierungsprinzipien**
+
+**Was genau ist Skalierung?**
+
+Bevor die Skalierungsprinzipien vorgestellt werden, wird zunächst die Skalierung erläutert. Aus der Skalierung resultiert ein Netzwerk aus verknüpften Services. Ausgangspunkt der Skalierung ist immer ein **etabliertes Kanban-System** (z.B. für einen Service oder ein Team). Dieses wird weiterentwickelt und gegebenenfalls mit anderen Systemen verknüpft. Es kommt so zur Ausweitung der Kanban-Methode auf einen größeren Arbeitsbereich. Dies sorgt für eine verbesserte Steuerung vor allem wenn mehrere Teile bzw. Services in der Organisation beteiligt sind.
+
+<aside>
+💡
+
+Die kontinuierliche Weiterentwicklung der Kanban-Systeme ist der Schlüssel zur Skalierung. So werden nämlich Abhängigkeiten entdeckt, sichtbar gemacht und durch Vereinbarungen abgedeckt. 
+
+> “Man skaliert Kanban durch die Anwendung von Kanban.” 
+Quelle: Susanne Bartel: Kanban kurz & gut, 2023
+> 
+</aside>
+
+Im Zusammenhang mit der Skalierung wird der Ansatz *“Manage Work, not Workers”* verfolgt. Dadurch können die Kanban-Systeme schrittweise durch ihre Weiterentwicklung in Form eines Netzwerks wachsen. Dabei kann man sich das Bild eines wachsendes Netzwerks miteinander agierender Boards, und nicht ein einziges riesiges Board, vorstellen. Hierbei ist zu beachten, dass sich das System in alle Richtungen ausdehnen kann. 
+
+Services können sowohl lateral (= seitwärts auf der gleichen Ebene z.B. Arbeiten benachbarter Abteilungen) als auch in verschiedenen Höhen (=Arbeitspakete mit verschiedenem Detailgrad) verknüpft werden. 
+
+Bei der Skalierung unterscheidet man zwischen drei Arten:
+
+- In der Breite skalieren (Upstream und Downstream)
+- In der Höhe skalieren
+- In der Tiefe skalieren
+
+Beim **Skalieren in die Breite** werden Aktivitäten im Arbeitsfluss, die vor- oder nachgelagert sind, schrittweise entdeckt und sichtbar gemacht. Hierbei wird das Ziel verfolgt, den Arbeitsfluss zwischen Anfrage und Erfüllung abzubilden. Dies ist eine Anwendung der Serviceorientierung.
+
+Beim **Skalieren in der Höhe** geht es um eine Hierarchie von Arbeitsgegenständen: Teilaufgaben werden in Arbeitspakete unterteilt (s. [Detaillierung der Arbeitspakete](https://www.notion.so/Lehreinheit-8-Planbasiertes-Projektmanagement-Projektinitialisierung-Projektdefinition-Projektpla-2a166dbb6d8d8061923cc0bdd9dd7e28?pvs=21)). Dies hat zur Folge, dass die Arbeiten gegebenenfalls auf verschiedenen Team-Boards verteilt sind. Häufig entstehen mehrere miteinander verbundene Systeme mit unterschiedliche Detailgrad. Man spricht hier auch von *mehrstufigen Systemen*. 
+
+Die **Skalierung in der Tiefe** ist am anspruchsvollsten und resultiert in Verbesserungen des Servicenetzwerks durch die Etablierung von Feedback-Schleifen sowie durch Vereinbarungen zwischen den interagierenden Services. Hier geht es um die Verbindungen der Systeme untereinander. 
+
+**Skalierungsprinzipien:**
+
+- *“Skaliere in einer serviceorientierten Art und Weise, und zwar einen Service nach dem anderen.”*
+- *“Entwerfe jedes Kanban-System beginnend mit dem aktuellen Zustand unter Nutzung von Kanban Design Workshops. Versuche nicht, eine große oder allumfassende Lösung auf Enterprise-Ebene zu entwerfen.”*
+- *“Nutze die Feedback-Schleifen (Kanban-Kadenzen) als das Managementsystem, das Balance ermöglicht und zu besserer Unternehmensdienstleistung führt.”*
+Quelle: Susanne Bartel: Kanban kurz & gut, 2023
+
+#### **Coaching-Prinzipien**
+
+In diesem Zusammenhang spricht man von den **Prinzipien des Kanban-Coachings**. Zu den Aufgaben des Kanban-Coaches gehören die Unterstützung der Organisation bei der der Erreichung von verbesserten Geschäftsergebnissen und die Beschleunigung von Veränderungen. Diese Veränderungen werden schrittweise durchgeführt. Folgende Wirkung soll damit erzielt werden:
+
+- schnellere Ergebnisverbesserung mit geringeren Risiken
+- verbesserte Dienstleistungen
+- höhere Kundenzufriedenheit
+Quelle: Susanne Bartel: Kanban kurz & gut, 2023
+
+Um dies zu erreichen, unterstützt der Kanban-Coach bei der Einführung und Anwendung der Kanban-Praktiken. Hierbei fokussiert er sich lediglich auf diejenigen Praktiken, die zum jeweiligen Kontext passen. Dies verbessert die Leistungsfähigkeit im jeweiligen Service oder in den jeweiligen Teilen der Organisation. Der Kanban-Coach moderiert zudem die Kanban-Regelmeetings und gibt Impulse zur Verbesserung. 
+
+Ein wichtiger Ansatz, der dabei verfolgt wird ist *“Hilfe zur Selbsthilfe”*. Denn beim Kanban-Coaching geht es um das schrittweise Übertragen von methodischem Wissen und um das Weitergeben von Erfahrung. Dies dient der einfacheren Einführung von Kanban. 
+
+<aside>
+💡
+
+Der Kanban-Coach verfügt über keine Entscheidungsbefugnisse innerhalb der Organisation. Er ist lediglich für die Beratung und das Coaching verantwortlich. Die Führungsverantwortung bleibt weiterhin in der Organisation bestehen.
+
+</aside>
+
+Grundprinzipien des Kanban-Coachings:
+
+- *“Verstehe den Kontext: Agiere pragmatisch, ausgehend von der Realität.”*
+- *“Denke in Systemen: Betrachte stets das gesamte System im Netzwerk der Services. Wende Serviceorientierung an und vermeide den Fokus auf einzelne Teams. Beziehe Führungskräfte mit ein.”*
+- *“Betrachte Reorganisation als eine letzte, nicht die Standardoption.”*
+- *“Begleite die Organisation dabei, den eigenen Weg zu finden.”*
+- *“Führe mit Werten, mit Fokus auf Geschäftsergebnissen.”*
+Quelle: Susanne Bartel: Kanban kurz & gut, 2023
+
+Die oben genannten Prinzipien empfehlen die gemeinsame, schrittweise Entwicklung einer individuellen Lösung. Reorganisation sollte erst in Erwägung gezogen werden, nachdem die anderen Optionen bereits durchgesprochen wurden. Das Ziel, das durch Veränderung erreicht werden soll, ist eine positive Auswirkung auf die Geschäftsergebnisse (z.B. Kundenzufriedenheit). 
+
+### Die sechs Kanban-Praktiken
+
+Da die oben aufgeführten Kanban-Prinzipien sehr grob sind und lediglich dem Verständnis der Kanban-Leitgedanken dienen, werden im Folgenden die detaillierteren Kanban-Praktiken vorgestellt.
+
+#### **1. Visualisiere**
+
+In der Praktik “Visualisiere” geht es um die realistische Darstellung der Arbeit, des Arbeitsflusses und der Risiken. Hierbei ist zu beachten, dass die Visualisierung den aktuellen Status (und kein Idealbild der Zukunft) reflektiert. Die Einzigartigkeit des Kanban-Systems und des Kanban-Boards sollte widergespiegelt werden. Das heißt, das Kanban-Board soll den speziellen Arbeitsfluss mit den damit verbundenen Vereinbarungen darstellen. Es gibt mehrere Möglichkeiten, die Arbeit darzustellen: 
+
+**Das Aufgaben-Board:**
+
+Bei dieser Darstellungsart werden die zu erledigenden Aufgaben drei Spalten zugeordnet: “Zu erledigen”, “In Arbeit” und “Fertig”. Die folgende Abbildung zeigt ein beispielhaftes Aufgaben-Board zur Planung mehrerer Reisen:
+
+![Aufgaben-Board für die Planung mehrerer Reisen (Bildquelle: Susanne Bartel: Kanban kurz & gut, 2023)](attachment:4030a23d-3658-4e0a-88fd-5f4e970540ca:image.png)
+
+Aufgaben-Board für die Planung mehrerer Reisen (Bildquelle: Susanne Bartel: Kanban kurz & gut, 2023)
+
+**Das arbeitsflussorientierte Board:**
+
+Beim arbeitsflussorientierten Board werden die zu erledigenden Aufgaben sowie deren Arbeitsfluss abgebildet. Die folgende Abbildung zeigt ein beispielhaftes Board mit Arbeitsfluss:
+
+![Arbeitsflussorientiertes Board für die Reiseplanung (Bildquelle: Susanne Bartel: Kanban kurz & gut, 2023)](attachment:a9d3dcb4-68a1-4180-be4f-4cea66f12823:image.png)
+
+Arbeitsflussorientiertes Board für die Reiseplanung (Bildquelle: Susanne Bartel: Kanban kurz & gut, 2023)
+
+Die Darstellung des Arbeitsflusses bringt einige Vorteile mit sich: Das Kanban-Board inklusive der Vereinbarungen unterstützt die konstante Arbeit sowie die Einhaltung der regulatorischen Vorschriften. Zudem erleichtert diese Darstellung die einfache Messung der Dauer pro Auftrag. Außerdem wird Transparenz geschaffen, weil der Stand der Arbeit von allen Teammitgliedern einzusehen ist. 
+
+**Andere Möglichkeiten der Visualisierung:**
+
+Zusätzlich zur Darstellung der Karten im Arbeitsfluss kann man weitere Informationen auf dem Kanban-Board abbilden wie etwa Markierungen für blockierte Karten (z.B. Warten auf Informationen). Zudem können Kennzahlen und Abhängigkeiten zwischen Karten visualisiert werden. Fälligkeitstermine und nötige Genehmigungen sind weitere Beispiele.
+
+#### 2. Limitiere die parallele Arbeit (Work in Progress, WIP)
+
+Kanban betont den Fokus, die Menge angefangener Aufgaben auf ein sinnvolles Maß zu limitieren. 
+
+<aside>
+📢
+
+“Die **Limitierung** soll 
+
+- einerseits ein fokussiertes wertschöpfendes Arbeiten aller Teammitglieder ermöglichen,
+- andererseits aber auch sicherstellen, dass niemand im Team, und dies gilt insbesondere für kritische Engpassressourcen, ohne Arbeit ist, weil Vorgängerarbeiten nicht rechtzeitig fertiggestellt wurden.”
+
+Quelle: Holger Timinger: Modernes Projektmanagement, 2024
+
+</aside>
+
+**Das richtige WIP-Limit finden:**
+
+Es gibt mehrere Arten von WIP-Limits, beispielsweise kann man die angefangenen Arbeitspakete **pro Person** limitieren (z.B. maximal drei Karten pro Person). Eine Alternative ist die **spaltenweise** (auf Basis der Arbeitsschritte) Limitierung des WIP (z.B. maximal drei Karten im Test). Man kann das WIP auch je **Kategorie von Arbeit** limitieren (z.B. maximal fünf Fehlerbehebungen). Zuletzt ist es ebenfalls möglich das **gesamte Kanban-Board** zu limitieren (z.B. maximal 15 Projekte in Arbeit). 
+
+<aside>
+💡
+
+Hinweis: Im Rahmen eines Kanban-Systems können mehrere WIP-Limitierungsarten gleichzeitig eingesetzt werden.
+
+</aside>
+
+Bei der Wahl des richtigen WIP-Limits ist die gewünschte Wirkung von wesentlicher Bedeutung.
+
+<aside>
+💡
+
+**Überblick der verschiedenen Auswirkungen der WIP-Limit-Arten:**
+
+- pro Person → geringere Überlastung einzelner Teammitglieder
+- pro Arbeitskategorie oder für das gesamte Board → Anreize zur Kommunikation miteinander (bei Hindernissen kann keine neue Arbeit angefangen werden, stattdessen geht man eher aufeinander zu und sucht sich Unterstützung)
+</aside>
+
+**Dimensionierung von WIP-Limits:**
+
+<aside>
+💡
+
+Es gibt **keine Formel**, mit der man die perfekten WIP-Limits berechnen kann! Kanban ist eine empirische Methode, die dabei unterstützt, mit der Zeit eine optimale Anzahl an Arbeitspaketen zu finden. 
+
+</aside>
+
+Die folgenden **Leitfragen** können bei der Ermittlung des optimalen WIP-Limits helfen:
+
+- “Wie viele Mitarbeitende bzw. Teams sind involviert?”
+- “Wie hoch ist der Spezialisierungsgrad, das heißt, wie stark können die Beteiligten einander unterstützen?”
+- “Wie stark bestehen externe Abhängigkeiten zum Beispiel von Zulieferungen aus anderen Bereichen?”
+Quelle: Susanne Bartel: Kanban kurz & gut, 2023
+
+Außerdem gibt es einige **Faustregeln**, an denen man sich orientieren kann:
+
+- Je höher der Spezialisierungsgrad, desto höher sollte das WIP-Limit gewählt werden (damit auch bei stockendem Arbeitsfluss ausreichend AP zur Verfügung stehen → sonst negative Auswirkung der Auslastung → längerfristiger Leerlauf).
+- Je stärker die Zusammenarbeit im Team etabliert ist, desto kleiner sollte das WIP-Limit gewählt werden.
+Quelle: Susanne Bartel: Kanban kurz & gut, 2023
+
+<aside>
+💡
+
+Erfahrungsgemäß ist das optimale WIP-Limit meistens deutlich geringer als die intuitive Annahme der Beteiligten. In der Regel ist etwa ein Drittel davon ausreichend.
+
+</aside>
+
+**Visualisierung der WIP-Limitierung:**
+
+Die Limitierung angefangener Arbeiten kann man beispielsweise durch personenspezifische Marker am Kanban-Board umsetzen. Jedes Teammitglied markiert seine angefangenen Arbeitspakete mit seinem Namenskürzel oder einem farbigen Klebepunkt. Jedes Teammitglied darf nur eine bestimmte Anzahl solcher Markierer gleichzeitig vergeben. Sobald ein Arbeitspaket abgeschlossen wurde, wird die Markierung entfernt.
+
+![Beispielhafte Umsetzung der Limitierung angefangener Arbeiten mittels einer begrenzten Anzahl farbiger Klebepunkte, über die die Mitarbeiter identifiziert werden (Bildquelle: Holger Timinger: Modernes Projektmanagement, 2024)](attachment:6f782e93-c75a-471b-8e4a-b3e0f0b67e77:image.png)
+
+Beispielhafte Umsetzung der Limitierung angefangener Arbeiten mittels einer begrenzten Anzahl farbiger Klebepunkte, über die die Mitarbeiter identifiziert werden (Bildquelle: Holger Timinger: Modernes Projektmanagement, 2024)
+
+**Der Umgang mit WIP-Limits:**
+
+Zwar ist die konsequente Beachtung der WIP-Limits von großer Bedeutung, jedoch sollte die unreflektierte Einhaltung dessen vermieden werden. Denn der Zweck der Limitierung ist die Führung von notwendigen Diskussionen. Wenn es beispielsweise starke Änderungen bei den Teammitgliedern gibt oder sich die Arbeitsweisen stark geändert haben, kann dies das WIP-Limit beeinflussen.
+
+<aside>
+💡
+
+Die Idee hinter den Kanban-Praktiken ist die **effiziente Steuerung des Arbeitsflusses**, statt aufwendige Diskussionen zu den einzelnen Arbeitsaufträgen zu führen.
+
+</aside>
+
+<aside>
+📢
+
+**Das Runtersetzen des WIP-Limits hilft, agil zu bleiben:**
+
+Bei einem hohen WIP-Limit ist es möglich gleichzeitig viele Aufgaben zu beginnen. Es entsteht eine scheinbare Flexibilität: Zwar können unmittelbar neue Aufgaben gestartet werden, jedoch wird keine effizient fertiggestellt. Das Team wirkt zwar beschäftigt, jedoch sinkt der tatsächliche Durchsatz. Dies führt zu häufigen Kontextwechseln und stockendem Arbeitsfluss.
+Wenn jedoch das WIP Limit beispielsweise bei drei liegt, werden neue Ideen oder kurzfristige Prioritätsänderungen automatisch nachrangig behandelt. Die neue Aufgabe hätte somit die Priorität 4. Sobald eine der drei bereits angefangenen Aufgaben abgeschlossen ist, kann mit der neuen Aufgabe begonnen werden. Somit bleibt der Fokus auf der Fertigstellung statt auf einem ständigem Neustart.
+Eine Reduktion des WIP-Limits kann dann sinnvoll sein, wenn das Team zu viele Aufgaben parallel beginnt. Ein reduziertes Limit sorgt dafür, dass die Beteiligten bewusster Aufgaben priorisieren. Sie entscheiden also, welche Aufgabe tatsächlich die wichtigste ist, statt alle Aufgaben nur halb zu erledigen. Somit kann zum Beispiel alle zwei Tage eine neue Aufgabe angefangen werden. Sobald eine Aufgabe erledigt wurde, wird Kapazität frei, um flexibel auf neue Anforderungen oder kurzfristige Änderungen zu reagieren. 
+
+</aside>
+
+#### 3. Manage den Arbeitsfluss
+
+Eine mit der WIP-Limitierung eng verbundene Kanban-Praktik ist “Manage den Arbeitsfluss”. Die Steuerung des Arbeitsflusses kann für ein ruhigeres Arbeitsumfeld sorgen und die Überlastung der Teammitglieder und damit einher das Stressniveau im Alltag reduzieren. 
+
+Damit der Arbeitsfluss in einem Kanban-System den **maximalen Wert liefern** kann und gleichmäßig sowie vorhersehbar ist, gibt es einige T**echniken zur Steuerung des Arbeitsflusses**. Beispiele hierfür sind: Kontrolle des Systemeingangs und Begrenzung des Flusses durch WIP-Limits. Außerdem ist die Nutzung von Kennzahlen und Feedback-Schleifen für die Erkennung und Reduktion der Ursachen für Verzögerungen und Engpässe nützlich.
+
+<aside>
+💡
+
+Die Anwendung von Kanban-Praktiken ist hilfreich für die Glättung des Arbeitsflusses. Somit können Spitzen und Turbulenzen, die durch Neustarts, Unterbrechungen oder Priorisierungen bedingt sind, verringert oder vermieden werden. 
+
+</aside>
+
+**Der Systemeingang:**
+
+Das Steuern des Arbeitsflusses beginnt am Systemeingang. Dieser umfasst die ersten Spalten des Kanban-Boards. Am Systemeingang wird der Nachschub aus dem Pool der Karten bzw. Anfragen ausgewählt. Mit dem Nachschub sind die Karten gemeint, die als Nächstes bearbeitet werden. Diese Auswahl sollte unter Beachtung der vereinbarten Regelungen und des Feedbacks vom Kanban-Board (Gibt es noch freie Kapazität?) getroffen werden. Die folgende Abbildung verdeutlicht den Eingang eines Kanban-Systems. Der Arbeitsvorrat umfasst die gesamte angeforderte Arbeit. Diejenigen Anfragen im Arbeitsvorrat, die noch nicht zugesagt wurden, können vor der Bewegung in das Kanban-System verworfen werden:
+
+![Eingang eines Kanban-Systems (Bildquelle: Susanne Bartel: Kanban kurz & gut, 2023)](attachment:75cb9821-8b62-4c5d-b6ce-87de281d184a:image.png)
+
+Eingang eines Kanban-Systems (Bildquelle: Susanne Bartel: Kanban kurz & gut, 2023)
+
+**Eigenschaften von Anfragen:**
+
+Für die Glättung des Arbeitsflusses ist es hilfreich, die verschiedenen Eigenschaften der Anfragen bezüglich ihrer Steuer- und Beeinflussbarkeit zu bewerten. Dabei werden die Merkmale Erwartbarkeit, Abweisbarkeit und Steuerbarkeit berücksichtigt. 
+
+| Merkmal | Beschreibung | Typische Attribute |
+| --- | --- | --- |
+| Erwartbarkeit | Betrifft Vorhersagbarkeit und Planbarkeit. Ist die Anfrage vorauszusehen, oder trifft sie unerwartet ein? | geplant/ungeplant
+erwartet/unerwartet |
+| Abweisbarkeit | Besteht die Möglichkeit, diese Anfrage zurückzuweisen, also die Bearbeitung abzulehnen? | ablehnbar/nicht ablehnbar
+zurückweisbar/nicht zurückweisbar |
+| Steuerbarkeit | Kann der Zeitpunkt der Bearbeitung der Anfrage bestimmt/gesteuert werden? | steuerbar/nicht steuerbar |
+
+(Quelle: Susanne Bartel: Kanban kurz & gut, 2023)
+
+Bezüglich der **Erwartbarkeit** wird das Ziel verfolgt, ungeplante und vermeidbare Arbeit sowie deren Effekte zu reduzieren und steuerbar zu machen. Bei der **Abweisbarkeit** überprüft man, welche Anfragen man abweisen kann und ob es Anfragen gibt, die bereits an anderer Stelle zugesagt wurden (z.B. durch eine eine Zusage an den Kunden). Das Merkmal der **Steuerbarkeit** untersucht die Frage, inwiefern man den Zeitpunkt des Bearbeitungsbeginns steuern kann. Anfragen, die nicht zu einem späteren Zeitpunkt bearbeitet werden können, und somit nicht steuerbar sind, müssen direkt in Bearbeitung genommen werden.
+
+<aside>
+📝
+
+**Beispiele für Charakterisierungen von Anfragen:**
+
+| Beispiel | Planbar? | Abweisbar? | Steuerbar? |
+| --- | --- | --- | --- |
+| Einen Ausfall in wichtigen Kundensystemen beheben. | Nein | Nein | Nein |
+| Den Quartalsabschluss durchführen.         | Ja | Nein | Ja |
+| Eine technische Änderung für ein Projekt umsetzen. | Ja | Ja | Ja |
+| Eine neue Stelle zur Unterstützung eines Projekts besetzen | Nein | Nein | Ja |
+
+(Quelle: Susanne Bartel: Kanban kurz & gut, 2023)
+
+</aside>
+
+**Serviceklassen:**
+
+![Serviceklassen: Grundformen nach Verzögerungskosten (Bildquelle: Susanne Bartel: Kanban kurz & gut, 2023)](attachment:ecea3a64-e43f-4270-b074-fa5718241314:image.png)
+
+Serviceklassen: Grundformen nach Verzögerungskosten (Bildquelle: Susanne Bartel: Kanban kurz & gut, 2023)
+
+Die folgende Abbildung zeigt die vier Serviceklassen. Diese definieren die Arten der Behandlung von Anfragen. Für die Kanban-Praktik “Manage den Arbeitsfluss” ist vor allem wichtig, dass sie viele Entscheidungen erleichtern wie etwa **wann und in welcher Reihenfolge die APs bearbeitet werden**. Die Serviceklassen beantworten somit die Frage, wie priorisiert werden soll. Sie beschreiben somit nicht den Inhalt der APs, sondern wie das AP am Systemeingang und innerhalb des Kanban-Systems behandelt wird. 
+
+<aside>
+💡
+
+Hinweis: [Cost of Delay](https://www.notion.so/Lehreinheit-8-Planbasiertes-Projektmanagement-Projektinitialisierung-Projektdefinition-Projektpla-2a166dbb6d8d8061923cc0bdd9dd7e28?pvs=21) wurde bereits als Faktor der Kostenplanung eingeführt. In Bezug auf die Kanban-Praktik “Manage den Arbeitsfluss” helfen die Serviceklassen bei der Steuerung der Arbeitspakete, um den Arbeitsfluss passend zu priorisieren. 
+
+</aside>
+
+Ergänzend zum Cost of Delay wird hier Typ 4 “**Unbestimmt”** eingeführt. Darunter versteht man Anfragen, die zurzeit noch nicht dringend sind aber nicht zu lange aufgeschoben werden sollen, da sonst möglicherweise hohe Verzögerungskosten entstehen könnten. Im Gegensatz zur Serviceklasse Fester Termin ist aus aktueller Sicht noch nicht klar, wann genau die Kosten auftreten. Dieser Zeitpunkt ist unbekannt.
+
+**Messbare Kennzahlen:**
+
+Bei Kanban ist die wichtigste Metrik die **Durchlaufzeit**, also die Zeit, die ein Arbeitspaket bis zum Abschluss benötigt. Diese sollte optimiert werden. Eine weitere Metrik ist die **Wartezeit** eines APs im Status “fertig” einer Bearbeitungsstation, bis es von der nächsten Station aufgenommen und weiterverarbeitet wird. Die Kernidee dabei ist folgende: Die zeitnahe Erledigung eines APs hat den Vorteil, dass potenzielle Risiken für das Gesamtprojekt frühzeitig ausgeschlossen werden können.
+
+<aside>
+💡
+
+Um den Arbeitsfluss zu steuern, ist es essentiell **regelmäßig die Durchlaufzeit zu messen**. Daher ist es ratsam, zu Projektbeginn festzulegen, welche Metriken wichtig für das Projekt sind, beispielsweise:
+
+- “die *Durchlaufzeit* eines Arbeitspakets oder einer Funktion: Je schneller ein Arbeitspaket über alle Bearbeitungsstationen hinweg bearbeitet werden kann, desto schneller kann das Projekt meistens abgeschlossen werden.
+- der *Durchsatz*, das heißt die Anzahl der Arbeitspakete pro Zeit: Je mehr Arbeitspakete pro Zeiteinheit bearbeitet werden können, desto schneller kann das Projekt meistens abgeschlossen werden.
+- die *Wartezeit* von Arbeitspaketen vor der Übernahme der Arbeiten von der nächsten Bearbeitungsstation: Je kürzer die Wartezeit ist, desto weniger Arbeitspakete sind in teurer »Lagerhaltung«, das heißt, an desto mehr Arbeitspaketen wird produktiv gearbeitet.
+- der *kumulative Fluss*, das heißt die Anzahl an Arbeitspaketen in einem bestimmten Bearbeitungsstadium”
+Quelle: Holger Timinger: Modernes Projektmanagement, 2024
+</aside>
+
+**Überblick über die zu messenden und steuernden Kennzahlen:**
+
+| Metrik | Definition | Einheit | Ziel |
+| --- | --- | --- | --- |
+| Durchlaufzeit | Zeit, die ein AP bis zum Abschluss benötigt | [Zeit/AP] | Verlängerung |
+| Durchsatz | Anzahl der abgeschlossenen Arbeitspakete pro Zeiteinheit | [AP/Zeiteinheit] | Steigerung |
+| Wartezeit | Zeit, die ein AP im Status “fertig” warten muss, bis es 
+von der nächsten Bearbeitungsstation übernommen wird | [Zeit/AP] | Verringerung |
+| kumulativer Fluss | kumulierte Summe der Arbeitspakete in einer Bearbeitungsstation | [AP/Zeiteinheit] | - |
+
+Die folgende Abbildung zeigt eine beispielhafte Darstellung verschiedener Kanban-Metriken:
+
+![Die verschiedenen Kanban-Metriken (Bildquelle: Holger Timinger: Modernes Projektmanagement, 2024)](attachment:85a0eaed-4318-4450-9d3c-1079c7adb73f:image.png)
+
+Die verschiedenen Kanban-Metriken (Bildquelle: Holger Timinger: Modernes Projektmanagement, 2024)
+
+#### 4. Mache Prozessregeln explizit
+
+Jedes Teammitglied sollte die Regeln der Zusammenarbeit kennen. Auf Basis dieser Regeln können Verbesserungen bei der Projektbearbeitung durchgeführt werden. Falls beispielsweise Verdacht darüber besteht, dass die aktuellen Regeln den Arbeitsfluss behindern, können diese angepasst werden. Im Anschluss können die Auswirkungen der Änderung gemessen und bewertet werden.
+
+<aside>
+💡
+
+“Die getroffenen Vereinbarungen sollten
+
+- knapp und einfach,
+- klar definiert und sichtbar sein,
+- immer angewandt werden und
+- leicht veränderbar durch jene sein, die einen Service erbringen.”
+Quelle: Susanne Bartel: Kanban kurz & gut, 2023
+</aside>
+
+**Die folgenden Kanban-spezifischen Vereinbarungen können getroffen werden:**
+
+- WIP-Limits
+- Pull-Kriterien
+- Umsetzungsbereit-Kriterien
+- Pull-Regeln
+- Serviceklassen
+
+Die **WIP-Limits** sollten den oben erwähnten Kriterien entsprechen. Die Limits sollten zudem so gewählt werden, damit die gewünschte Wirkung erzielt werden kann. Zuletzt ist es essentiell, die gesetzten WIP-Limits regelmäßig überprüft und gegebenenfalls an veränderte Rahmenbedingungen oder neuen Kenntnissen angepasst werden. 
+
+**Pull-Kriterien** definieren die Eigenschaften, die eine Karte erfüllen muss, um eine Spalte verlassen, also weitergezogen (gepullt) werden zu dürfen. Die Pull-Kriterien sind einzelnen Spalten auf dem Board zugeordnet und werden meistens am Übergang zwischen “In Arbeit” und “Fertig” dargestellt. Hier ist zu beachten, dass Pull-Kriterien nicht für alle Spalten zwangsläufig definiert werden müssen. 
+
+<aside>
+💡
+
+Pull-Kriterien ähneln im Kontext der agilen Softwareentwicklung der [**Definition of Done**](https://www.notion.so/Lehreinheit-10-Agiles-Projektmanagement-Grundlagen-Rollen-Artefakte-und-Events-von-Scrum-2a166dbb6d8d806cb463da52ab0a1770?pvs=21) (DoD) pro Spalte. Alle vereinbarten Pull-Kriterien definieren in Summe die DoD. Das sind die Fertigstellungskriterien, die für alle Arbeitsgegenstände gelten.
+
+</aside>
+
+Die Pull-Kriterien können, gemäß den [Veränderungsprinzipien](https://www.notion.so/Lehreinheit-11-Agiles-Projektmanagement-Kanban-Kennzahlen-Agile-Systems-Engineering-Scrum-SE-En-2a166dbb6d8d8086a0c7db391c3e0053?pvs=21), schrittweise verfeinert werden. Sie können Teams dabei unterstützen, eine konsistente Arbeitsweise zu erreichen. Zudem fördern sie das gemeinsame Verständnis dafür, welches Ergebnis die Aktivitäten in den einzelnen Spalten jeweils haben sollten. Es ist üblich, die Pull-Kriterien oberhalb oder unterhalb der Trennlinie zweier Spalten darzustellen.
+
+![Pull-Kriterien unterhalb der Spalten (Bildquelle: Susanne Bartel: Kanban kurz & gut, 2023)](attachment:1b759cdc-3eab-4922-8e5f-00772462b964:image.png)
+
+Pull-Kriterien unterhalb der Spalten (Bildquelle: Susanne Bartel: Kanban kurz & gut, 2023)
+
+Eine Spezialform der Pull-Kriterien sind die sogenannten **Umsetzungsbereit-Kriterien**. Diese beschreiben die Eigenschaften, die die Karten aufweisen müssen, damit sie vom Arbeitsvorrat in den Systemeingang dürfen. Beispielhafte Kriterien sind die Definition der notwendigen Basisinformationen, die Prüfung technischer und organisatorischer Voraussetzungen, die Prüfung von Abhängigkeiten, erfolgte Genehmigungen oder Freigaben, erfolgte Analysen und Schätzungen.
+
+<aside>
+💡
+
+Umsetzungsbereit-Kriterien ähneln der [Definition of Ready](https://www.notion.so/Lehreinheit-10-Agiles-Projektmanagement-Grundlagen-Rollen-Artefakte-und-Events-von-Scrum-2a166dbb6d8d806cb463da52ab0a1770?pvs=21) (DoR). Auch diese Kriterien müssen oftmals schrittweise ausgebessert werden.
+
+</aside>
+
+**Pull-Regeln** unterstützen Personen dabei, effizient zu entscheiden, woran sie gerade arbeiten sollten. Sie stellen zudem eine konsistente Auswahl und Behandlungsweise von APs sicher. Die Serviceklassen stellen hier eine wichtige Vereinbarung dar. Beispiele für Pull-Regeln sind:
+
+- *“Rechts vor links”* → Fokus auf den Abschluss statt neuer Karten
+- *“Rechts vor links und von oben nach unten”* → Eignet sich für Boards mit verschiedenen Zeilen für verschiedene Serviceklassen, mit den höchsten Serviceklassen oben
+- *“Bevorzugt Karten abschließen, ehe neue begonnen werden. Ausnahme: Es gibt Karten mit festem Termin im Eingangspuffer, die in weniger als zwei Wochen fällig sind.”*
+- *“Beschleunigte Karten werden direkt in die Bearbeitung genommen, unabhängig von WIP-Limits.”*
+Quelle: Susanne Bartel: Kanban kurz & gut, 2023
+
+**Serviceklassen** stellen ein wichtiges Hilfsmittel zur Steuerung des Arbeitsflusses und zum Risikomanagement dar. In der Regel werden Serviceklassen gemeinsam mit dem Kunden vereinbart. Daher sollten Serviceklassen regelmäßig überprüft und abgestimmt werden. Zur Überprüfung gehören die vereinbarte Behandlung und unter Umständen die Kostengestaltung. Oft gibt es Serviceklassen, die jedoch nicht sichtbar und explizit definiert sind. Hier einige Leitfragen dazu:
+
+- *“Reagieren Sie immer gleich, egal wer die Anfrage stellt?”*
+- *“Gibt es Anfragen, die zu einem festen Termin erledigt sein müssen?”*
+
+Quelle: Susanne Bartel: Kanban kurz & gut, 2023
+
+Sobald das Kanban-System gut eingerichtet wurde, ist man in der Lage, dringende Aufträge schnell und fokussiert abzuarbeiten. Serviceklassen machen dies möglich. 
+
+<aside>
+💡
+
+**Abgrenzung der Arbeitstypen von Serviceklassen:**
+
+Arbeitstypen beschreiben, was angefragt wird, sie haben einen entsprechenden Arbeitsfluss zur Folge. Serviceklassen hingegen legen fest, wie die Karten der entsprechenden Klasse behandelt werden. Dies hat in der Regel deutliche Unterschiede in der Bearbeitungszeit (Laufzeit) zur Folge.
+
+</aside>
+
+#### 5. Implementiere Feedback-Schleifen
+
+Feedback-Schleifen dienen der Messung des Fortschritts, der Identifikation von Hindernissen und der Lösung von Problemen. Informationen wie etwa der Bearbeitungsstand der Arbeitspakete, die Wartezeiten und der Qualitätsstatus können gemeldet werden. Bei kleineren Teams ist eine tägliche Besprechung vor dem Kanban-Board ein geeignetes Werkzeug.
+
+Der Einsatz von Feedback-Schleifen hat das Ziel, die tägliche Arbeit effizient zu steuern, die Dienstleistung zu verbessern und Impulse zur Weiterentwicklung der Organisation zu geben. Somit sind Feedback-Schleifen essenziell für das Wachstum/die Skalierung von Kanban-Systemen.
+
+<aside>
+💡
+
+**Die drei Hauptziele der Feedback-Schleifen:**
+
+- Steuern **
+- Lernen und Verbessern
+- Wachsen
+</aside>
+
+Für das **Steuern** des Arbeitsflusses können Feedback-Schleifen hilfreich sein: Störungen im Arbeitsfluss können durch Feedback erkannt und adressiert werden.  Außerdem können Informationen aus bereits abgeschlossenen Arbeiten genutzt werden, um die aktuelle Arbeitsweise besser zu verstehen und zukünftige Leistungen zu **verbessern**. Zudem ermöglichen Feedback-Schleifen das **Wachsen** bzw. Skalieren des Kanban-Systems, indem mit mehr Übung auch externe Sichtweisen und Problemstellungen adressiert werden. 
+
+<aside>
+💡
+
+**Folgende Mechanismen werden zur Rückkopplung eingesetzt:**
+
+- Visualisierung
+- Kennzahlen und Diagramme
+- Regelmeetings (Kadenzen)
+
+*Hinweis:* Diese Mechanismen wirken vor allem im Zusammenspiel.
+
+</aside>
+
+Die Praktik **Visualisierung** ist vor allem im Kontext von Feedback-Schleifen von großer Bedeutung: Die auf dem Kanban-Board abgebildeten Informationen liefern Feedback zum aktuellen Fortschritt der Arbeit. Zudem wird die aktuelle Nutzung der Kapazitäten angezeigt, wie etwa die definierten WIP-Limits. Diese Kenntnisse sind beispielsweise wichtig für die effektive Gestaltung des Nachschubs.
+
+Die abgeschlossene Arbeit hingegen wird mittels **Kennzahlen und Diagrammen** beschrieben. Diese charakterisieren das Verhalten des Kanban-Systems und liefern Ansatzpunkte für Verbesserungen.
+
+Die **Regelmeetings** und Überprüfungen, auch Kadenzen genannt, basieren immer auf den bereits vorhandenen Regelmeetings der Organisation. 
+
+<aside>
+💡
+
+Es gibt drei Ziele für den Einsatz von Kennzahlen, die sogenannten **3 Vs**:
+
+- **V**erstehen der Leistungsfähigkeit
+- **V**erbesserungen voranbringen
+- **V**orhersagen erstellen
+
+In der Praxis bauen die drei Ziele aufeinander auf: Das Verstehen bildet die Grundlage für das Verbessern und Vorhersagen. 
+
+![Die drei Vs (Bildquelle: Susanne Bartel: Kanban kurz & gut, 2023)](attachment:aafad904-88ca-4392-a9a6-066a5295a12d:image.png)
+
+Die drei Vs (Bildquelle: Susanne Bartel: Kanban kurz & gut, 2023)
+
+</aside>
+
+**1.V: Kennzahlen zum Verstehen:**
+
+Die Kennzahlen, die dieser Gruppe zugeordnet werden, haben den Zweck, die Leistungsfähigkeit des Kanban-Systems zu verstehen. Folgende Leitfragen dienen dem besseren Verständnis:
+
+- *“Reaktionsfähigkeit: Wie schnell können wir Anforderungen erfüllen?”*
+- *“Lieferrate: Wie viel liefern wir in einem bestimmten Zeitraum?”*
+- *“Anforderungsmix: Wie viel wird von unseren Kunden in einem bestimmten Zeitraum angefordert, und welche Art von Anfragen bekommen wir?”*
+
+Daraus folgt die Frage: “Sind Bedarf und Lieferungen in Balance?”
+*Quelle: Susanne Bartel: Kanban kurz & gut, 2023*
+
+**2.V: Kennzahlen zum Verbessern:**
+
+Nachdem mit den oben genannten Kennzahlen ein erstes Verständnis für das Verhalten des Kanban-Systems entwickelt wurde, folgt der nächste Schritt. Nun werden die Diagramme und Kennzahlen genutzt, um Verbesserungen zu überprüfen und voranzutreiben.
+
+Damit mögliche Verbesserungen identifiziert werden können, ist es hilfreich zu verstehen, in welcher Art und Weise sich die Arbeit durch das System bewegt (fließend oder stockend). Hierzu betrachtet man die Anzahl der Karten in bestimmten Systemabschnitten (bspw. Karten) und ihre Verweildauer. Solche Informationen kann man in einem **kumulativen Flussdiagramm** (CFD, Cumulative Flow Diagram) darstellen. Solche Darstellungsweisen können zum Beispiel in Regelmeetings zur Verbesserung eingesetzt werden. 
+
+<aside>
+📝
+
+**Beispiel Erstellung eines CFD auf Basis von Daten:**
+
+Die folgenden Daten stammen aus einer Okaloa-Flowlab-Simulation (Quelle: Susanne Bartel: Kanban kurz & gut, 2023): Es wurden zwei Runden gespielt (A und B), Runde A ohne WIP-Limit und Runde B mit WIP-Limit. Jeweils zum Tagesende wurde die Anzahl der Karten pro Spalte notiert:
+
+![Karten im System jeweils zu Tagesende (Bildquelle: Susanne Bartel: Kanban kurz & gut, 2023)](attachment:2dc31082-a651-43ca-94c9-d8df184cba74:image.png)
+
+Karten im System jeweils zu Tagesende (Bildquelle: Susanne Bartel: Kanban kurz & gut, 2023)
+
+Info: In den CFDs werden die Karten in den Spalten aufeinandergestapelt, und zwar von rechts auf dem Board beginnend. Die unterste Fläche zeigt somit die Fertigstellungsrate an. Diese Kurve ist in Runde B deutlich steiler, somit ist die Lieferrate höher als in Runde A. Dem oberen Diagramm ist zu entnehmen, dass in Runde A eine große Menge an Arbeit angefangen wurde (Schritt 1). Dies deutet auf eine überfüllte erste Spalte. Im unteren Diagramm hingegen spiegeln die schmalen Streifen in Schritt 1 und 2 einen guten Fluss und ein geringes WIP-Limit wider. In Runde B wurde demnach weniger Arbeit begonnen und deutlich mehr Arbeit fertiggestellt. 
+
+![Kumulative Flussdiagramme für Runde A ohne WIP-Limits und Runde B mit Limitierung (Bildquelle: Susanne Bartel: Kanban kurz & gut, 2023)](attachment:7a4a93cc-aada-4fc8-9c87-d37fcbcf4ff9:image.png)
+
+Kumulative Flussdiagramme für Runde A ohne WIP-Limits und Runde B mit Limitierung (Bildquelle: Susanne Bartel: Kanban kurz & gut, 2023)
+
+</aside>
+
+<aside>
+💡
+
+**Warteschlangen-Simulation (M/M/1 Queuing Theory - Supermarktkasse):**
+
+Die Warteschlangen Theorie ist eine Sammlung von mathematischen Modellen zur **Berechnung und Optimierung der Auslastungen von Ressourcen**. 
+
+*Theorie:*
+Ab einer Auslastung ρ von 80% wachsen Warteschlangen exponentiell und das System wird instabil. Bei einer Auslastung von 80% ist eine leere Warteschlange zu etwa 20% der Zeit zu erwarten.
+
+*Kennzahlen:*
+
+- Ankunftsrate λ: Anzahl der Kunden, die pro Zeiteinheit ankommen
+- Bedienrate μ: Anzahl der bedienten Kunden pro Zeiteinheit
+- **Auslastung ρ**: Verhältnis der Ankunftrate zur Bedienrate; zeigt, welcher Anteil der Kapazität des Schalters genutzt wird
+- Durchschnittliche Wartelänge Lq: Anzahl wartender Kunden (*Lq ist vergleichbar mit den wartenden Work Items des Arbeitsvorrats/Backlogs*)
+- Durchschnittliche Systemlänge L: Gesamtzahl der Kunden im gesamten System (wartende Kunden + bediente Kunden)
+
+*Zusammenhang Auslastung und resultierenden Warteschlangen:*
+Ab einer Auslastung von 80% steigt die Länge der Warteschlange exponentiell an und das System wird instabil. Daher sollte man darauf achten, die **Auslastung unter 80% zu halten!**
+
+![M/M/1 Theoriekurve; Lq vs ρ (Bildquelle: Simulation)](attachment:ccf931d3-f7fa-4686-ae9e-ab8b7d84ea5d:image.png)
+
+M/M/1 Theoriekurve; Lq vs ρ (Bildquelle: Simulation)
+
+*Poisson-Verteilung:*
+Eine wichtige Annahme für die Gültigkeit der Queuing Theory ist die variable Verteilung (statistische Poisson-Verteilung) der Aufträge, die auf einen limitierenden Faktor treffen. Damit ist gemeint, dass die Ankunftszeiten der Aufträge zufällig und unregelmäßig verteilt sein müssen. Durch die Poisson-Verteilung werden unabhängige Ankunftsentscheidungen, eine kosntante mittlere Ankunftsrate und exponentialverteilte Zwischenankunftszeiten erzeugt. Diese Annahme schützt vor künstlich glatten Simulationen, denn echte Prozesse sind immer zufällig. 
+
+*Analogie zu Kanban:*
+Das WIP-Limit ist das Werkzeug, um die Auslastung unter 80% zu halten. Wenn weniger Arbeitspakete gleichzeitig gesartet werden, kommt es zu einer besseren Auslastung. Dies führt zu einem stabileren Arbeitsfluss und kleineren Queues. 
+
+(Quelle: Andreas Driehl: [Warteschlangen Theorie - Der Fluch der Auslastung und Überoptimierung, 2025](https://digitaleneuordnung.de/blog/warteschlangen-theorie) und Warteschlangen-Simulation)
+
+</aside>
+
+<aside>
+📝
+
+**Beispiel/Übungsaufgabe zum Testen der Simulation:**
+
+Testen Sie die Simulation und überprüfen Sie, ob die Theorie stimmt. 
+
+*Teilaufgaben:*
+
+- Testen Sie die Werte für die Auslastung ρ = 80% [60%, 90%].
+- Lassen Sie die Simulation laufen bis ca. 10.000 Messungen erfolgt sind.
+- Notieren Sie sich die Werte L_q und L (nachdem Sie die Simulation gestoppt haben) und vergleichen Sie diese mit den Theoriewerten.
+- Berechnen Sie jeweils die Abweichung vom Theoriewert.
+
+*Lösung:*
+
+| ρ (Auslastung) | L_q simuliert | L_q analytisch
+(=ρ²/(1-ρ)) | L simuliert | L analytisch
+ (=ρ/(1-ρ)) | Abweichung |
+| --- | --- | --- | --- | --- | --- |
+| 60% (0.6) | 1,06 | 0,9 | 1,54 | 1,50 | L_q: +17%
+L: +3% |
+| **80% (0.8)** | 3,05 | **3,20** | 3,41 | **4,00** | L_q: -5%
+L: -15% |
+| 90% (0.9) | 8,16 | 8,10 | 8,59 | 9,00 | L_q: +2%
+L: -5% |
+</aside>
+
+**Verzögerungen** sind eng verknüpft mit dem Arbeitsfluss. Die Laufzeit spiegelt alle Verzögerungen und Wartezeiten im Prozess wider. Daher ist die Betrachtung von Laufzeitverteilungen ein wichtiger Bestandteil von Feedback-Schleifen. 
+
+**Blocker** sind Rahmenbedingungen, die das weitere Bearbeiten einer Karte behindert, weswegen es zum Stocken des Arbeitsflusses kommt. Die Blocker können auf dem Kanban-Board beispielsweise durch rote Stoppschilder markiert werden. 
+
+<aside>
+📢
+
+**Achtung**: Eine Karte, die aufgrund einer wechselnden Priorisierung “liegen bleibt”, wird nicht als blockiert bezeichnet. Sie kann nämlich, sobald man sich dazu entscheidet, wieder aufgenommen werden.
+
+</aside>

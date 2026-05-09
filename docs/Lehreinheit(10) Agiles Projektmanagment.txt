@@ -1,0 +1,832 @@
+<aside>
+💡
+
+Für die Lehreinheiten zu agilem Projektmanagement orientiere ich mich u.a. an den Ausarbeitungen von Juliane Pilster ([Professional Scrum Master und Product Owner für Dummies](https://www.wiley-vch.de/de/fachgebiete/finanzen-wirtschaft-recht/professional-scrum-master-und-product-owner-fuer-dummies-978-3-527-72226-6)) sowie Holger Timinger ([Modernes Projektmanagement, 2024](https://ebookcentral.proquest.com/lib/koln/detail.action?docID=31129485)), denen ich meinen herzlichen Dank aussprechen möchte. Diese Bücher sind eine grundsätzliche Empfehlung für einen Einstieg in das Thema agiles Projektmanagement. Ich habe mir erlaubt, für Ausbildungszwecke Abbildungen aus seinem Buch zu entnehmen.
+
+</aside>
+
+Nachdem wir das Planbasierte Projektmanagement abgeschlossen haben, geht es im Folgenden um das **Agile Projektmanagement**. Der Begriff **Agilität** betont Flexibilität, Schnelligkeit, Dynamik und Kundenorientierung. Es gibt nicht “das eine” agile Projektmanagement, sondern lediglich agile Werte und Prinzipien. Zusätzlich können agile Vorgehensmodelle, -methoden und -werkzeuge eingesetzt werden. Diese Modelle können die Nutzung agiler Werte und Prinzipien fördern, weswegen eigentlich der Begriff “agilitätsförderndes Projektmanagement” zutreffender ist als “agiles Projektmanagement” - wir bleiben aber bei “agilem Projektmanagement” 😉. Zu den bekanntesten Vertretern agilen Projektmanagements gehören **Scrum** und **Kanban** (dazu später mehr). 
+
+Wann genau kann man ein Projekt als agil bezeichnen? Agilität erfordert zum einen die Verankerung der Werte und Prinzipien des “Agilen Manifests” im Handeln des Unternehmens und zum anderen die Harmonie der Umsetzung dieser Werte mit den wirtschaftlichen Rahmenbedingungen (bspw. des Projektes und den beteiligten Unternehmen). 
+
+# Die Anfänge im Lean Management
+
+Bereits in den 1940/50er Jahren verfassten die zwei Ingenieure Taiichi Ohno und Eiji Toyoda das [*Toyota-Produktionssystem](https://de.wikipedia.org/wiki/Toyota-Produktionssystem)* mit dem Ziel, eine effizientere Produktion mit minimaler Verschwendung zu erreichen. Sie legten damit die Grundlage für das [*Lean-Management*](https://de.wikipedia.org/wiki/Lean_Management).
+
+<aside>
+📌
+
+**Ansätze Toyota-Produktionssystem:**
+
+- kontinuierliche Verbesserung
+- Transparenz und Visualisierung
+- Selbstorganisation
+- Kundenzentrierung
+- kurze Iterationen
+</aside>
+
+1986 veröffentlichten Hirotaka Takeuchi und Ikuchiro Nonaka das Paper “[*The New New Product Development Game*](https://hbr.org/1986/01/the-new-new-product-development-game)”. Zwar werden die Begriffe “Agilität” oder “agil” in diesem Paper nicht erwähnt, wohl aber der Begriff “Scrum”. Obwohl die Begriffe agil oder Agilität in diesem Paper nicht erwähnt wurden, hatte das Paper einen starken Einfluss auf das heutige Verständnis von Agilität.
+
+Schwaber und Sutherland übertrugen diese Ansätze in die Softwareentwicklung und stellten im Jahr 1995 auf der OOPSLA-Konferenz (Object-Oriented Programming, Systems, Languages & Applications) erstmalig Scrum vor, das insb. auf den Ideen des Toyota-Produktionssystems basiert. 2001 (erst 6 Jahre später!) unterzeichneten Schwaber und Sutherland mit 15 weiteren Softwareentwicklern das ["Agile Manifest"](https://agilemanifesto.org/iso/de/manifesto.html). Hier liegt der Fokus auf Software, jedoch enthält es viele Aspekte aus dem Lean-Management und lässt sich auch auf andere Arten von Entwicklungsprojekten übertragen.
+
+2001 entstand das erste Buch über Scrum namens “*Agile Software Development with Scrum*”, das von Ken Schwaber und Mike Beedle geschrieben wurde. 
+
+# Das Agile Manifest
+
+Die grundlegenden Ideen, die hinter Scrum stecken, werden im Agilen Manifest vermittelt.
+
+## **Die vier agilen Präferenzaussagen**
+
+Die folgenden [vier Präferenzaussagen](https://agilemanifesto.org/iso/de/manifesto.html), bilden den Kern des Agilen Manifests. “*[…] while there is value in the items on the right, we value the items on the left more.*” Sowohl die Elemente auf der linken und der rechten Seite sind wichtig - die auf der linken Seite sind jedoch wichtiger und im Zweifel zu priorisieren.
+
+<aside>
+📌
+
+1. ***Individuen und Interaktionen** mehr als **Prozesse und Werkzeuge**.*
+2. ***Funktionierende Software** mehr als **umfassende Dokumentation**.*
+3. ***Zusammenarbeit mit dem Kunden** mehr als **Vertragsverhandlung**.* (Anmerkung Kai Kreisköther: Erklären Sie das mal Ihrem Controlling-/Legal-Team)
+4. ***Reagieren auf Veränderung** mehr als das **Befolgen eines Plans**.*
+</aside>
+
+## Die 12 agilen Prinzipien
+
+Aufgrund der Abstraktheit der vier Wertepaare, haben die Autoren [12 Prinzipien](https://agilemanifesto.org/iso/de/principles.html) verfasst, die die Werte im Alltag handhabbarer und konkreter greifbar machen sollen:
+
+1. *Unsere höchste Priorität ist es, den Kunden durch frühe und kontinuierliche Auslieferung wertvoller Software zufrieden zu stellen.*
+2. *Heiße Anforderungsänderungen selbst spät in der Entwicklung willkommen. Agile Prozesse nutzen Veränderungen zum Wettbewerbsvorteil des Kunden.*
+3. *Liefere funktionierende Softwareregelmäßig innerhalb weniger Wochen oder Monate und bevorzuge dabei die kürzere Zeitspanne.*
+4. *Fachexperten und Entwickler müssen während des Projektes täglich zusammenarbeiten.*
+5. *Errichte Projekte rund um motivierte Individuen. Gib ihnen das Umfeld und die Unterstützung, die sie benötigen und vertraue darauf, dass sie die Aufgabe erledigen.*
+6. *Die effizienteste und effektivste Methode, Informationen an und innerhalb eines Entwicklungsteams zu übermitteln, ist im Gespräch von Angesicht zu Angesicht.* 
+(Anmerkung Kai Kreisköther: Das ersetzt nicht eine saubere Dokumentation und Transparenz/”Informations-Demokratie”).
+7. *Funktionierende Software ist das wichtigste Fortschrittsmaß.*
+8. *Agile Prozesse fördern nachhaltige Entwicklung. Die Auftraggeber, Entwickler und Benutzer sollten ein gleichmäßiges Tempo auf unbegrenzte Zeit halten können.*
+9. *Ständiges Augenmerk auf technische Exzellenz und gutes Design fördert Agilität.*
+10. *Einfachheit - die Kunst, die Menge nicht getaner Arbeit zu maximieren - ist essenziell.*
+11. *Die besten Architekturen, Anforderungen und Entwürfe entstehen durch selbst organisierte Teams.*
+12. *In regelmäßigen Abständen reflektiert das Team, wie es effektiver werden kann und passt sein Verhalten entsprechend an.*
+
+## Warum Agile und Scrum?
+
+Warum ist es wichtig sich in der heutigen Zeit mit Scrum zu beschäftigen? Aufgrund der zunehmenden Digitalisierung und Globalisierung kommt es zu mehr Abhängigkeiten und Vernetzung. Somit wächst auch die Komplexität. Man bezeichnet dieses Phänomen als **“VUCA-Welt”** (***V**olatility*, ***U**ncertainty*, C*omplexity*, ***A**mbiguity*). **Volatility** beschreibt die Unvorhersehbarkeit und schnelle Veränderung von Marktbedingungen und Kundenbedürfnissen. Mit **Uncertainty** ist die Unsicherheit über zukünftige Entwicklungen und die damit verbundene Schwierigkeit, Vorhersagen zu treffen, gemeint. **Complexity** bezeichnet die Vielzahl von Faktoren, die zu unvorhersehbaren Ergebnissen führen können. **Ambiguity** bezieht sich schließlich auf die Mehrdeutigkeit von Informationen, die es erschwert, richtige Entscheidungen zu treffen. VUCA haben Sie bereits in [Lehreinheit 1](https://www.notion.so/2a166dbb6d8d806bbbe7d1f3fa0e1177?pvs=21) kennengelernt.
+
+In der sich ständig verändernden Welt kann man somit Probleme nicht mehr einfach durchschauen, weswegen der planmäßige Ansatz nicht mehr ausreicht. Mit **agilen Ansätzen** wie Scrum hingegen kann während der Entwicklung komplexer Produkte kontinuierlich Wert geschaffen werden. Scrum zeichnet sich durch ein **empirisches Vorgehen** aus, bei dem schrittweise geplant und Feedback auf Basis von gemachten Erfahrungen (Emperie) gegeben wird. Die Erfahrungen und Kenntnisse fließen demnach mit in die nächsten Entscheidungen ein. Außerdem werden (möglichst) wertvolle/wertstiftende **Inkremente** (Arbeitsergebnisse) erzeugt.
+Quelle: Juliane Pilster: Professional Scrum Master und Product Owner, 2025
+
+## Agile vs. Planbasierte Vorgehensmodelle
+
+Planbasierte Vorgehensmodelle planen den gesamten Projektlebensweg und befolgen den gesamten Plan entweder sequenziell oder gegebenenfalls inkrementell. Die agile Denkweise hingegen lässt sich dadurch beschreiben, dass sich der Projektlebensweg zu Beginn eines Projekts nicht genau vorhersehbar ist. Außerdem würden feste Pläne die Flexibilität zur Einbeziehung der Kundenwünsche verringern.
+
+Die Planung bei agilen Vorgehensmodellen erfolgt iterativ und der gesamte Projektverlauf wird gegebenenfalls nur grob geplant. Detailliert geplant wird nur für die nähere Zukunft. Somit kann bei agilen Projekten, durch ihre Flexibilität, das Projektgegenstand unter Beachtung der Kundenwünsche optimiert werden. Die folgende Abbildung illustriert diesen Vergleich:
+
+![Planbasierte und agile Projektlebenswegmodelle nach Wysocki (Bildquelle: [Holger Timinger: Modernes Projektmanagement, 2024](https://thb-koeln.digibib.net/search/katalog/record/(DE-605)HT030693430?be-katalog-sort=relevance&q-al=timinger&start=1&count=20&hitcount=269&pos=4))](attachment:9c7ac5ac-1155-4f45-8cf3-6046d20d3ee3:image.png)
+
+Planbasierte und agile Projektlebenswegmodelle nach Wysocki (Bildquelle: [Holger Timinger: Modernes Projektmanagement, 2024](https://thb-koeln.digibib.net/search/katalog/record/(DE-605)HT030693430?be-katalog-sort=relevance&q-al=timinger&start=1&count=20&hitcount=269&pos=4))
+
+Beim planbasierten Projektmanagement ist der Leistungsumfang durch die Nutzung von Lasten- und Pflichtenheft fest definiert. Basierend auf dem Leistungsumfang werden sowohl die Kosten als auch die Termine geschätzt. Beim agilen Projektmanagement hingegen wird der Leistungsumfang iterativ geplant und festgelegt. Die Kosten und Termine sind klar festgelegt aufgrund der zeitlich festen Iterationszyklen und klar festgelegten Ressourcen. Das **magische Dreieck des Projektmanagements** zeigt die Abgrenzung agilen und planbasierten Projektmanagements:
+
+![Magisches Dreieck in planbasierter und agiler Ausführung (Bildquelle: [Holger Timinger: Modernes Projektmanagement, 2024](https://thb-koeln.digibib.net/search/katalog/record/(DE-605)HT030693430?be-katalog-sort=relevance&q-al=timinger&start=1&count=20&hitcount=269&pos=4))](attachment:122af159-6946-40d6-87ae-a2fd39545b27:image.png)
+
+Magisches Dreieck in planbasierter und agiler Ausführung (Bildquelle: [Holger Timinger: Modernes Projektmanagement, 2024](https://thb-koeln.digibib.net/search/katalog/record/(DE-605)HT030693430?be-katalog-sort=relevance&q-al=timinger&start=1&count=20&hitcount=269&pos=4))
+
+**Zusammenhang zwischen agilen Werten, Prinzipien, Methoden und Vorgehensmodellen:**
+
+Die vier agilen Werte bilden den Kern des agilen Handelns. Sie werden durch die zwölf agilen Prinzipien konkretisiert. Agile Methoden unterstützen die Umsetzung der Werte und Prinzipien. Die agilen Vorgehensmodelle verknüpfen letztlich Werte, Prinzipien und Methoden. Dadurch entsteht ein in sich schlüssiges Projektmanagement. Die folgende Abbildung illustriert die soeben beschriebenen Zusammenhänge:
+
+![Zusammenhang zwischen agilen Werten, Prinzipien, Methoden und Vorgehensmodellen (Bildquelle: [Holger Timinger: Modernes Projektmanagement, 2024](https://thb-koeln.digibib.net/search/katalog/record/(DE-605)HT030693430?be-katalog-sort=relevance&q-al=timinger&start=1&count=20&hitcount=269&pos=4))](attachment:dc21fc36-805c-4e11-b778-980882559dcf:image.png)
+
+Zusammenhang zwischen agilen Werten, Prinzipien, Methoden und Vorgehensmodellen (Bildquelle: [Holger Timinger: Modernes Projektmanagement, 2024](https://thb-koeln.digibib.net/search/katalog/record/(DE-605)HT030693430?be-katalog-sort=relevance&q-al=timinger&start=1&count=20&hitcount=269&pos=4))
+
+Es gibt mehrere agile Frameworks, zum Beispiel Scrum, Kanban oder Extreme Programming (XP). Im Rahmen dieser Lehrveranstaltungen werden wir Scrum behandeln, da es das am weitesten verbreitete und etablierte Framework ist. In dieser Lehreinheit geht es im Kern um Scrum. In der nächsten Lehreinheit wird ergänzend dazu Kanban eingeführt.
+
+# Begriff “Scrum”
+
+Der Begriff “Scrum” (engl.) bedeutet in etwa “Gedränge” und beschreibt eine übliche Situation im Rugby. Damit soll die bedeutsame *interaktive Kooperation und Selbstorganisation eines Teams* im Rahmen der Produktentwicklung betont werden. Beide Teams versuchen danach den Ball für die eigene Mannschaft zu erobern. Ähnlich verläuft dies in einem agil ausgerichteten Unternehmen, in dem die Teams als kleine, selbstständige Einheiten arbeiten, denen nur die Richtung vorgegeben wird. Die Teams können so mit viel Freiraum ein Produkt entwickeln.
+
+![Scrum im Rugby (Bildquelle: [PierreSelim auf WikiMedia](https://commons.wikimedia.org/wiki/File:ST_vs_Gloucester_-_Match_-_23.JPG))](attachment:f9965561-175e-4457-a314-18d188586f91:Rugby_Scrum.jpg)
+
+Scrum im Rugby (Bildquelle: [PierreSelim auf WikiMedia](https://commons.wikimedia.org/wiki/File:ST_vs_Gloucester_-_Match_-_23.JPG))
+
+**Framework vs. Methode:**
+
+> ”**Scrum** *is a lightweight framework that helps people, teams and organizations generate value through adaptive solutions for complex problems.*”
+Quelle: Ken Schwaber, Jeff Sutherland: The 2020 Scrum Guide
+> 
+
+Ein häufiges Missverständnis bezüglich des Rahmenwerks Scrum ist die Erwartungshaltung, dass Scrum Komplexität **beseitige**. Dies ist jedoch nicht der Fall, denn das Rahmenwerk kann nur dabei helfen, mit Komplexität **umzugehen**. Zudem wird Scrum häufig als Methode bezeichnet, weswegen die Erwartung besteht, Scrum sage einem Schritt für Schritt was zu tun sei. Methoden schreiben einem vor, wie man von einem Problem zur Lösung kommt, wohingegen es in Scrum lediglich Orientierungspunkte gibt. Diese dienen dazu das Produkt kontinuierlich zu optimieren und weiterzuentwickeln. Außerdem helfen sie Teams dabei, ihre Arbeitsprozesse hinsichtlich der Effizienz, Reaktionsfähigkeit und Qualität zu verbessern. Scrum ist jedoch **keine Methode** und ist stattdessen bewusst unvollständig und daher leichtgewichtig. Dies bestärkt die Relevanz des Scrum Masters, der das **Rahmenwerk Scrum** umfangreich versteht und Erfahrungswissen mitbringt, um die bewussten Lücken mit Methoden, Werkzeugen und Techniken zu füllen. 
+
+**Agilität vs. Scrum:**
+
+Unter Agilität versteht man eine Denkweise in der Projektentwicklung, die auf Einfachheit, Flexibilität und iteratives Vorgehen abzielt. Scrum ist ein Rahmenwerk, das Teil des agilen Denkens ist, das heißt, es folgt denselben Prinzipien. 
+
+<aside>
+📌
+
+*Agil ist nicht gleich Scrum. Aber Scrum ist immer agil.*
+
+</aside>
+
+# Scrum-Guide
+
+Scrum ist vollständig im [Scrum Guide](https://scrumguides.org/scrum-guide.html) von Ken Schwaber und Jeff Sutherland definiert. Es beinhaltet die **5 Scrum-Werte**, die u.a. in schwierigen Momenten im Team bzw. im Projekt der Orientierung dienen können. 
+
+- Commitment
+- Fokus (Focus)
+- Offenheit (Openness)
+- Respekt (Respect)
+- Mut (Courage)
+
+<aside>
+📢
+
+“*These values give direction to the Scrum Team with regard to their work, actions, and behavior. The decisions that are made, the steps taken, and the way Scrum is used should reinforce these values, not diminish or undermine them. The Scrum Team members learn and explore the values as they work with the Scrum events and artifacts. When these values are embodied by the Scrum Team and the people they work with, the empirical Scrum pillars of transparency, inspection, and adaptation come to life building trust.*”
+Quelle: Ken Schwaber, Jeff Sutherland: The 2020 Scrum Guide 
+
+</aside>
+
+**Commitment** beschreibt Verantwortungsgefühl und Engagement. Es geht darum, dass sich die Mitarbeitenden selbst freiwillig verpflichten immer ihr Bestes zu geben. **Fokus** handelt davon, dass man stets Wichtiges und Dringendes vor Augen behalten soll. Wenig Ablenkung und Kontextwechsel lassen die Produktivität steigen. Sehr empfehlenswert für die Priorisierung von Aufgaben ist die Eisenhauer-Matrix mit den Dimensionen ‘Wichtigkeit’ und ‘Dringlichkeit’. Hier sind die Artefakte Produkt-Ziel und Sprint-Ziel zu nennen. **Offenheit** ist der ‘Schlüssel zur Transparenz’, denn nur ein offenes Miteinander macht es möglich Probleme anzusprechen und Verbesserungsvorschläge zu tätigen. **Respekt** schafft eine gute Arbeitsatmosphäre und ehrliches Feedback. Zuletzt verpflichtet man sich einem Ziel mit **Mut**.
+
+## Empirie als Vorgehensmodell
+
+Scrum ermöglicht ein empirisches Vorgehen: sowohl die Arbeit als auch die Entscheidungen basieren auf Erfahrungen. Es gibt keine Best Practices, die immer wieder angewendet werden. Stattdessen dienen die Werte und Prinzipien als Kompass, die sich als **Good Practices** etabliert haben.
+
+### **Die Drei Säulen der Empirie**
+
+Scrum basiert auf empirischer Prozesskontrolle mit den drei Säulen **Transparenz**, **Inspektion** und **Adaption**. Diese bilden die Basis für kontinuierliches Lernen:
+
+<aside>
+📢
+
+“**Adaption** *(Adaption): Die eigenen Strategien, Pläne, Prozesse, Methoden und Werkzeuge passen Scrum Teams ständig an die Gegebenheiten der komplexen Welt an, um den Kundenbedürfnissen dauerhaft gerecht zu werden. Dies geschieht auf der Basis der im Rahmen der Inspektion gewonnen Erkenntnisse.*” 
+Quelle: Juliane Pilster: Professional Scrum Master und Product Owner, 2025 
+
+</aside>
+
+<aside>
+📢
+
+“**Inspektion** *(Inspection): Scrum Teams analysieren die Informationen aus der Inspektion, die sie in regelmäßigen Abständen durchführen, um daraus zu lernen. Insbesondere werden anhand der gegebenen Transparenz die tatsächlichen Ergebnisse mit den geplanten Resultaten verglichen. Auf diese Weise wird blinder Aktionismus vermieden.*”
+Quelle: Juliane Pilster: Professional Scrum Master und Product Owner, 2025 
+
+</aside>
+
+<aside>
+📢
+
+“**Transparenz** *(Transparency): Zu jeder Zeit haben Scrum Teams einen Überblick über ihren Prozess, an dessen Ende ein wertvolles Arbeitsergebnis steht. Dazu gehören Klarheit über Anforderungen, Kenntnis des eigenen Fortschritts und Wissen darüber, inwiefern das Ergebnis beim Kunden Nutzen stiftet. Transparenz ist Voraussetzung für gute Analyse.*”
+Quelle: Juliane Pilster: Professional Scrum Master und Product Owner, 2025 
+
+</aside>
+
+Die **5 Scrum-Werte** sind wichtig für den Aufbau von Vertrauen, das als Fundament für die **drei Säulen Transparenz, Inspektion und Adaption** dient.
+
+# Scrum-Rollen
+
+Das **Scrum Team** setzt sich zusammen aus drei Verantwortlichkeiten (*Accountabilities*): Die Developers, der Product Owner und der Scrum Master. Es ist kollaborativ, selbst organisierend interdisziplinär und hierarchielos. Das Scrum Team kümmert sich um das Erstellen eines wertvollen und nützlichen Inkrement. Dabei ist es **umsetzungsverantwortlich** (*responsible*) für die Erreichung der Sprint-Ziele. 
+
+<aside>
+📢
+
+In Scrum gibt es drei **Verantwortlichkeiten**, Product Owner, Scrum Master und Entwickler (Developers). Im Scrum-Guide wird von Verantwortlichkeiten gesprochen, um zu betonen, dass es nicht nur um die Aufgabenerfüllung, sondern auch um die Übernahme von Verantwortung geht.
+Quelle: Juliane Pilster: Professional Scrum Master und Product Owner, 2025 
+
+</aside>
+
+![Scrum-Team im Überblick (in Anlehnung an: Juliane Pilster: [Professional Scrum Master und Product Owner, 2025](https://www.wiley-vch.de/de?option=com_eshop&view=product&dummiesview=1&isbn=9783527722266&title=Professional%20Scrum%20Master%20und%20Product%20Owner%20f%C3%BCr%20Dummies))](attachment:39ef0eb9-5bba-49d1-99de-80d09ca52917:2f76a317-4052-4c74-b36a-3bd99e6f24c1.png)
+
+Scrum-Team im Überblick (in Anlehnung an: Juliane Pilster: [Professional Scrum Master und Product Owner, 2025](https://www.wiley-vch.de/de?option=com_eshop&view=product&dummiesview=1&isbn=9783527722266&title=Professional%20Scrum%20Master%20und%20Product%20Owner%20f%C3%BCr%20Dummies))
+
+<aside>
+📢
+
+“**Accountability** *(Ergebnisverantwortung) beschreibt die Verantwortung für die Ergebnisse einer Tätigkeit. Sie ist ergebnisorientiert und nicht übertragbar.*” 
+Quelle: Juliane Pilster: Professional Scrum Master und Product Owner, 2025 
+
+</aside>
+
+<aside>
+📢
+
+“**Responsibility** *(Umsetzungsverantwortung) beschreibt die Verantwortung für die Ausführung einer Tätigkeit. Sie ist aufgabenorientiert und kann delegiert werden.*”
+Quelle: Juliane Pilster: Professional Scrum Master und Product Owner, 2025 
+
+</aside>
+
+![Ergebnisverantwortung vs. Umsetzungsverantwortung (in Anlehnung an: Juliane Pilster: [Professional Scrum Master und Product Owner, 2025](https://www.wiley-vch.de/de?option=com_eshop&view=product&dummiesview=1&isbn=9783527722266&title=Professional%20Scrum%20Master%20und%20Product%20Owner%20f%C3%BCr%20Dummies))](attachment:12828bf8-d78b-4e2d-bee6-69ec4c76ce8c:12d9b682-6fcf-4cf6-91cd-a0f98ab3412e.png)
+
+Ergebnisverantwortung vs. Umsetzungsverantwortung (in Anlehnung an: Juliane Pilster: [Professional Scrum Master und Product Owner, 2025](https://www.wiley-vch.de/de?option=com_eshop&view=product&dummiesview=1&isbn=9783527722266&title=Professional%20Scrum%20Master%20und%20Product%20Owner%20f%C3%BCr%20Dummies))
+
+## Sonstige Stakeholder
+
+Unter Stakeholdern versteht man Personen oder Personengruppen, die ein Interesse an einem Produkt haben. Man unterscheidet vier Personengruppen: Kunden, interne Stakeholder, externe Partner und sonstige Einflussnehmer. Die Kunden lassen sich in Anwender und Käufer einteilen. Die **Anwender** nutzen das Produkt und die **Käufer** kaufen das Produkt, sie sind also Vertreter von Einkaufsorganisationen in Unternehmen. Interne Stakeholder, zum Beispiel die Unternehmensleitung, haben Berührungspunkte mit dem Produkt. **Externe** **Partner** wie etwa Händler sind in der Lieferkette von Bedeutung. **Sonstige Einflussnehmer** sind anderweitig von Bedeutung für das Produkt. (Zu Stakeholdern siehe auch [Lehreinheit 4](https://www.notion.so/2a166dbb6d8d80dbb6def43e3f0334dd?pvs=21))
+
+![ **Übersicht über die Stakeholder (in Anlehnung an: Juliane Pilster: [Professional Scrum Master und Product Owner, 2025](https://www.wiley-vch.de/de?option=com_eshop&view=product&dummiesview=1&isbn=9783527722266&title=Professional%20Scrum%20Master%20und%20Product%20Owner%20f%C3%BCr%20Dummies))](attachment:1464ab6a-a1e8-4f3e-8b2a-2d3f5231a1d7:07a9176d-2e44-42ce-abcd-6bd83a03d1d7.png)
+
+ **Übersicht über die Stakeholder (in Anlehnung an: Juliane Pilster: [Professional Scrum Master und Product Owner, 2025](https://www.wiley-vch.de/de?option=com_eshop&view=product&dummiesview=1&isbn=9783527722266&title=Professional%20Scrum%20Master%20und%20Product%20Owner%20f%C3%BCr%20Dummies))
+
+## Stakeholder-Management
+
+Das Stakeholder-Management ist entscheidend für den Erfolg eines Produkts, da es im besten Fall dazu führt, dass die Erwartungen der Stakeholder (hinreichend) berücksichtigt werden. Im Gegensatz zu planmäßig ausgerichteten Unternehmen sind nicht Business-Analysten für die Analyse des Stakeholder-Inputs verantwortlich, sondern das gesamte **Scrum-Team**. Das gesamte Team arbeitet kontinuierlich während der Sprints mit den Stakeholdern zusammen. Der **Product Owner** ist ergebnisverantwortlich für das Stakeholder-Management und hat die Aufgabe die Stakeholder zu identifizieren und ihre  Anforderungen zu bewerten. Außerdem lädt er die Stakeholder nur zu den für sie relevanten Sprint Reviews ein. Während des Sprint Reviews ist es Aufgabe der Stakeholder, gemeinsam mit dem Scrum Team das Inkrement zu überprüfen und Feedback zu geben. Anhand des Produkt-Ziels können die Stakeholder erkennen, ob sich das Inkrement in die richtige Richtung entwickelt hat. Anschließend geben sie Impulse für die weitere Entwicklung.
+Quelle: Juliane Pilster: Professional Scrum Master und Product Owner, 2025
+
+## Developer
+
+> “**Developers** *are the people in the Scrum Team that are committed to creating any aspect of a usable Increment each Sprint.*”
+Quelle: Ken Schwaber, Jeff Sutherland: The 2020 Scrum Guide
+> 
+
+Die Developers sind für die Zusammenstellung eines **Sprint Backlogs** und die **Aufwandsschätzung**, die Entwicklung eines **Plans zur Erreichung der Sprint-Ziele**, die Qualitätssicherung durch die Einhaltung der [**Definition of Done** (*DoD*)](https://www.notion.so/2a166dbb6d8d80db9d46eed3f5512d1b?pvs=21) und den fachlichen Austausch untereinander **ergebnisverantwortlich**. Hierbei differenziert man nicht welche Art von Entwicklern gemeint ist, wie etwa Full Stack Developer oder Backend Developer. Daher kommt auch die Bezeichnung der **hierarchielosen** Scrum Teams. Die verschiedenen Ergebnisverantwortlichkeiten sind jedoch zugeordnet. 
+
+Es liegt in der kollektiven Verantwortung der Developer, wie sie ein **Inkrement** erstellen. Sie setzen Product-Backlog-Einträge um und kommunizieren mit den Stakeholdern. Niemand schreibt ihnen vor, wie sie ihre Arbeit zu erledigen haben. Sie arbeiten selbstständig und erzeugen je Sprint ein wertvolles Inkrement (bestehend aus einem oder mehreren Work items). Da sie alle notwendigen Fähigkeiten besitzen, um ihrer Ergebnisverantwortung gerecht zu werden, spricht man hier von einem interdisziplinären (*cross-functional*) Team. Das Sprint-Ziel bietet dabei Orientierung für die Umsetzung von Product-Backlog-Einträgen.
+
+## Product Owner
+
+> “*The* **Product Owner** *is accountable for maximizing the value of the product resulting from the work of the Scrum Team. How this is done may vary widely across organizations, Scrum Teams, and individuals.*”
+Quelle: Ken Schwaber, Jeff Sutherland: The 2020 Scrum Guide
+> 
+
+Die Gründung eines Scrum-Teams beginnt mit der **Produkt-Vision** des Product Owner. Zu beachten ist, dass er eine einzelne Person ist, kein Komitee und auch kein Projektmanager. Er ist **ergebnisverantwortlich** für das Stakeholder-Management, die **Wert-Maximierung des Produkts** und für ein effektives **Product-Backlog-Management**. Somit hat er die Entscheidungsmacht (*final say*) für die Reihenfolge der Einträge im Product Backlog. Seine Arbeit ist im Inkrement und im Product Backlog erkennbar.
+
+### **Vielfalt der Fähigkeiten des Product Owner**
+
+Der Produkt Owner bietet vielfältige Fähigkeiten, die sich auf das Produkt fokussieren:
+
+- **Wert-Maximierer**: Repräsentation des Kunden, Verantwortung für den Produkt-Wert
+- **Analytiker**: Kombination von Fachwissen und Verständnis der Produkttechnologie
+- **Stakeholder-Manager**: Zusammenarbeit mit den Stakeholdern zur Berücksichtigung ihrer Wünsche → gemeinsames Verständnis über den Stand des Product Backlogs
+- **Kommunikator**: effektive Kommunikation mit dem Scrum-Team und den Stakeholdern
+- **Stratege**: Release-Management → kontinuierliche Verbesserung und Adaption des Produkts
+- **Visionär**: Produkt-Vision, Definition von Produkt-Wert und Produkt-Ziel → Orientierung für das Scrum-Team
+
+## Scrum Master
+
+> “*The* **Scrum Master** *is accountable for establishing Scrum as defined in the Scrum Guide. They do this by helping everyone understand Scrum theory and practice, both within the Scrum Team and the organization […] Scrum Masters are true leaders who serve the Scrum Team and the larger organization.*”
+Quelle: Ken Schwaber, Jeff Sutherland: The 2020 Scrum Guide
+> 
+
+Scrum Master sind zwar **echte Führungspersönlichkeiten**, jedoch sind sie weder Projektmanager noch Projektleiter (noch Product Owner). Sie sind für die Einführung/Durchführung von Scrum gemäß Scrum Guide und die Sicherstellung der Effektivität des Scrum Teams ergebnisverantwortlich. Sie vermitteln theoretische und praktische Kenntnisse sowohl innerhalb des Scrum Teams als auch in der umgebenden Organisation. Zudem sorgen sie für eine kontinuierliche Verbesserung. 
+
+### The 8 Stances of a Scrum Master
+
+Die Aufgaben des Scrum Masters sind sehr vielfältig: Er unterstützt sein Scrum Team dabei ein wertvolles Inkrement zu erzeugen und coacht seine Teammitglieder. Außerdem hilft er dem Product Owner seine Tätigkeit effizient auszuführen. Man spricht von “[The 8 Stances of a Scrum Master](https://www.scrum.org/resources/8-stances-scrum-master)” (Barry Overeem, 2017):
+
+- **Servant Leader**: Fokus auf die Bedürfnisse des Kunden und Scrum-Teams
+- **Facilitator**: Schaffung von Rahmenbedingungen für eine effektive Zusammenarbeit des Teams
+- **Coach**: Unterstützung von Einzelpersonen in Bezug auf eine kontinuierliche Verbesserung
+- **Manager**: Regelung des Umgangs mit Hindernissen
+- **Mentor**: Weitergabe seines Wissens und Erfahrungen
+- **Lehrer**: Sicherstellung des Verständnisses und der Anwendung der Werkzeugen des Scrum Rahmenwerks
+- **Beseitiger von Hindernissen**: Auflösung der Blockaden (”Impediments”)
+- **Change Agent**: Förderung einer Kultur, in der Scrum gedeihen kann
+
+<aside>
+📝
+
+**Beispiel/Übungsaufgabe: Hausaufgaben-App**
+
+*Ziel: Verständnis der Scrum-Rollen und ihrer Verantwortungen*
+
+Ausgangsszenario: Eine Schule möchte eine neue Hausaufgaben-App für SchülerInnen einführen.
+
+**Aufgabe:** Überlegen Sie sich die Aufgaben des Product Owner, Scrum Master und der Developer. Wer wären die Stakeholder? 
+
+</aside>
+
+- *Mögliche Lösung:*
+    - Product Owner:
+        - Definiert Produktvision der App (z.B. „Hausaufgaben einfach erfassen und erinnern“)
+        - Pflegt und priorisiert das Product Backlog
+    - Developer:
+        - Implementieren Funktionen (Login, Hausaufgabenliste, Erinnerungen)
+        - Schreiben Tests, bauen UI, kümmern sich um Technik
+    - Scrum Master:
+        - Achtet auf Einhaltung der Scrum-Events und Timeboxes
+        - Beseitigt Hindernisse (z.B. fehlender Zugang zu Schulservern)
+    - Stakeholder:
+        - Schule (Schulleitung), Lehrkräfte, SchülerInnen, ggf. IT-Abteilung
+
+# Scrum-Artefakte
+
+In Scrum entstehen **drei Ergebnistypen**, die der Transparenz und Inspektion dienen. Diese sogenannten Artefakte sind **Sprint Backlog**, **Product Backlog** und **Inkrement**, anhand derer man sowohl den Fortschritt als auch die verbliebene Arbeit ablesen kann. 
+
+## User Stories
+
+User Stories sind (mögliche) Elemente des Product Backlogs und Sprint Backlogs. Sie beschreiben in kurzer Form aus **Sicht des Kunden**, was seine Erwartungshaltung vom Produkt ist. Hier liegt der Fokus auf den Kundenbedürfnissen und nicht auf technische Spezifikationen. Die Beschreibung, wie der Anwender eine Funktion nutzen will, ähnelt der Form einer Geschichte.
+
+Der Aufbau einer User Story ist wie folgt: 
+
+```
+PBI ID
+
+"Als [Rolle] möchte ich [Funktionalität], damit [Nutzen/Geschäftswert].”
+
+Akzeptanzkriterien:
+
+- Kriterium 1
+- Kriterium 2
+- Kriterium 3
+```
+
+Aus den **User Stories** können genaue Aufgaben abgeleitet werden, die von den Developern umgesetzt werden. Dieser Vorgang findet zu Beginn des Sprint Planning statt. Man wählt zunächst die Product Backlog-Einträge (meistens User Stories) aus, die im folgenden Sprint umgesetzt werden sollen. Aus diesen User Stories werden die umzusetzenden Aufgaben formuliert. Man spricht hierbei von sogenannten **Tasks**. Die zugehörigen Story Points der User Stories werden auf die Tasks verteilt. Somit erhält jede einzelne Task eine Größenschätzung in Form von Story Points. Alle Tasks werden letztlich im Sprint Backlog festgehalten.
+
+<aside>
+💡
+
+**Unterscheidung Epic - User Story - Task:**
+
+Ein Product Backlog besteht aus Epics und User Stories. **Epics** dienen als (grobe und große) Platzhalter für Ideen und müssen zu **User Stories** konkretisiert werden, damit ihre Komplexität in Form von Story Points geschätzt werden kann. Im Rahmen des Sprint Plannings werden aus den User Stories **Tasks** zur Umsetzung abgeleitet, die ebenfalls eine Größenschätzung erhalten.
+
+</aside>
+
+### **User Story Mapping**
+
+User Story Maps gelten als Landkarten für das Product Backlog. User Story Mapping dient der übersichtlichen Darstellung des Big Picture ausgehend von der User Experience. 
+
+Zunächst werden die Tasks horizontal sequentiell in einer nachvollziehbaren Reihenfolge angeordnet, sodass eine Art Geschichte entsteht. Mehrere nebeneinander angeordnete Tasks werden nach Aktivitäten gruppiert. Unterhalb der Tasks werden detailliertere Schritte aufgeführt, um spezifische Anforderungen darzustellen. Diese Technik fördert den Kundenfokus und erleichtert die Release-Planung.
+
+<aside>
+📝
+
+**Beispiel/Übungsaufgabe: Hausaufgaben-App**
+
+*Ziel: User Stories formulieren*
+
+Gegeben sind die folgenden Product Backlog-Einträge:
+
+- “Hausaufgaben erfassen” (Epic)
+- “Erinnerungsfunktion: SchülerInnen werden rechtzeitig an alle Aufgaben erinnert.“ (User Story)
+
+**Teilaufgaben:**
+
+1. Formulieren Sie aus dem gegebenen Epic “Hausaufgaben erfassen” eine User Story nach dem Ihnen bekannten [Format](https://www.notion.so/2a166dbb6d8d80db9d46eed3f5512d1b?pvs=21) (inkl. 3-5 Akzeptanzkriterien).
+2. Zerlegen Sie die gegebene User Story “Erinnerungsfunktion” in kleinere User Stories.
+</aside>
+
+- Lösung
+    
+    *User Story 1 – Hausaufgaben erfassen:*
+    
+    - *„Als SchülerIn möchte ich Hausaufgaben mit Fach, Datum und Beschreibung erfassen, um meine Aufgaben übersichtlich im Blick zu behalten.“*
+        
+        *Akzeptanzkriterien:*
+        
+        - *Es gibt Eingabefelder für Fach, Fälligkeitsdatum und Beschreibung.*
+        - *Nach dem Speichern erscheint die Aufgabe in einer Liste.*
+        - *Pflichtfelder (Fach, Datum) müssen ausgefüllt sein, sonst Fehlermeldung.*
+    
+    *User Story 2 – Erinnerungsfunktion:*
+    
+    *Zerlegung in kleinere PBIs:*
+    
+    - *US2a: „Als SchülerIn möchte ich einstellen, wie viele Tage vor Fälligkeit ich erinnert werde, um genug Vorlauf zum Erledigen zu haben.“*
+    - *US2b: „Als SchülerIn möchte ich tägliche Benachrichtigungen über fällige Aufgaben des Tages, um nichts zu vergessen.“*
+    - *US2c: „Als SchülerIn möchte ich Erinnerungen deaktivieren können, um nicht zu viele Benachrichtigungen zu erhalten.“*
+
+## Product Backlog
+
+> “*The* **Product Backlog** *is an emergent, ordered list of what is needed to improve the product. It is the single source of work undertaken by the Scrum Team.*”
+Quelle: Ken Schwaber & Jeff Sutherland: The 2020 Scrum Guide
+> 
+
+Das Product Backlog ist eine sortierte Liste, bestehend aus Product-Backlog-Einträgen. Diese müssen während der Entwicklung des Produkts fertiggestellt werden. Wie bereits oben erwähnt, gehört dem **Product Owner** das Product-Backlog. Er ist somit ergebnisverantwortlich für das Product-Backlog-Management. Dies bedeutet nicht, dass er alle Einträge verfassen muss. Diese Aufgabe kann er an andere Teammitglieder delegieren. Jeder muss wissen, was das Produkt-Ziel ist und die Einträge müssen bekannt sein. Das Product Backlog soll sowohl innerhalb des Scrum Teams als auch gegenüber den Stakeholdern **Transparenz** schaffen. Daraus folgt, dass es jederzeit für alle zugänglich sein muss. 
+
+**Produkt-Ziel:**
+
+> *“The* **Product Goal** *describes a future state of the product which can serve as a target for the Scrum Team to plan against.*” 
+Quelle: Ken Schwaber, Jeff Sutherland: The 2020 Scrum Guide
+> 
+
+> “*A* **product** *is a vehicle to deliver value. It has a clear boundary, known stakeholders, well-defined users or customers. A product could be a service, a physical product, or something more abstract.”*
+Quelle: Ken Schwaber, Jeff Sutherland: The 2020 Scrum Guide
+> 
+
+Bestandteil des Product Backlogs ist unter anderem das Produkt-Ziel. Es ist ein langfristiges Ziel, das dem Scrum Team Orientierung und Fokussierung bietet. Es ist größer als ein Sprint, aber kleiner als die Produkt-Vision. Es bezieht sich stets auf einen Zielzustand des Produkts. Dabei ist jedes **Inkrement** ein Schritt in Richtung dieses Ziels. Das Produkt-Ziel wird mittels Anforderungen, die den Hauptbestandteil des Product Backlogs bilden, konkretisiert. 
+
+### **Product Backlog-Einträge**
+
+Die Anforderungen werden als User Stories und Epics formuliert. Eine **User Story** wird aus Sicht einer bestimmten Rolle verfasst. Ein **Epic** ist eine grobe User Story und dient eher als Platzhalter für Ideen und grobe Anforderungen. Epics müssen demnach erst konkretisiert werden, bevor sie geschätzt und umgesetzt werden können. Demnach kann die Komplexität eines Epics nicht mit **Story Points** geschätzt werden. Die Schätzung erfolgt erst nachdem ein Epic in eine User Story verfeinert wurde.
+
+<aside>
+💡
+
+Bei agilen Projekten werden Unklarheiten akzeptiert und dokumentiert. Somit werden Epics in das Product Backlog aufgenommen statt einer konkretisierten User Story. Das Product Backlog besteht demnach sowohl aus User Stories als auch Epics.
+
+**Beispiel:**
+
+- Epic: *Benutzerverwaltung*
+- User Story: “*Als Anwender möchte ich Benutzerdaten nachträglich ändern können, sodass Fehler in den Benutzerdaten korrigiert werden.”*
+
+→ Epics helfen dabei grobe Ideen nicht zu vergessen und dienen als Platzhalter im Product Backlog!
+
+</aside>
+
+Pro Product-Backlog-Eintrag sollte Folgendes festgelegt werden:
+
+- Ziel
+- Wert
+- Akzeptanzkriterien
+- Stelle im Product-Backlog
+- Aufwand
+- Abhängigkeiten zu anderen Einträgen
+
+### **Priorisierung der Product Backlog-Einträge**
+
+Die Product Backlog-Einträge werden anhand der Kundenbedeutung/des Geschäftswerts priorisiert. Die Priorisierung kann auf unterschiedliche Art und Weise erfolgen: 
+
+- Reihung der User Stories von der wichtigsten bis zur unwichtigsten User Story
+- Vergabe von Punkten (je kleiner oder größer, desto wichtiger ist die User Story)
+- Klassifizierung, z.B. nach dem MuSCoW-Prinzip (Must have, Should have, Could have und Won’t have)
+
+<aside>
+💡
+
+Es ist empfehlenswert, **risikoreiche User Stories** hoch zu priorisieren. Diese User Stories sollten zeitnah (prototypisch) umgesetzt werden und anschließend während des Sprint Reviews vom Kunden bewertet werden. Hoch priorisierte User Stories sollten detaillierter ausgearbeitet sein als geringer priorisierte. Epics sind zu grob beschrieben, um (selbst bei hoher Priorität) im nächsten Sprint umgesetzt zu werden.
+
+</aside>
+
+### **Organisation und Visualisierung eines Product Backlogs**
+
+User Stories können mittels **Metaplankarten** (Karten aus Papier an einem Whiteboard o.Ä.) visualisiert werden und schrittweise mit zusätzlichen Informationen konkretisiert werden. Alternativ kann man auch Software zur Verwaltung von elektronischen Karten nutzen beispielsweise mit Jira und Confluence von Atlassian oder virtuellen Whiteboards wie etwa Miro oder Office-Software wie etwa Microsoft 365. Die einzelnen Karten können in **priorisierter Reihenfolge** angeordnet werden.
+
+Die folgende Abbildung zeigt eine beispielhafte User Story, die nachträglich mit zusätzlichen Informationen ergänzt wurde:
+
+![Beispiel einer User Story mit erläuternden Ergänzungen (Bildquelle: [Holger Timinger: Modernes Projektmanagement, 2024](https://thb-koeln.digibib.net/search/katalog/record/(DE-605)HT030693430?be-katalog-sort=relevance&q-al=timinger&start=1&count=20&hitcount=269&pos=4))](attachment:ed2d4248-46c9-4b42-84b2-18aa850c0273:image.png)
+
+Beispiel einer User Story mit erläuternden Ergänzungen (Bildquelle: [Holger Timinger: Modernes Projektmanagement, 2024](https://thb-koeln.digibib.net/search/katalog/record/(DE-605)HT030693430?be-katalog-sort=relevance&q-al=timinger&start=1&count=20&hitcount=269&pos=4))
+
+Eine andere Möglichkeit, User Stories und Epics darzustellen ist die Listendarstellung beispielsweise mittels einer Tabellenkalkulation:
+
+![Verwaltung eines Product Backlog in einer Tabellenkalkulation (Bildquelle: [Holger Timinger: Modernes Projektmanagement, 2024](https://thb-koeln.digibib.net/search/katalog/record/(DE-605)HT030693430?be-katalog-sort=relevance&q-al=timinger&start=1&count=20&hitcount=269&pos=4))](attachment:fa9666d3-893a-4033-9115-3b25a4c8d3cd:image.png)
+
+Verwaltung eines Product Backlog in einer Tabellenkalkulation (Bildquelle: [Holger Timinger: Modernes Projektmanagement, 2024](https://thb-koeln.digibib.net/search/katalog/record/(DE-605)HT030693430?be-katalog-sort=relevance&q-al=timinger&start=1&count=20&hitcount=269&pos=4))
+
+### **Product Backlog Management**
+
+Das Product Backlog hat im Gegensatz zum planmäßigen Lasten- und Pflichtenheft keinen Anspruch auf Vollständigkeit und wird **kontinuierlich um weitere Einträge ergänzt**, sofern die Anforderungen geändert werden - das ist im Kern nur möglich aufgrund des umgekehrten “[Magischen Dreiecks](https://www.notion.so/Lehreinheit-10-Agiles-Projektmanagement-Grundlagen-Rollen-Artefakte-und-Events-von-Scrum-2a166dbb6d8d806cb463da52ab0a1770?pvs=21)”. Gängig ist demnach auch das Verändern und Löschen von Einträgen. Wichtig zu beachten ist, dass lediglich die Einträge detailliert beschrieben werden müssen, die kurz vor der Umsetzung stehen. Alle anderen Einträge sollten kurz gehalten werden (Überlegen Sie einmal, warum?). **Nicht-funktionale Anforderungen** bekommen entweder einen eigenen Product-Backlog-Eintrag oder werden Teil der Definition of Done. Oft wird mit sogenannten **Story Points** geschätzt mit denen Product-Backlog-Einträge zueinander ins Verhältnis gesetzt werden.
+
+Nach der initialen Erstellung des Product Backlogs folgt die kontinuierliche Überprüfung und Detaillierung. Im Rahmen dieses Prozesses werden neue Kenntnisse hinsichtlich der Wertoptimierung des Produkts aus dem Sprint Review und der Sprint Retrospektive sowie Rückmeldungen der Stakeholder berücksichtigt. Man spricht dabei auch vom **Product Backlog Refinement**. Dieser Prozess kann sowohl als kontinuierliche Arbeit oder als Regeltermin erfolgen (in der Regel beides).
+
+> “**Product Backlog refinement** *is the act of breaking down and further defining Product Backlog items into smaller more precise items.*”
+Quelle: Ken Schwaber, Jeff Sutherland: The 2020 Scrum Guide
+> 
+
+Product Backlog Refinement ist wichtig, um die Product-Backlog-Einträge bereit (*ready*) für das Sprint-Planning zu machen. Das heißt, der jeweilige Eintrag soll innerhalb eines Sprints umgesetzt werden kann. Die **Definition of Ready**, eine Art Checkliste, wird entschieden, ob ein Product-Backlog-Eintrag fertig für das Sprint Planning ist. 
+
+Die oben erwähnte Priorisierung der Product Backlog-Einträge soll regelmäßig überprüft werden, da sie sich im Projektverlauf ändern kann. Zudem soll pro Eintrag analysiert werden, ob dieser tatsächlich zur Wertsteigerung des Produkts beiträgt und sich ggf. im Detail hinsichtlich seiner Anforderungen verändert hat.
+
+<aside>
+📌
+
+**Das Product Backlog auf einem Blick:**
+
+- Es gehört dem Product Owner - Delegation der Erstellung von Einträgen möglich
+- Es ist dynamisch und somit nie eine vollständig Liste an Anforderungen
+- Es beinhaltet Aufgaben, die das Produkt verbessern sollen
+- Es ist nach Wichtigkeit sortiert
+- Es existiert, solange das Produkt existiert
+</aside>
+
+Quelle: Juliane Pilster: Professional Scrum Master und Product Owner, 2025
+
+## Definition of Ready
+
+Unter der Definition of Ready versteht man eine Art Checkliste, anhand man entscheiden kann, ob ein Product Backlog-Eintrag (z.B. eine User Story) fertig ausdetailliert ist für das Sprint Planning. Die Definition of Ready enthält Kriterien, wann ein Product Backlog-Eintrag im Sprint Planning bearbeitet werden kann.
+
+Die [INVEST-Kriterien](https://agilemovement.de/agilitaet/begriffe/invest-kriterien/) (William Wake, 2003) können bei der Entwicklung der Definition of Ready hilfreich sein:
+
+- **I**ndependent (Unabhängig)
+- **N**egotiable (Verhandelbar)
+- **V**aluable (Wertvoll)
+- **E**stimable (Schätzbar)
+- **S**mall (Klein)
+- **T**estable (Testbar)
+
+Das Kriterium **Independent** schreibt vor, dass die User Story unabhängig von anderen User Stories sein soll. Das bedeutet, dass sie eigenständig entwickelt, getestet und bereitgestellt werden kann. Mit **Negotiable** ist gemeint, dass eine User Story verhandelbar sein soll. Dadurch kann sie anhand neuer Erkenntnisse und Feedback angepasst werden. Zudem sollte eine User Story für den Kunden einen erkennbaren Wert liefern (**Valuable**). Eine User Story ist **Estimable**, wenn ihr Aufwand grob eingeschätzt werden kann. Das heißt, das Team sollte in der Lage sein, den Arbeitsaufwand zu schätzen. Eine User Story sollte außerdem klein genug sein, um im Rahmen eines Sprints umgesetzt werden zu können (**Small**). Zuletzt sollte eine User Story testbar sein. Das heißt, es sollten Akzeptanzkriterien definiert sein, an derer sich überprüfen lässt, ob eine User Story korrekt umgesetzt wurde (**Testable**).
+
+<aside>
+📝
+
+**Beispiel für DoR Kriterien:**
+
+- Schätzbarkeit des Elementes (User Story, Task, nicht: Epic)
+- vollständige Beschreibung
+- Folgt die User Story dem INVEST Format?
+- aktuelle Dokumentation
+- Aufwand geschätzt
+- Test- und Integrationsumgebung für die Durchführung von Integrations- und User Acceptance Tests
+- verständliche Akzeptanzkriterien
+
+(Quelle: in Anlehnung an [acterience management partners, 2020](https://www.acterience.com/wp-content/uploads/insights_acterience_Checkliste_DoR.pdf))
+
+</aside>
+
+## Sprint Backlog
+
+> “*The* **Sprint Backlog** *is composed of the Sprint Goal (why), the set of Product Backlog items selected for the Sprint (what), as well as an actionable plan for delivering the Increment (how).*”
+Quelle: Ken Schwaber, Jeff Sutherland: The 2020 Scrum Guide
+> 
+
+Das Sprint Backlog dient als Plan der Developer für den Sprint. Es beinhaltet Product-Backlog-Einträge, die in kleinere Aufgaben zerlegt wurden und für einen Sprint vorgesehen sind. Beispiele sind Anwendungsfälle, User Stories oder Tests. Diese Zerlegungen bezeichnet man meist als Tasks. Außerdem besteht das Sprint Backlog aus dem **Sprint-Ziel**. Zu beachten ist, dass alle Developers gemeinsam verantwortlich für das Sprint Backlog sind - nicht der Product Owner. 
+
+Auch das Sprint Backlog ist dynamisch, es wird kontinuierlich von den Entwicklern aufgrund neuer Erkenntnisse aktualisiert. Im **Daily Scrum** erstellen die Developers einen Plan mit den Aufgaben, die in den nächsten 24 Stunden zu erledigen sind, um das Sprint-Ziel zu erreichen. Zudem werden die gewonnen Erkenntnisse (*Learnings*) aus dem vorherigen Daily Scrum berücksichtigt.
+
+**Visualisierung der Sprint Backlog-Einträge:**
+
+Das Sprint Backlog lässt sich, wie das Product Backlog, als Liste speichern. Übersichtlicher ist es jedoch, aus dieser Liste ein Arbeitswerkzeug zu machen und es in ein **Taskboard** und ergänzendes **Burndown-Chart** zu überführen.
+
+> “*Das* **Taskboard** *dient der Visualisierung des Sprint Backlog bei Scrum. Die User Stories des aktuellen Sprints werden in Tasks
+aufgeteilt und meistens ihres Bearbeitungsstandes entsprechend in Spalten »offen«, »in Arbeit« und »abgeschlossen« sortiert.*”
+Quelle: Holger Timinger: Modernes Projektmanagement, 2024
+> 
+
+Man kann das Taskboard sowohl als Pinnwand als auch elektronisch beispielsweise mit einer Tabellenkalkulation anlegen. In kleinen Teams ist ein physisches Board durchaus vorteilhaft, da die Developer die Daily Scrums direkt am Board durchführen können. Außerdem kann jedes Teammitglied den Projektstatus sehen, wodurch Transparenz geschaffen wird. Zuletzt kann ein Taskboard der Motivation dienen, da man seinen eigenen Beitrag in die Arbeit des Teams einordnen kann. 
+
+Zusätzlich kann oben auf dem Taskboard das Sprint-Ziel ergänzt werden, was die Relevanz der einzelnen Tasks hervorhebt. Die folgende Abbildung zeigt ein beispielhaftes Taskboard:
+
+![Taskboard mit User Stories/Tasks und Bearbeitungsstatus (Bildquelle: [Holger Timinger: Modernes Projektmanagement, 2024](https://thb-koeln.digibib.net/search/katalog/record/(DE-605)HT030693430?be-katalog-sort=relevance&q-al=timinger&start=1&count=20&hitcount=269&pos=4))](attachment:9cb888c7-047b-4561-8736-bf4842d75e1a:image.png)
+
+Taskboard mit User Stories/Tasks und Bearbeitungsstatus (Bildquelle: [Holger Timinger: Modernes Projektmanagement, 2024](https://thb-koeln.digibib.net/search/katalog/record/(DE-605)HT030693430?be-katalog-sort=relevance&q-al=timinger&start=1&count=20&hitcount=269&pos=4))
+
+<aside>
+💡
+
+**Hinweis:** Alternativ zum Taskboard kann ein Kanban-Board angelegt werden, was auch seine Vorteile hat (dazu später mehr).
+
+</aside>
+
+<aside>
+💡
+
+**Tipp**: Es ist ratsam, die einzelnen Tasks so zu dimensionieren, dass sie innerhalb eines Tages erledigt werden können. Somit ist schneller erkennbar, wenn eine Task Probleme bereitet. Dies ist der Fall, wenn die Aufgabe länger als gewöhnlich in der Spalte “Tasks in Arbeit” verbleibt.
+
+</aside>
+
+Wie oben bereits erwähnt, kann das Sprint Backlog ergänzend in ein Burndown-Chart überführt werden. In einem **Burndown-Chart** werden die noch offenen Arbeiten gegen eine Zeitachse aufgetragen. Diese erstreckt sich vom Beginn bis zum Ende des Sprints. Zu Beginn des Sprints entspricht die Menge der offenen Arbeit der Velocity des Scrum Teams. Die folgende Abbildung zeigt ein beispielhaftes Burndown-Chart:
+
+![Burndown-Chart mit idealisiertem und bis zum Stichtag tatsächlich gemessenem Verlauf offener Arbeit (Bildquelle: [Holger Timinger: Modernes Projektmanagement, 2024](https://thb-koeln.digibib.net/search/katalog/record/(DE-605)HT030693430?be-katalog-sort=relevance&q-al=timinger&start=1&count=20&hitcount=269&pos=4))](attachment:5e8a0aa9-c83e-4ca3-9e50-4396e4045701:image.png)
+
+Burndown-Chart mit idealisiertem und bis zum Stichtag tatsächlich gemessenem Verlauf offener Arbeit (Bildquelle: [Holger Timinger: Modernes Projektmanagement, 2024](https://thb-koeln.digibib.net/search/katalog/record/(DE-605)HT030693430?be-katalog-sort=relevance&q-al=timinger&start=1&count=20&hitcount=269&pos=4))
+
+## Inkrement
+
+> “*An* **Increment** *is a concrete stepping stone toward the Product Goal. Each Increment is additive to all prior Increments and thoroughly verified, ensuring that all Increments work together. In order to provide value, the Increment must be usable.*”
+Quelle: Ken Schwaber, Jeff Sutherland: The 2020 Scrum Guide
+> 
+
+Ein Inkrement entsteht, sobald ein Product-Backlog-Eintrag die **Definition of Done** erfüllt. Es repräsentiert **Wert**, wohingegen das Sprint- und Product-Backlog Arbeit darstellen. Es ist immer potentiell auslieferbar und somit ein verwendbarer Stand des Produkts. Ein Inkrement besteht aus dem vorherigen Inkrement, weswegen es zu einem Zeitpunkt nur ein Inkrement geben kann. Man spricht hier von einem inkrementellen Vorgehen. Das Inkrement schafft **Transparenz**, denn die Stakeholder können so das Inkrement im Sprint Review inspizieren und Feedback geben.
+
+Alle **drei Verantwortlichen** sind ergebnisverantwortlich für die Erstellung des Inkrements: Es ist die Aufgabe des Product Owners den Wert des Inkrements zu maximieren. Der Scrum Master soll dafür sorgen, dass das gesamte Scrum Team auf die Erstellung des Inkrements fokussiert ist. Die Developers sollen das Inkrement selbst erstellen. Nur sie entscheiden, wie es erstellt wird.
+
+## Definition of Done
+
+> “*The* **Definition of Done** *is a formal description of the state of the Inkrement when it meets the quality measures required for the product.*”
+Quelle: Ken Schwaber, Jeff Sutherland: The 2020 Scrum Guide
+> 
+
+Die Definition of Done (*DoD*) beinhaltet die Kriterien, wann eine Story fertig entwickelt, also done ist. Sie ist allgemeingültig für alle Product-Backlog-Einträge. Beispielhafte Kriterien sind Code-Reviews, erfüllte Akzeptanzkriterien, Dokumentation, verschiedene Tests oder die Einhaltung von Architekturstandards und UX-Richtlinien. Üblicherweise werden diese vom Unternehmen vorgegeben, falls nicht muss das Scrum Team einige erstellen. 
+
+Die DoD trägt zur Transparenz, Vollständigkeit und Qualitätssicherung im Scrum-Prozess bei:
+
+- **Transparenz**: Erfüllung aller DoD-Kriterien essentiell für die Vorstellung der Ergebnisse im Sprint Review
+- **Vollständigkeit**: Aufwandsschätzung im Sprint Planning mithilfe der DoD
+- **Qualitätssicherung**: Soll-Kriterien zur Sicherstellung der Qualität
+
+Quelle: Juliane Pilster: Professional Scrum Master und Product Owner, 2025
+
+<aside>
+📝
+
+**Beispiel DoD Kriterien:**
+
+- erfüllte Akzeptanzkriterien
+- Code-Reviews
+- verschiedene Tests
+- Dokumentation
+- Einhaltung von Architekturstandards
+- Einhaltung von UX-Richtlinien
+
+*(Quelle: Dieses Beispiel wurde von [Juliane Pilster](https://www.wiley-vch.de/de?option=com_eshop&view=product&dummiesview=1&isbn=9783527722266&title=Professional%20Scrum%20Master%20und%20Product%20Owner%20f%C3%BCr%20Dummies) übernommen)*
+
+</aside>
+
+## Releaseplan
+
+Immer wenn ein Inkrement entstanden ist, kann ein Release erfolgen. Hier sei angemerkt, dass ein Release nicht zwangsläufig stattfinden muss. Dies ist jedoch von Vorteil, denn je häufiger ausgeliefert wird, desto mehr Feedback erhält das Scrum Team. Zudem verringert dies das Risiko, dass an den Anforderungen vorbei entwickelt wird. 
+
+Unter einem Releaseplan versteht man einen groben Übersichtsplan, der kennzeichnet, nach welchem Sprint welches Inkrement erstellt wird. Dabei werden die Priorität der User Stories, ihre geschätzte Größe, die Velocity des Teams und die strategischen Rahmenbedingungen des Produkts berücksichtigt. Der Releaseplan ist von hoher Relevanz in der Praxis, da der Product Owner wissen muss, wie viele Sprints benötigt werden, bis das Produkt voraussichtlich marktreif ist. Die folgende Abbildung zeigt einen beispielhaften Releaseplan, wobei nach Sprint drei und sechs jeweils ein Produktrelease geplant ist. Die anderen Inkremente hingegen dienen der internen Evaluierung und Weiterentwicklung.
+
+![Beispiel Releaseplan (Bildquelle: [Holger Timinger: Modernes Projektmanagement, 2024](https://thb-koeln.digibib.net/search/katalog/record/(DE-605)HT030693430?be-katalog-sort=relevance&q-al=timinger&start=1&count=20&hitcount=269&pos=4))](attachment:203a2d7b-772f-48b7-8ee0-b33f1afd8286:image.png)
+
+Beispiel Releaseplan (Bildquelle: [Holger Timinger: Modernes Projektmanagement, 2024](https://thb-koeln.digibib.net/search/katalog/record/(DE-605)HT030693430?be-katalog-sort=relevance&q-al=timinger&start=1&count=20&hitcount=269&pos=4))
+
+<aside>
+📢
+
+“**Release early, release often**” ist ein Prinzip, das in vielen agilen Entwicklungsprozessen verankert ist. Schnelle und iterative Veröffentlichungen sind dabei von großer Bedeutung. Das Prinzip dient dazu, Feedback zu erhalten, Fehler in der frühen Entwicklung zu entdecken und sich kontinuierlich zu verbessern. Versionen machen den Fortschritt sichtbar, schaffen Transparenz und dienen als Meilensteine in einem Entwicklungsprojekt. 
+
+</aside>
+
+## Impediment Backlog
+
+Unter einem Impediment versteht man alles, was das Scrum Team blockiert und daran hindert die Ziele zu erreichen. Beispiele sind schlechte technische Ausstattung der Entwickler, mangelnde Fähigkeiten im Scrum Team sowie fehlende Zugänge für notwendige Software. Es liegt am **Scrum Master**, die Impediments (Hindernisse), die das Scrum Team von seinem Erfolg abhalten, zu beseitigen. 
+
+<aside>
+📢
+
+Ein Impediment **blockiert JETZT die Arbeit**. Ein Risiko **könnte später blockieren**.
+
+</aside>
+
+# Scrum Events
+
+Scrum ist dadurch gekennzeichnet, dass **fünf Events** in einer bestimmten Reihenfolge kontinuierlich stattfinden. Diese lauten **Sprint**, **Sprint Planning**, **Daily Scrum**, **Sprint Retrospektive** und **Sprint Review**. Diese Events strukturieren den Scrum-Prozess und werden zur **regelmäßigen Inspektion und Adaption** genutzt. Jedes Event ist durch einen Zweck und einer Timebox gekennzeichnet. Zudem sind alle Events im Scrum Guide verankert und finden regelmäßig statt. Zudem steht stets der Wert für den Kunden im Mittelpunkt eines jeden Events.
+
+## Sprint
+
+> “**Sprints** *are the heartbeat of Scrum, where ideas are turned into value. […] All the work necessary to achieve the Product Goal, including Sprint Planning, Daily Scrums, Sprint Review, and Sprint Retrospective, happen within Sprints. […]* **During the Sprint***: No changes are made that would endanger the Sprint Goal; Quality does not decrease; The Product Backlog is refined as needed; and, Scope may be clarified and renegotiated with the Product Owner as more is learned.*”
+Quelle: Ken Schwaber, Jeff Sutherland: The 2020 Scrum Guide
+> 
+
+Ein Sprint dient als “Container” für alle anderen Events. Die Timebox beträgt 1-4 Wochen und sollte über mehrere Sprints (=dauerhaft) konstant bleiben. Das Ergebnis ist immer ein nützliches, wertvolles Inkrement. Wie oben erwähnt werden die Arbeiten, die während eines Sprints zu erledigen sind, während des Sprint Plannings vom Scrum Team erarbeitet und anschließend im Sprint Backlog eingetragen.
+
+Falls am Ende eines Sprints einige Sprint-Backlog-Einträge übrig bleiben, werden diese vom Product Owner zurück in das Product-Backlog verschoben. Anschließend werden diese erneut geschätzt und einsortiert. Ein Sprint endet immer mit dem Abschluss der Sprint Retrospektive und ein neuer beginnt mit dem Sprint Planning. 
+Quelle: Juliane Pilster: Professional Scrum Master und Product Owner, 2025 
+
+| Events | Timebox | verpflichtende
+Teilnehmer | Inspektion | Adaption |
+| --- | --- | --- | --- | --- |
+| Sprint | 1-4 Wochen |  |  |  |
+| Sprint
+Planning | 8 Stunden
+oder kürzer | Scrum Team | Product Backlog | Sprint Backlog |
+| Daily Scrum | 15 Minuten | Developer | Fortschritt zum Sprint-Ziel | Sprint Backlog |
+| Sprint
+Review | 4 Stunden 
+oder kürzer | Scrum Team
+Stakeholder | Inkrement | Product Backlog |
+| Sprint
+Retrospektive | 3 Stunden
+oder kürzer | Scrum Team | Zusammenarbeit im Hinblick auf Individuen, Interaktionen, Prozesse,
+Werkzeuge | Prozesse (z.B. Definition of Done)
+
+Sprint Backlog (Maßnahmen aus der Sprint Retrospektive zur Umsetzung im nächsten Sprint) |
+
+Scrum Events innerhalb des Scrum-Rahmenwerks (in Anlehnung an: Juliane Pilster: [Professional Scrum Master und Product Owner, 2025](https://www.wiley-vch.de/de?option=com_eshop&view=product&dummiesview=1&isbn=9783527722266&title=Professional%20Scrum%20Master%20und%20Product%20Owner%20f%C3%BCr%20Dummies))
+
+## Sprint Planning
+
+> “**Sprint Planning** *initiates the Sprint by laying out the work to be performed for the Sprint. This resulting plan is created by the collaborative work of the entire Scrum Team. […] Sprint Planning addresses the following topics: Topic One: Why is this Sprint valuable? […] Topic Two: What can be Done this Sprint? […] Topic Three: How will the chosen work get done?*”
+Quelle: Ken Schwaber, Jeff Sutherland: The 2020 Scrum Guide
+> 
+
+Das Sprint Planning markiert den Beginn eines Sprints und hat eine Dauer von acht Stunden bei einem vierwöchigen Sprint. Vor Beginn des Sprint Plannings hat der Product Owner die Aufgabe sicherzustellen, dass alle Teilnehmenden die relevanten Product-Backlog-Einträge gut genug verstanden haben, damit sie diese besprechen können. Zudem verweist er auf die Relevanz der Einträge zum Produkt-Ziel. Zu den Input-Faktoren des Sprint Planning gehören das letzte Inkrement, die Definition of Done, das Produkt-Ziel, das Product Backlog, die erwartete Kapazität der Entwickler im begonnen Sprint sowie die bisherige Leistung und Geschwindigkeit des Teams (Erkenntnisse aus vorherigen Sprint). Das Ergebnis des Sprint Plannings ist das **Sprint Backlog**.
+Quelle: Juliane Pilster: Professional Scrum Master und Product Owner, 2025
+
+| Input | Output |
+| --- | --- |
+| ✓ Product Backlog | ✓ Sprint Backlog |
+| ✓ Produkt-Ziel |  |
+| ✓ letztes Inkrement |  |
+| ✓ erwartete Kapazität der Entwickler im begonnenen Sprint |  |
+| ✓ bisherige Leistung und Geschwindigkeit des Teams |  |
+| ✓ Definition of Done |  |
+
+Input- und Output-Faktoren des Sprint Plannings (in Anlehnung an: Juliane Pilster: [Professional Scrum Master und Product Owner, 2025](https://www.wiley-vch.de/de?option=com_eshop&view=product&dummiesview=1&isbn=9783527722266&title=Professional%20Scrum%20Master%20und%20Product%20Owner%20f%C3%BCr%20Dummies))
+
+### Schätzen mit Storypoints
+
+<aside>
+📢
+
+“**Story Points** *sind ein Maß für die Größe einer User Story bei Scrum. Die Größe spiegelt dabei die Komplexität der in der User Story dokumentierten Anforderung wider und ist unabhängig vom Aufwand. Letzterer hängt auch von der Fertigkeit der bearbeitenden Person ab; er wird bei der Schätzung der Story Points nicht berücksichtigt*.”
+Quelle: Holger Timinger: Modernes Projektmanagement, 2024
+
+</aside>
+
+Eine Methode des relativen Schätzens ist die Anwendung von Story Points. Dabei gibt man das Verhältnis der Product-Backlog-Einträge zueinander an. Beispielsweise ist bekannt, dass Aufgabe A doppelt so aufwendig ist wie Aufgabe B. Story Points werden üblicherweise mit den Zahlenwerten der (modifizierten) Fibonacci-Folge angegeben. Eine andere Möglichkeit des Schätzen ist die Anwendung von “T-Shirt-Größen” (XS, S, M, L, XL).
+
+<aside>
+📝
+
+Beispiel/Übungsaufgabe: Aufwandsschätzung mit Fibonacci
+
+*Ziel: relative Schätzung, Erkennen zu großer Stories*
+
+**Velocity-Beispiel:** Das Team schafft 10 Story Points pro Sprint.
+
+Gegeben sind folgende User Stories:
+
+- PBI 1: "Als SchülerIn möchte ich Hausaufgaben erfassen, um meine Aufgaben im Blick zu haben." [5 SP als Referenz]
+- PBI 3: "Als SchülerIn möchte ich einen Kalender mit Aufgabenübersicht sehen."
+- PBI 4: "Als SchülerIn möchte ich Fächer verwalten, um nur relevante Fächer zu sehen."
+- PBI 5: "Als SchülerIn möchte ich mich mit Schulaccount anmelden."
+- PBI 6: "Als SchülerIn möchte ich Dark Mode aktivieren."
+
+**Teilaufgaben:** 
+
+1. Schätzen Sie den Aufwand der übrigen User Stories relativ zur User Story PBI 1 mit einem Aufwand von 5 Story Points (SP) als Referenz. Nutzen Sie dazu die modifizierte Fibonacci-Folge (0,1,2,3,5,8,13,20,40,100). 
+2. Begründen Sie die Angabe der Story Points.
+3. Wählen Sie die User Stories aus, die vom Team innerhalb eines Sprints erledigt werden können.
+</aside>
+
+- (Beispiel)lösung:
+    
+    
+    | PBI ID | User Story | Story Points | Begründung relativ zu PBI 1 (5 SP) |
+    | --- | --- | --- | --- |
+    | PBI 1 | Hausaufgaben erfassen | **5 SP** | Referenz |
+    | PBI 3 | Kalenderansicht | **8 SP** | Komplexe UI + Datumsberechnungen |
+    | PBI 4 | Fächer verwalten | **3 SP** | Kleiner als PBI 1 (keine Datumslogik) |
+    | PBI 5 | Login Schulaccount | **13 SP** | SSO-Integration, Sicherheit |
+    | PBI 6 | Dark Mode | **2 SP** | Nur CSS, keine Logik |
+    
+    → Mit einer Velocity von 10 SP könnte das Team die User Stories PBI 1 (5 SP), PBI 6 (2 SP) und PBI 4 (3 SP) im nächsten Sprint erledigen.
+    
+
+## Daily Scrum
+
+> “*The purpose of the* **Daily Scrum** *is to inspect progress toward the Sprint Goal and adapt the Sprint Backlog as necessary, adjusting the upcoming planned work. […]* **Daily Scrums** *improve communications, identify impediments, promote quick decision-making, and consequently eliminate the need for other meetings.*”
+Quelle: Ken Schwaber, Jeff Sutherland: The 2020 Scrum Guide
+> 
+
+Das Daily Scrum findet täglich statt und hat den Zweck den bisherigen Fortschritt sowie das Sprint Backlog im Hinblick auf das Sprint-Ziel zu inspizieren. Die Developers erstellen einen Plan für die nächsten 24 Stunden und passen das Sprint Backlog dementsprechend an. Die Timebox des Daily Scrums beträgt immer 15 Minuten. Die Anwesenheit des Scrum Masters und des Product Owners ist nicht vorgesehen, jedoch ist es die Aufgabe des Scrum Masters sicherzustellen, dass die Developers das Daily Scrum durchführen. Das Daily Scrum ist eine gute Gelegenheit zur Erhöhung des Selbstmanagements der Entwicklung, zur Verbesserung der Kommunikation der Developers, zur Identifikation weiterer Impediments und zur Förderung der schnellen Entscheidungsfindung.
+Quelle: Juliane Pilster: Professional Scrum Master und Product Owner, 2025
+
+| Input | Output |
+| --- | --- |
+| ✓ Sprint-Ziel | ✓ adaptiertes Sprint-Backlog |
+| ✓ Sprint Backlog | ✓ Plan für die nächsten 24 Stunden |
+| ✓ Fortschritt des letzten Arbeitstages | ✓ gegebenenfalls Impediments |
+
+Input- und Output-Faktoren des Daily Scrums (in Anlehnung an: Juliane Pilster: [Professional Scrum Master und Product Owner, 2025](https://www.wiley-vch.de/de?option=com_eshop&view=product&dummiesview=1&isbn=9783527722266&title=Professional%20Scrum%20Master%20und%20Product%20Owner%20f%C3%BCr%20Dummies))  **
+
+## Sprint Retrospective (”Retro”)
+
+> “*The purpose of the* **Sprint Retrospective** *is to plan ways to increase quality and effectiveness. The Scrum Team inspects how the last Sprint went with regards to individuals, interactions, processes, tools, and their Definition of Done.*”
+Quelle: Ken Schwaber, Jeff Sutherland: The 2020 Scrum Guide
+> 
+
+Wie bereits oben erwähnt, markiert die Sprint Retrospektive den Abschluss eines Sprints. Anwesend sind alle Mitglieder des Scrum Teams, wobei Gäste nicht erlaubt sind. Die Timebox beträgt drei Stunden für einen einmonatigen Sprint. Das Scrum Team hält fest, was gut verlief und was sich verbessern lässt. Hier steht nicht das Produkt im Mittelpunkt, sondern das Scrum Team selbst. Bei der Sprint Retrospektive geht es vor Allem um konstruktive Diskussionen. Im Gegensatz zum Sprint Review werden hier die Storypoints nicht analysiert!
+Quelle: Juliane Pilster: Professional Scrum Master und Product Owner, 2025
+
+| Input | Output |
+| --- | --- |
+| ✓ alle Erkenntnisse aus dem letzten Sprint, die nicht das Produkt selbst betreffen, sondern Prozesse, Qualität und Zusammenarbeit des Scrum Teams | ✓ Plan für die Verbesserung von Qualität und Effektivität |
+| ✓ Definition of Done | ✓ gegebenenfalls Anpassungen für das Sprint Backlog |
+
+Input- und Output-Faktoren der Sprint Retrospektive (in Anlehnung an: Juliane Pilster: [Professional Scrum Master und Product Owner, 2025](https://www.wiley-vch.de/de?option=com_eshop&view=product&dummiesview=1&isbn=9783527722266&title=Professional%20Scrum%20Master%20und%20Product%20Owner%20f%C3%BCr%20Dummies))
+
+## Sprint Review
+
+> “*The purpose of the* **Sprint Review** *is to inspect the outcome of the Sprint and determine future adaptations. The Scrum Team presents the results of their work to key stakeholders and progress toward the Product Goal is discussed.*”
+Quelle: Ken Schwaber, Jeff Sutherland: The 2020 Scrum Guide
+> 
+
+Beim Sprint Review handelt es sich um ein Treffen des Scrum Teams mit den relevanten Stakeholdern. Auf der Basis des Feedbacks der Stakeholder wird das Product Backlog angepasst. Im Mittelpunkt dieses Events steht das Produkt und der damit verbundene Fortschritt, der während des Sprints erzielt wurde, in Richtung des Produkt-Ziels. Der Scrum Master hat hier die Aufgabe sicherzustellen, dass alle Teilnehmenden ihren Fokus beibehalten. Die Timebox beträgt vier Stunden für einen einmonatigen Sprint. 
+Quelle: Juliane Pilster: Professional Scrum Master und Product Owner, 2025
+
+| Input | Output |
+| --- | --- |
+| ✓ Produkt-Ziel | ✓ adaptiertes Product Backlog |
+| ✓ Inkrement |  |
+| ✓ Product Backlog |  |
+| ✓ Erkenntnisse der Stakeholder
+    (z.B. Markttrends) |  |
+
+Input- und Output-Faktoren des Sprint Reviews (in Anlehnung an: Juliane Pilster: [Professional Scrum Master und Product Owner, 2025](https://www.wiley-vch.de/de?option=com_eshop&view=product&dummiesview=1&isbn=9783527722266&title=Professional%20Scrum%20Master%20und%20Product%20Owner%20f%C3%BCr%20Dummies))
+
+### Velocity bestimmen
+
+Die Auswertung der Storypoints während des Sprint Reviews kann zur Bestimmung der Velocity verwendet werden. Die Velocity bezeichnet die Arbeitsgeschwindigkeit eines Scrum Teams. Hierbei werden die **abgeschlossenen** Aufgaben während eines Sprints, meistens mit Storypoints, gemessen. Nach einem Sprint werden die abgeschlossenen Sprint Backlog Einträge gezählt. Hierbei werden nur diejenigen Einträge berücksichtigt, die die **Definition of Done** erfüllen und somit komplett abgeschlossen sind. Wenn beispielsweise ein Eintrag nur zur Hälfte erledigt wurde, dann sind es in dem Fall null Story Points. Alle Story Points, die in einem Sprint erledigt wurden, werden aufsummiert. 
+
+$$
+Velocity = Story~Points~/~Sprint
+$$
+
+Üblicherweise wird über mehrere Sprints ein Durchschnittswert gebildet. Die Velocity ist hilfreich für die Prognose bezüglich der machbaren Arbeitsmenge pro Sprint. Zudem kann das Scrum Team mit dieser Analyse ihre Schätzungen verbessern. 
+
+Es ist zu beachten, dass erstens die Velocity ein teamspezifischer Wert ist und somit als Eigenschaft eines Teams gilt. Zweitens ist die Skalierung teamspezifisch. Es ist demnach wenig aussagekräftig unterschiedliche Teams anhand ihrer Velocity zu vergleichen. 
+
+Wenn die Developer bereits zusammen im Team gearbeitet haben, dann kennen sie ihre Velocity, wissen demnach wie viele Story Points sie im vorherigen Sprint erreicht haben. Diesen Wert können sie bei der Planung des nächsten Sprints berücksichtigen. Im Rahmen der Sprint Retrospektive werden Verbesserungen beschlossen, um die Velocity zu steigern. Die Velocity ist somit eine wichtige Kennzahl pro Team. Es ist empfehlenswert die Sprint Backlog Einträge kleiner zu halten und eine parallele Abarbeitung von den Items zu reduzieren. Nach mehreren Sprints kann das Team die möglichen abzuschließenden Einträge besser einschätzen.
+
+<aside>
+📝
+
+**Beispiel Velocity:**
+
+“*Ein Scrum Team hat die Velocity 60 Story Points. Im Rahmen der Planung des nächsten Sprints werden für diesen User Stories im Umfang von 60 Story Points ausgewählt und in Tasks umgewandelt. Diese werden anschließend bearbeitet. Das Team war erfolgreich und hat effizient gearbeitet. Am Ende kann sogar noch eine zusätzliche User Story im Umfang von 10 Story Points bearbeitet werden. Es wurden also insgesamt 70 Story Points in diesem Sprint bearbeitet. Wenn das Team der Meinung ist, diese Menge auch künftig umsetzen zu können, gibt es als Velocity künftig 70 Story Points an.*”
+Quelle: Holger Timinger: Modernes Projektmanagement, 2024
+
+</aside>
+
+# Quellen zum Nachschlagen und Vertiefen
+
+- Juliane Pilster: [Professional Scrum Master und Product Owner, 2025](https://www.wiley-vch.de/de?option=com_eshop&view=product&dummiesview=1&isbn=9783527722266&title=Professional%20Scrum%20Master%20und%20Product%20Owner%20f%C3%BCr%20Dummies)
+- Holger Timinger: [Modernes Projektmanagement, 2024](https://thb-koeln.digibib.net/search/katalog/record/(DE-605)HT030693430?be-katalog-sort=relevance&q-al=timinger&start=1&count=20&hitcount=269&pos=4)
+- Ken Schwaber: [SCRUM Development Process, 1995](https://www.scrum.org/resources/scrum-development-process)
+    
+    [Scrum OOPSLA 1995.pdf](attachment:82084fd6-1029-424f-a507-e9cc6b7ef959:Scrum_OOPSLA_1995.pdf)
+    
+- [Das agile Manifest](https://agilemanifesto.org/iso/de/manifesto.html)
+- Takeuchi und Nonaka: [The New Product Development Game, 1986](https://hbr.org/1986/01/the-new-new-product-development-game)
+- it-agile: [Was ist Story Mapping? Story Maps - Landkarten für das Product Backlog](https://www.it-agile.de/agiles-wissen/agiles-produktmanagement/story-mapping/), zuletzt zugegriffen am 04.05.26

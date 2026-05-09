@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planspiel für Studierende</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Planspiel für Studierende</h1>
+      <p>Treffe Entscheidungen für dein Studium, organisiere Zeit, Budget und Projektarbeit. Erlebe ein interaktives Lernspiel als Webanwendung.</p>
+      <button id="startButton" class="primary-button">Spiel starten</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="overview" class="section hidden">
+      <div class="card">
+        <h2>Deine Aufgabe</h2>
+        <p>Du bist Studierende:r und musst dein Semester planen. Wähle Aufgaben, verwalte dein Zeitbudget und entscheide dich in Projektsituationen richtig.</p>
+      </div>
+
+      <div id="gamePanel" class="card game-panel">
+        <div class="status-bar">
+          <div>Semester: <strong id="currentPhase">1</strong> / 3</div>
+          <div>Motivation: <strong id="motivation">50</strong>%</div>
+          <div>Budget: <strong id="budget">500</strong> €</div>
+        </div>
+
+        <div id="scenario" class="scenario">
+          <h3 id="scenarioTitle">Lernplan erstellen</h3>
+          <p id="scenarioText">Du stehst vor der Wahl: Wie strukturierst du deine Woche? Welche Prioritäten setzt du?</p>
+        </div>
+
+        <div id="options" class="options"></div>
+      </div>
+
+      <div id="resultPanel" class="card hidden">
+        <h2>Zwischenergebnis</h2>
+        <p id="resultText"></p>
+        <button id="nextPhaseButton" class="secondary-button">Weiter</button>
+      </div>
+    </section>
+
+    <section id="finalScreen" class="section hidden">
+      <div class="card final-card">
+        <h2>Spiel beendet</h2>
+        <p id="finalSummary"></p>
+        <div class="score-grid">
+          <div><strong>Motivation:</strong> <span id="finalMotivation"></span>%</div>
+          <div><strong>Budget:</strong> <span id="finalBudget"></span> €</div>
+          <div><strong>Punkte:</strong> <span id="finalScore"></span></div>
+        </div>
+        <button id="restartButton" class="primary-button">Neues Spiel</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Einfaches Planspiel für Studierende. Entwickelt als Webanwendung.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

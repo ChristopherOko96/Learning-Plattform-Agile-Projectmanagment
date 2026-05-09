@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+
+# Build output
+frontend/dist/
+frontend/build/
+
+# Environment variables (NEVER committen!)
+backend/.env
+.env
+.env.local
+.env.*
+
+# Datenbank
+backend/database.sqlite
+backend/*.sqlite
+backend/*.db
+
+# Uploads (PDFs lokal)
+backend/uploads/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Claude Code local settings
+.claude/settings.local.json
