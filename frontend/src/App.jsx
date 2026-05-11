@@ -57,13 +57,20 @@ const DonutChart = ({ pct, size = 80, strokeWidth = 9, color, isDone }) => {
 }
 
 const BADGE_DEFINITIONS = [
-  { id: 'first_step',  icon: '🚀', label: 'Erster Schritt',    desc: 'Erste Aufgabe abgeschlossen',          check: (p) => (p.completedScenarios?.length || 0) >= 1 },
-  { id: 'score_50',   icon: '💡', label: 'Wissenshungrig',    desc: '50+ Punkte gesammelt',                 check: (p) => (p.totalScore || 0) >= 50 },
-  { id: 'score_150',  icon: '⭐', label: 'Experte',           desc: '150+ Punkte gesammelt',                check: (p) => (p.totalScore || 0) >= 150 },
-  { id: 'po_done',    icon: '🎯', label: 'Product Owner',     desc: 'PO-Phase abgeschlossen',               check: (p) => p.phaseProgress?.product_owner?.completed >= p.phaseProgress?.product_owner?.total && p.phaseProgress?.product_owner?.total > 0 },
-  { id: 'sm_done',    icon: '🛡️', label: 'Scrum Master',      desc: 'SM-Phase abgeschlossen',               check: (p) => p.phaseProgress?.scrum_master?.completed >= p.phaseProgress?.scrum_master?.total && p.phaseProgress?.scrum_master?.total > 0 },
-  { id: 'dev_done',   icon: '💻', label: 'Developer',         desc: 'Developer-Phase abgeschlossen',        check: (p) => p.phaseProgress?.developer?.completed >= p.phaseProgress?.developer?.total && p.phaseProgress?.developer?.total > 0 },
-  { id: 'all_done',   icon: '🏆', label: 'Agile Champion',    desc: 'Alle Phasen abgeschlossen!',           check: (p) => ['product_owner','scrum_master','developer','kanban'].every(k => p.phaseProgress?.[k]?.completed >= p.phaseProgress?.[k]?.total && p.phaseProgress?.[k]?.total > 0) },
+  { id: 'first_step',  icon: '🚀', label: 'Erster Schritt',    desc: 'Erste Aufgabe abgeschlossen',
+    check: (p) => (p.completedScenarios?.length || 0) >= 1 },
+  { id: 'half_way',   icon: '🔥', label: 'Auf Kurs',          desc: 'Mehr als die Hälfte aller Aufgaben gelöst',
+    check: (p) => (p.agileLevel?.overallPct || 0) >= 50 },
+  { id: 'po_done',    icon: '🎯', label: 'Product Owner',     desc: 'PO-Phase vollständig abgeschlossen',
+    check: (p) => p.phaseProgress?.product_owner?.completed >= p.phaseProgress?.product_owner?.total && p.phaseProgress?.product_owner?.total > 0 },
+  { id: 'sm_done',    icon: '🛡️', label: 'Scrum Master',      desc: 'SM-Phase vollständig abgeschlossen',
+    check: (p) => p.phaseProgress?.scrum_master?.completed >= p.phaseProgress?.scrum_master?.total && p.phaseProgress?.scrum_master?.total > 0 },
+  { id: 'dev_done',   icon: '💻', label: 'Developer',         desc: 'Developer-Phase vollständig abgeschlossen',
+    check: (p) => p.phaseProgress?.developer?.completed >= p.phaseProgress?.developer?.total && p.phaseProgress?.developer?.total > 0 },
+  { id: 'kanban_done',icon: '📊', label: 'Kanban Manager',    desc: 'Kanban-Phase vollständig abgeschlossen',
+    check: (p) => p.phaseProgress?.kanban?.completed >= p.phaseProgress?.kanban?.total && p.phaseProgress?.kanban?.total > 0 },
+  { id: 'all_done',   icon: '🏆', label: 'Agile Champion',    desc: 'Alle 4 Phasen abgeschlossen!',
+    check: (p) => ['product_owner','scrum_master','developer','kanban'].every(k => p.phaseProgress?.[k]?.completed >= p.phaseProgress?.[k]?.total && p.phaseProgress?.[k]?.total > 0) },
 ]
 
 const DONUT_COLORS = ['#e91e8c', '#4361ee', '#4cc9f0', '#f77f00']
@@ -1449,8 +1456,8 @@ function App() {
             : `${completedPhase.label} abgeschlossen.`}
         </p>
         <div className="phase-complete-stats">
-          <div className="stat"><span className="stat-value">{userProgress.totalScore}</span><span className="stat-label">Gesamtscore</span></div>
-          <div className="stat"><span className="stat-value">{userProgress.currentMotivation}%</span><span className="stat-label">Motivation</span></div>
+          <div className="stat"><span className="stat-value">{userProgress.completedScenarios?.length || 0}</span><span className="stat-label">Aufgaben gelöst</span></div>
+          <div className="stat"><span className="stat-value">{userProgress.agileLevel?.title || 'Einsteiger'}</span><span className="stat-label">Agile Level</span></div>
         </div>
         {nextPhase && (
           <div className="next-phase-preview">
@@ -2118,13 +2125,13 @@ function App() {
       <div className="game-complete-icon">🏆</div>
       <h2>Planspiel abgeschlossen!</h2>
       <p>
-        Du hast alle drei Scrum-Rollen des Smart Lock Teams bei VeloTech GmbH durchgespielt
-        und Kanban als ergänzendes Werkzeug kennengelernt.
+        Du hast alle vier Phasen des VeloTech Smart Lock Projekts durchgespielt —
+        von der Produktvision bis zum laufenden Kanban-Betrieb.
       </p>
       <div className="final-stats">
-        <div className="stat"><span className="stat-value">{userProgress.totalScore}</span><span className="stat-label">Gesamtscore</span></div>
-        <div className="stat"><span className="stat-value">{userProgress.completedScenarios.length}</span><span className="stat-label">Fragen beantwortet</span></div>
-        <div className="stat"><span className="stat-value">{userProgress.currentMotivation}%</span><span className="stat-label">Motivation</span></div>
+        <div className="stat"><span className="stat-value">{userProgress.completedScenarios?.length || 0}</span><span className="stat-label">Aufgaben gelöst</span></div>
+        <div className="stat"><span className="stat-value">{userProgress.agileLevel?.title || 'Einsteiger'}</span><span className="stat-label">Agile Level</span></div>
+        <div className="stat"><span className="stat-value">{userProgress.agileLevel?.overallPct || 0}%</span><span className="stat-label">Gesamtfortschritt</span></div>
       </div>
       <div className="game-complete-roles">
         <p>Du hast folgende Rollen und Konzepte erlebt:</p>
@@ -2161,9 +2168,11 @@ function App() {
                 <button className="settings-nav-btn" onClick={() => setShowAppSettings(true)}>
                   ⚙️ Einstellungen
                 </button>
-                <button className="backlog-nav-btn" onClick={async () => { await loadTickets(); setCurrentView('backlog') }}>
-                  📋 Backlog
-                </button>
+                {(currentPhaseIndex <= 1 || currentView === 'backlog' || currentView === 'sprint_planning') && (
+                  <button className="backlog-nav-btn" onClick={async () => { await loadTickets(); setCurrentView('backlog') }}>
+                    📋 Backlog
+                  </button>
+                )}
                 <button className="lib-nav-btn" onClick={async () => { await loadDocuments(); setLibCategoryFilter('Alle'); setCurrentView('library') }}>
                   📚 Bibliothek
                 </button>
