@@ -8,7 +8,7 @@ const { sequelize, testConnection } = require('./config/database');
 const path = require('path');
 const fs = require('fs');
 const multer = require('multer');
-const { User, Scenario, UserAnswer, Document } = require('./models');
+const { User, Scenario, UserAnswer, Document, UserTicket } = require('./models');
 
 dotenv.config();
 
@@ -112,6 +112,8 @@ app.get('/api/user/progress', authenticateToken, async (req, res) => {
     // Phase-based progress: for each phase count total scenarios and how many the user answered
     const phases = ['product_owner', 'scrum_master', 'developer', 'kanban'];
     const phaseProgress = {};
+    const scenarioProgress = {};
+
     for (const phase of phases) {
       const phaseScenarios = await Scenario.findAll({
         where: { phase, isActive: true },
@@ -122,10 +124,32 @@ app.get('/api/user/progress', authenticateToken, async (req, res) => {
         userAnswers.filter(a => phaseIds.includes(a.scenarioId)).map(a => a.scenarioId)
       )];
       phaseProgress[phase] = { total: phaseIds.length, completed: answeredInPhase.length };
+      scenarioProgress[phase] = answeredInPhase.length;
     }
 
     // Determine which phase to resume (first incomplete phase)
     const resumePhase = phases.find(p => phaseProgress[p].completed < phaseProgress[p].total) || null;
+
+    // Calculate agile level based on overall progress
+    const totalScenarios = Object.values(phaseProgress).reduce((s, p) => s + p.total, 0) || 29;
+    const totalCompleted = Object.values(phaseProgress).reduce((s, p) => s + p.completed, 0);
+    const overallPct = totalScenarios > 0 ? Math.round((totalCompleted / totalScenarios) * 100) : 0;
+
+    const AGILE_LEVELS = [
+      { min: 0,  max: 24,  level: 1, title: 'Agile Einsteiger',    icon: '🌱' },
+      { min: 25, max: 49,  level: 2, title: 'Scrum Praktikant',    icon: '📋' },
+      { min: 50, max: 74,  level: 3, title: 'Agile Practitioner',  icon: '🔄' },
+      { min: 75, max: 89,  level: 4, title: 'Scrum Professional',  icon: '🚀' },
+      { min: 90, max: 100, level: 5, title: 'Agile Champion',      icon: '🏆' }
+    ];
+    const currentLevel = AGILE_LEVELS.find(l => overallPct >= l.min && overallPct <= l.max) || AGILE_LEVELS[0];
+    const nextLevel = AGILE_LEVELS.find(l => l.level === currentLevel.level + 1) || null;
+    const agileLevel = {
+      ...currentLevel,
+      overallPct,
+      nextLevelAt: nextLevel ? nextLevel.min : 100,
+      progressToNext: nextLevel ? Math.round(((overallPct - currentLevel.min) / (nextLevel.min - currentLevel.min)) * 100) : 100
+    };
 
     res.json({
       success: true,
@@ -136,7 +160,9 @@ app.get('/api/user/progress', authenticateToken, async (req, res) => {
         completedRoles: [],
         currentRole: null,
         phaseProgress,
-        resumePhase
+        scenarioProgress,
+        resumePhase,
+        agileLevel
       }
     });
   } catch (error) {
@@ -515,6 +541,143 @@ app.post('/api/auth/login', async (req, res) => {
   } catch (error) {
     console.error('Login error:', error);
     res.status(500).json({ success: false, message: 'Interner Serverfehler bei der Anmeldung' });
+  }
+});
+
+// ─── User Tickets Routes ────────────────────────────────────────────────────────
+
+// GET all tickets for the authenticated user
+app.get('/api/tickets', authenticateToken, async (req, res) => {
+  try {
+    const tickets = await UserTicket.findAll({
+      where: { userId: req.user.userId },
+      order: [['id', 'ASC']]
+    });
+    res.json({ success: true, tickets });
+  } catch (error) {
+    console.error('Error fetching tickets:', error);
+    res.status(500).json({ success: false, error: 'Fehler beim Laden der Tickets' });
+  }
+});
+
+// POST create a new ticket
+app.post('/api/tickets', authenticateToken, async (req, res) => {
+  try {
+    const { title, description, storyPoints, priority } = req.body;
+
+    if (!title || title.trim().length < 5) {
+      return res.status(400).json({
+        success: false,
+        error: 'Titel muss mindestens 5 Zeichen haben'
+      });
+    }
+
+    const ticket = await UserTicket.create({
+      userId: req.user.userId,
+      title: title.trim(),
+      description: description?.trim() || '',
+      storyPoints: storyPoints || 0,
+      priority: priority || 'mittel'
+    });
+
+    res.status(201).json({ success: true, ticket });
+  } catch (error) {
+    console.error('Error creating ticket:', error);
+    res.status(500).json({ success: false, error: 'Fehler beim Erstellen des Tickets' });
+  }
+});
+
+// PUT update a ticket (Status, Story Points, etc.)
+app.put('/api/tickets/:id', authenticateToken, async (req, res) => {
+  try {
+    const ticket = await UserTicket.findOne({
+      where: { id: req.params.id, userId: req.user.userId }
+    });
+
+    if (!ticket) {
+      return res.status(404).json({ success: false, error: 'Ticket nicht gefunden' });
+    }
+
+    const { title, description, storyPoints, priority, status } = req.body;
+
+    await ticket.update({
+      title: title ?? ticket.title,
+      description: description ?? ticket.description,
+      storyPoints: storyPoints ?? ticket.storyPoints,
+      priority: priority ?? ticket.priority,
+      status: status ?? ticket.status
+    });
+
+    res.json({ success: true, ticket });
+  } catch (error) {
+    console.error('Error updating ticket:', error);
+    res.status(500).json({ success: false, error: 'Fehler beim Aktualisieren des Tickets' });
+  }
+});
+
+// DELETE a ticket
+app.delete('/api/tickets/:id', authenticateToken, async (req, res) => {
+  try {
+    const ticket = await UserTicket.findOne({
+      where: { id: req.params.id, userId: req.user.userId }
+    });
+
+    if (!ticket) {
+      return res.status(404).json({ success: false, error: 'Ticket nicht gefunden' });
+    }
+
+    await ticket.destroy();
+    res.json({ success: true });
+  } catch (error) {
+    console.error('Error deleting ticket:', error);
+    res.status(500).json({ success: false, error: 'Fehler beim Löschen des Tickets' });
+  }
+});
+
+// POST seed templates – create initial template tickets for new user
+app.post('/api/tickets/seed-templates', authenticateToken, async (req, res) => {
+  try {
+    const existing = await UserTicket.count({
+      where: { userId: req.user.userId }
+    });
+
+    if (existing > 0) {
+      return res.json({ success: true, message: 'Vorlagen bereits vorhanden' });
+    }
+
+    const templates = [
+      {
+        title: 'App-Entsperrung per Bluetooth',
+        description: 'Als Radfahrer möchte ich mein Schloss per App entsperren, damit ich keinen physischen Schlüssel benötige.',
+        storyPoints: 8,
+        priority: 'hoch'
+      },
+      {
+        title: 'GPS-Standort tracken',
+        description: 'Als Nutzer möchte ich den Standort meines Fahrrads in Echtzeit sehen, damit ich es bei Diebstahl orten kann.',
+        storyPoints: 5,
+        priority: 'hoch'
+      },
+      {
+        title: 'Diebstahlalarm Push-Nachricht',
+        description: 'Als Nutzer möchte ich eine Push-Benachrichtigung erhalten, wenn jemand unbefugt mein Schloss öffnet.',
+        storyPoints: 5,
+        priority: 'hoch'
+      }
+    ];
+
+    await UserTicket.bulkCreate(
+      templates.map(t => ({
+        ...t,
+        userId: req.user.userId,
+        isTemplate: true
+      }))
+    );
+
+    res.json({ success: true, message: 'Vorlagen erfolgreich erstellt' });
+  } catch (error) {
+    console.error('Error seeding templates:', error);
+    res.status(500).json({ success: false, error: 'Fehler beim Erstellen der Vorlagen' });
   }
 });
 

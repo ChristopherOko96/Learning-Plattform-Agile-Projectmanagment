@@ -171,6 +171,59 @@ const Document = sequelize.define('Document', {
   }
 });
 
+// UserTicket model – Spieler-erstellte User Stories
+const UserTicket = sequelize.define('UserTicket', {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
+  userId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: User,
+      key: 'id'
+    }
+  },
+  title: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  description: {
+    type: DataTypes.TEXT,
+    allowNull: true
+  },
+  storyPoints: {
+    type: DataTypes.INTEGER,
+    defaultValue: 0
+  },
+  priority: {
+    type: DataTypes.ENUM('hoch', 'mittel', 'niedrig'),
+    defaultValue: 'mittel'
+  },
+  status: {
+    type: DataTypes.ENUM('backlog', 'sprint', 'done'),
+    defaultValue: 'backlog'
+  },
+  phase: {
+    type: DataTypes.STRING,
+    defaultValue: 'product_owner'
+  },
+  isTemplate: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false
+  },
+  createdAt: {
+    type: DataTypes.DATE,
+    defaultValue: DataTypes.NOW
+  },
+  updatedAt: {
+    type: DataTypes.DATE,
+    defaultValue: DataTypes.NOW
+  }
+});
+
 // Define associations
 User.hasMany(UserAnswer, { foreignKey: 'userId', onDelete: 'CASCADE' });
 UserAnswer.belongsTo(User, { foreignKey: 'userId' });
@@ -178,4 +231,7 @@ UserAnswer.belongsTo(User, { foreignKey: 'userId' });
 Scenario.hasMany(UserAnswer, { foreignKey: 'scenarioId', onDelete: 'CASCADE' });
 UserAnswer.belongsTo(Scenario, { foreignKey: 'scenarioId' });
 
-module.exports = { User, Scenario, UserAnswer, Document };
+User.hasMany(UserTicket, { foreignKey: 'userId', onDelete: 'CASCADE' });
+UserTicket.belongsTo(User, { foreignKey: 'userId' });
+
+module.exports = { User, Scenario, UserAnswer, Document, UserTicket };

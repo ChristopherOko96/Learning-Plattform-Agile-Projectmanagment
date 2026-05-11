@@ -38,7 +38,7 @@ const DonutChart = ({ pct, size = 80, strokeWidth = 9, color, isDone }) => {
   return (
     <svg width={size} height={size} style={{ display: 'block' }}>
       <circle cx={size/2} cy={size/2} r={r} fill="none"
-        stroke="rgba(255,255,255,0.08)" strokeWidth={strokeWidth} />
+        stroke="var(--donut-track, rgba(120,120,160,0.18))" strokeWidth={strokeWidth} />
       <circle cx={size/2} cy={size/2} r={r} fill="none"
         stroke={isDone ? 'var(--accent-green)' : color}
         strokeWidth={strokeWidth}
@@ -67,6 +67,73 @@ const BADGE_DEFINITIONS = [
 ]
 
 const DONUT_COLORS = ['#e91e8c', '#4361ee', '#4cc9f0', '#f77f00']
+
+const PHASE_BRIEFINGS = {
+  product_owner: {
+    role: 'Product Owner',
+    icon: '🎯',
+    color: '#e9198c',
+    subtitle: 'VeloTech GmbH · Smartes Fahrradschloss',
+    story: 'Das Startup VeloTech GmbH hat eine Idee: ein smartes Fahrradschloss, das per App gesteuert wird. Du wurdest als Product Owner eingestellt und bist ab sofort verantwortlich für die Produktvision und den Backlog.',
+    mission: 'Deine Aufgaben in dieser Phase:',
+    tasks: [
+      '🔍 Stakeholder analysieren und deren Anforderungen verstehen',
+      '📝 User Stories im korrekten Format schreiben',
+      '📊 Product Backlog erstellen und nach Priorität sortieren',
+      '🎯 MVP (Minimum Viable Product) definieren',
+      '✅ Akzeptanzkriterien festlegen',
+    ],
+    tip: 'Tipp: Als PO bist du die Brücke zwischen Stakeholdern und dem Entwicklungsteam. Deine Entscheidungen prägen das gesamte Produkt.'
+  },
+  scrum_master: {
+    role: 'Scrum Master',
+    icon: '🚀',
+    color: '#4361ee',
+    subtitle: 'Sprint 1 · VeloTech GmbH',
+    story: 'Der Product Owner hat den Backlog aufgestellt. Jetzt beginnt Sprint 1. Du übernimmst die Rolle des Scrum Masters und bist verantwortlich dafür, dass das Team nach Scrum arbeiten kann.',
+    mission: 'Deine Aufgaben in dieser Phase:',
+    tasks: [
+      '📋 Sprint Planning moderieren und Sprint-Ziel formulieren',
+      '🃏 Story Points mit dem Team schätzen (Planning Poker)',
+      '🚧 Impediments erkennen und beseitigen',
+      '🔄 Sprint Review und Retrospektive durchführen',
+      '🛡️ Das Team vor externen Störungen schützen',
+    ],
+    tip: 'Tipp: Du bist kein Projektmanager. Du coachst das Team, gibst keine Aufgaben vor und löst Probleme, die das Team blockieren.'
+  },
+  developer: {
+    role: 'Developer',
+    icon: '💻',
+    color: '#06d6a0',
+    subtitle: 'Sprint 2 · VeloTech GmbH',
+    story: 'Sprint 1 ist abgeschlossen. Das Team hat die Grundfunktionen des App-Backends implementiert. Jetzt beginnt Sprint 2 — du schlüpfst in die Rolle eines Senior Developers im VeloTech-Team.',
+    mission: 'Deine Aufgaben in dieser Phase:',
+    tasks: [
+      '✅ Definition of Done (DoD) festlegen',
+      '🔨 User Stories in technische Tasks aufbrechen',
+      '📏 Sprint-Kapazität realistisch einschätzen',
+      '🔍 Technische Schulden erkennen und adressieren',
+      '🤝 Code-Reviews bewerten und Qualität sichern',
+    ],
+    tip: 'Tipp: "Done" bedeutet, dass alle DoD-Kriterien erfüllt sind — nicht nur der Code ist fertig, sondern auch getestet, reviewed und dokumentiert.'
+  },
+  kanban: {
+    role: 'Kanban Manager',
+    icon: '📊',
+    color: '#f77f00',
+    subtitle: 'Laufender Betrieb · VeloTech GmbH',
+    story: 'Das VeloTech-Schloss ist live. Das Support- und Weiterentwicklungs-Team arbeitet jetzt im laufenden Betrieb. Scrum-Sprints passen hier nicht mehr — du führst Kanban ein, um den Workflow zu optimieren.',
+    mission: 'Deine Aufgaben in dieser Phase:',
+    tasks: [
+      '🗂️ Kanban-Board mit sinnvollen Spalten aufsetzen',
+      '⚡ WIP-Limits definieren und Engpässe erkennen',
+      '🎯 Tickets nach Priorität in den Flow bringen',
+      '📈 Durchlaufzeiten analysieren und optimieren',
+      '🔄 Kontinuierliche Verbesserung des Workflows',
+    ],
+    tip: 'Tipp: WIP-Limits sind kein bürokratischer Overhead — sie machen Engpässe sichtbar und verhindern, dass das Team zwischen zu vielen Aufgaben wechselt.'
+  }
+}
 
 function App() {
   const [currentView, setCurrentView] = useState('login')
@@ -99,6 +166,13 @@ function App() {
   const [uploadingPdf, setUploadingPdf] = useState(false)
   const [uploadError, setUploadError] = useState(null)
 
+  // UserTicket / Backlog state
+  const [userTickets, setUserTickets] = useState([])
+  const [ticketLoading, setTicketLoading] = useState(false)
+  const [showTicketForm, setShowTicketForm] = useState(false)
+  const [ticketForm, setTicketForm] = useState({ title: '', description: '', storyPoints: 3, priority: 'mittel' })
+  const [ticketFormError, setTicketFormError] = useState('')
+
   // Admin state
   const [adminScenarios, setAdminScenarios] = useState([])
   const [adminPhaseFilter, setAdminPhaseFilter] = useState('product_owner')
@@ -115,6 +189,7 @@ function App() {
   const [authMode, setAuthMode] = useState('login') // 'login' or 'register'
   const [showSettings, setShowSettings] = useState(false)
   const [settingsTab, setSettingsTab] = useState('settings')
+  const [showAppSettings, setShowAppSettings] = useState(false)
 
   const INITIAL_PROGRESS = {
     totalScore: 0,
@@ -235,15 +310,18 @@ function App() {
     setError(null)
     try {
       const response = await axios.get(`${API_BASE_URL}/scenarios?phase=${phase}`)
+      const loaded = response.data.scenarios || []
       if (response.data.success) {
-        setScenarios(response.data.scenarios)
+        setScenarios(loaded)
         setCurrentQuestionIndex(0)
       }
-    } catch (err) {
-      setError('Fehler beim Laden der Fragen')
-      console.error('Error loading scenarios:', err)
-    } finally {
       setLoading(false)
+      return loaded
+    } catch (err) {
+      setError('Szenarien konnten nicht geladen werden')
+      console.error('Error loading scenarios:', err)
+      setLoading(false)
+      return []
     }
   }
 
@@ -251,7 +329,7 @@ function App() {
     setCurrentPhaseIndex(0)
     setCurrentQuestionIndex(0)
     setLastSelectedOption(null)
-    setCurrentView('intro')
+    setCurrentView('phase_briefing')
   }
 
   const handleStartPhase = async () => {
@@ -282,8 +360,9 @@ function App() {
   const handleNextPhase = async () => {
     setLastSelectedOption(null)
     setCurrentQuestionIndex(0)
+    await loadTickets()
     await loadScenarios(PHASES[currentPhaseIndex].id)
-    setCurrentView('scenario')
+    setCurrentView('phase_briefing')
   }
 
   const handleTextSubmit = async () => {
@@ -425,6 +504,65 @@ function App() {
 
   const removeOption = (index) => {
     setEditingScenario(prev => ({ ...prev, options: prev.options.filter((_, i) => i !== index) }))
+  }
+
+  const loadTickets = async () => {
+    try {
+      const res = await axios.get(`${API_BASE_URL}/tickets`, { headers: { Authorization: `Bearer ${authToken}` } })
+      setUserTickets(res.data.tickets || [])
+    } catch (e) { console.error('Tickets laden fehlgeschlagen', e) }
+  }
+
+  const seedTemplates = async () => {
+    try {
+      await axios.post(`${API_BASE_URL}/tickets/seed-templates`, {}, { headers: { Authorization: `Bearer ${authToken}` } })
+      await loadTickets()
+    } catch (e) { console.error('Vorlagen erstellen fehlgeschlagen', e) }
+  }
+
+  const handleTicketCreate = async (e) => {
+    e.preventDefault()
+    setTicketFormError('')
+    if (ticketForm.title.trim().length < 5) { setTicketFormError('Titel muss mindestens 5 Zeichen haben.'); return }
+    try {
+      await axios.post(`${API_BASE_URL}/tickets`, ticketForm, { headers: { Authorization: `Bearer ${authToken}` } })
+      setTicketForm({ title: '', description: '', storyPoints: 3, priority: 'mittel' })
+      setShowTicketForm(false)
+      await loadTickets()
+    } catch (e) { setTicketFormError('Fehler beim Speichern.') }
+  }
+
+  const handleTicketDelete = async (id) => {
+    try {
+      await axios.delete(`${API_BASE_URL}/tickets/${id}`, { headers: { Authorization: `Bearer ${authToken}` } })
+      await loadTickets()
+    } catch (e) { console.error('Löschen fehlgeschlagen', e) }
+  }
+
+  const handleTicketStoryPoints = async (id, points) => {
+    try {
+      await axios.put(`${API_BASE_URL}/tickets/${id}`, { storyPoints: points }, { headers: { Authorization: `Bearer ${authToken}` } })
+      await loadTickets()
+    } catch (e) { console.error('Story Points speichern fehlgeschlagen', e) }
+  }
+
+  const [sprintSelection, setSprintSelection] = useState([]) // ids der gewählten Tickets
+
+  const handleSprintCommit = async () => {
+    if (sprintSelection.length === 0) return
+    try {
+      // Alle gewählten Tickets auf 'sprint' setzen
+      await Promise.all(
+        sprintSelection.map(id =>
+          axios.put(`${API_BASE_URL}/tickets/${id}`, { status: 'sprint' }, { headers: { Authorization: `Bearer ${authToken}` } })
+        )
+      )
+      await loadTickets()
+      setSprintSelection([])
+      // Danach Szenarien laden und Spiel starten
+      await loadScenarios(PHASES[currentPhaseIndex].id)
+      setCurrentView('scenario')
+    } catch (e) { console.error('Sprint commit fehlgeschlagen', e) }
   }
 
   const handleMoveCard = (cardId, targetColumn) => {
@@ -697,6 +835,198 @@ function App() {
     )
   }
 
+  const renderAppSettings = () => {
+    const pp = userProgress.phaseProgress || {}
+    const totalAnswered = userProgress.completedScenarios?.length || 0
+    const totalQuestions = Object.values(pp).reduce((s, p) => s + (p.total || 0), 0) || 29
+    const overallPct = totalQuestions > 0 ? Math.round((totalAnswered / totalQuestions) * 100) : 0
+    const earnedBadges = BADGE_DEFINITIONS.filter(b => b.check(userProgress))
+
+    return (
+      <div className="app-settings-overlay" onClick={() => setShowAppSettings(false)}>
+        <div className="app-settings-card" onClick={e => e.stopPropagation()}>
+          <div className="app-settings-header">
+            <h2>⚙️ Einstellungen</h2>
+            <button className="app-settings-close" onClick={() => setShowAppSettings(false)}>✕</button>
+          </div>
+
+          {/* ── Design ── */}
+          <div className="app-settings-section">
+            <h3 className="app-settings-section-title">Design</h3>
+            <div className="app-settings-row">
+              <div>
+                <p className="app-settings-label">{isDarkMode ? '🌙 Dark Mode' : '☀️ Light Mode'}</p>
+                <p className="app-settings-desc">Schalte zwischen hellem und dunklem Design.</p>
+              </div>
+              <button className={`app-settings-toggle ${isDarkMode ? 'active' : ''}`} onClick={toggleTheme}>
+                <span className="toggle-thumb" />
+              </button>
+            </div>
+          </div>
+
+          {/* ── Errungenschaften ── */}
+          <div className="app-settings-section">
+            <h3 className="app-settings-section-title">
+              Errungenschaften
+              <span className="app-settings-badge-count">{earnedBadges.length}/{BADGE_DEFINITIONS.length}</span>
+            </h3>
+
+            {/* Level-Anzeige im Settings-Modal */}
+            <div className="dashboard-level-box" style={{ marginBottom: '1.25rem' }}>
+              <span className="level-icon">{userProgress.agileLevel?.icon || '🌱'}</span>
+              <div className="level-info">
+                <span className="level-title">{userProgress.agileLevel?.title || 'Agile Einsteiger'}</span>
+                <div className="level-bar-wrap">
+                  <div className="level-bar-fill" style={{ width: `${userProgress.agileLevel?.progressToNext || 0}%` }} />
+                </div>
+                <span className="level-next">{userProgress.agileLevel?.overallPct || 0}% · Nächstes Level ab {userProgress.agileLevel?.nextLevelAt || 25}% · {totalAnswered}/{totalQuestions} Aufgaben</span>
+              </div>
+            </div>
+
+            <div className="badges-grid app-settings-badges">
+              {BADGE_DEFINITIONS.map(badge => {
+                const earned = badge.check(userProgress)
+                return (
+                  <div key={badge.id} className={`badge-item ${earned ? 'earned' : 'locked'}`} title={badge.desc}>
+                    <span className="badge-icon">{earned ? badge.icon : '🔒'}</span>
+                    <span className="badge-label">{badge.label}</span>
+                    {earned && <span className="badge-earned-glow" />}
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  const renderBacklog = () => {
+    const FIBONACCI = [1, 2, 3, 5, 8, 13, 21]
+    const priorityColor = { hoch: '#e9198c', mittel: '#4361ee', niedrig: '#6b7280' }
+    const priorityLabel = { hoch: '🔴 Hoch', mittel: '🟡 Mittel', niedrig: '🟢 Niedrig' }
+
+    return (
+      <div className="backlog-page">
+        <div className="backlog-header">
+          <div>
+            <h2 className="backlog-title">📋 Product Backlog</h2>
+            <p className="backlog-subtitle">VeloTech GmbH · Smartes Fahrradschloss</p>
+          </div>
+          <div className="backlog-header-actions">
+            {userTickets.length === 0 && (
+              <button className="backlog-template-btn" onClick={seedTemplates}>
+                ✨ Vorlagen laden
+              </button>
+            )}
+            <button className="backlog-add-btn" onClick={() => { setShowTicketForm(true); setTicketFormError('') }}>
+              + User Story
+            </button>
+          </div>
+        </div>
+
+        {/* Formular neue User Story */}
+        {showTicketForm && (
+          <div className="backlog-form-card">
+            <h3>Neue User Story</h3>
+            <p className="backlog-form-hint">Format: <em>„Als [Rolle] möchte ich [Funktion], damit [Nutzen]."</em></p>
+            <form onSubmit={handleTicketCreate} className="backlog-form">
+              <div className="backlog-form-row">
+                <label>Titel *</label>
+                <input
+                  type="text"
+                  placeholder="z. B. App-Entsperrung per Bluetooth"
+                  value={ticketForm.title}
+                  onChange={e => setTicketForm(p => ({ ...p, title: e.target.value }))}
+                  required
+                />
+              </div>
+              <div className="backlog-form-row">
+                <label>User Story (optional)</label>
+                <textarea
+                  placeholder='„Als Radfahrer möchte ich ... damit ..."'
+                  value={ticketForm.description}
+                  onChange={e => setTicketForm(p => ({ ...p, description: e.target.value }))}
+                  rows={3}
+                />
+              </div>
+              <div className="backlog-form-inline">
+                <div className="backlog-form-row">
+                  <label>Priorität</label>
+                  <select value={ticketForm.priority} onChange={e => setTicketForm(p => ({ ...p, priority: e.target.value }))}>
+                    <option value="hoch">🔴 Hoch</option>
+                    <option value="mittel">🟡 Mittel</option>
+                    <option value="niedrig">🟢 Niedrig</option>
+                  </select>
+                </div>
+                <div className="backlog-form-row">
+                  <label>Story Points (Fibonacci)</label>
+                  <div className="fibonacci-picker">
+                    {FIBONACCI.map(n => (
+                      <button
+                        key={n} type="button"
+                        className={`fib-btn ${ticketForm.storyPoints === n ? 'active' : ''}`}
+                        onClick={() => setTicketForm(p => ({ ...p, storyPoints: n }))}
+                      >{n}</button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              {ticketFormError && <p className="backlog-form-error">{ticketFormError}</p>}
+              <div className="backlog-form-actions">
+                <button type="submit" className="start-game-button" style={{ flex: 1 }}>Speichern</button>
+                <button type="button" className="secondary-button" onClick={() => setShowTicketForm(false)}>Abbrechen</button>
+              </div>
+            </form>
+          </div>
+        )}
+
+        {/* Ticket-Liste */}
+        {userTickets.length === 0 && !showTicketForm ? (
+          <div className="backlog-empty">
+            <p>🗂️ Noch keine User Stories im Backlog.</p>
+            <p>Klicke auf <strong>„+ User Story"</strong> um eine zu schreiben, oder lade Vorlagen für den schnellen Einstieg.</p>
+          </div>
+        ) : (
+          <div className="backlog-list">
+            {userTickets.map(ticket => (
+              <div key={ticket.id} className={`backlog-ticket priority-${ticket.priority}`}>
+                <div className="ticket-priority-bar" style={{ background: priorityColor[ticket.priority] }} />
+                <div className="ticket-body">
+                  <div className="ticket-top">
+                    <span className="ticket-title">{ticket.title}</span>
+                    <div className="ticket-actions">
+                      <span className="ticket-points-badge">{ticket.storyPoints} SP</span>
+                      <button className="ticket-delete-btn" onClick={() => handleTicketDelete(ticket.id)} title="Löschen">✕</button>
+                    </div>
+                  </div>
+                  {ticket.description && <p className="ticket-description">{ticket.description}</p>}
+                  <div className="ticket-footer">
+                    <span className="ticket-priority-label">{priorityLabel[ticket.priority]}</span>
+                    <div className="fibonacci-picker small">
+                      {FIBONACCI.map(n => (
+                        <button
+                          key={n} type="button"
+                          className={`fib-btn ${ticket.storyPoints === n ? 'active' : ''}`}
+                          onClick={() => handleTicketStoryPoints(ticket.id, n)}
+                        >{n}</button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div className="backlog-footer-info">
+          <span>{userTickets.length} User {userTickets.length === 1 ? 'Story' : 'Stories'} · {userTickets.reduce((s, t) => s + t.storyPoints, 0)} Story Points gesamt</span>
+          <button className="secondary-button" onClick={() => setCurrentView('dashboard')}>← Zurück zum Dashboard</button>
+        </div>
+      </div>
+    )
+  }
+
   const renderDashboard = () => {
     const pp = userProgress.phaseProgress || {}
     const hasProgress = userProgress.completedScenarios?.length > 0
@@ -711,8 +1041,14 @@ function App() {
     const handleResume = async () => {
       if (resumePhaseIndex >= 0) {
         setCurrentPhaseIndex(resumePhaseIndex)
-        await loadScenarios(PHASES[resumePhaseIndex].id)
-        setCurrentView('scenario')
+        await loadTickets()
+        const loaded = await loadScenarios(PHASES[resumePhaseIndex].id)
+        const completedIds = userProgress.completedScenarios || []
+        const firstIncomplete = loaded.findIndex(s => !completedIds.includes(s.id))
+        setCurrentQuestionIndex(firstIncomplete >= 0 ? firstIncomplete : 0)
+        // Wenn Phase bereits begonnen → direkt zum Szenario, sonst Briefing zeigen
+        const phaseAlreadyStarted = (userProgress.phaseProgress?.[PHASES[resumePhaseIndex].id]?.completed || 0) > 0
+        setCurrentView(phaseAlreadyStarted ? 'scenario' : 'phase_briefing')
       } else {
         handleStartGame()
       }
@@ -727,9 +1063,15 @@ function App() {
             <h2>Hey, {user?.email?.split('@')[0]}! 👋</h2>
             <p>Fallstudie: Smartes Fahrradschloss — VeloTech GmbH</p>
           </div>
-          <div className="dashboard-score-box">
-            <span className="score-number">{userProgress.totalScore || 0}</span>
-            <span className="score-label">Punkte</span>
+          <div className="dashboard-level-box">
+            <span className="level-icon">{userProgress.agileLevel?.icon || '🌱'}</span>
+            <div className="level-info">
+              <span className="level-title">{userProgress.agileLevel?.title || 'Agile Einsteiger'}</span>
+              <div className="level-bar-wrap">
+                <div className="level-bar-fill" style={{ width: `${userProgress.agileLevel?.progressToNext || 0}%` }} />
+              </div>
+              <span className="level-next">{userProgress.agileLevel?.overallPct || 0}% · Nächstes Level ab {userProgress.agileLevel?.nextLevelAt || 25}%</span>
+            </div>
           </div>
         </div>
 
@@ -770,26 +1112,6 @@ function App() {
                   <span className="donut-sub">{p.completed}/{p.total}</span>
                   {isCurrent && <span className="donut-badge-current">Aktuell</span>}
                   {isDone && <span className="donut-badge-done">✓</span>}
-                </div>
-              )
-            })}
-          </div>
-        </div>
-
-        {/* ── Errungenschaften ── */}
-        <div className="dashboard-section">
-          <h3 className="section-title">
-            Errungenschaften
-            <span className="badge-count">{earnedBadges.length}/{BADGE_DEFINITIONS.length}</span>
-          </h3>
-          <div className="badges-grid">
-            {BADGE_DEFINITIONS.map(badge => {
-              const earned = badge.check(userProgress)
-              return (
-                <div key={badge.id} className={`badge-item ${earned ? 'earned' : 'locked'}`} title={badge.desc}>
-                  <span className="badge-icon">{earned ? badge.icon : '🔒'}</span>
-                  <span className="badge-label">{badge.label}</span>
-                  {earned && <span className="badge-earned-glow" />}
                 </div>
               )
             })}
@@ -960,10 +1282,6 @@ function App() {
           </div>
         </div>
         <div className="progress-bar">
-          <div className="progress-info">
-            <div className="score">Score: {userProgress.totalScore}</div>
-            <div className="motivation">Motivation: {userProgress.currentMotivation}%</div>
-          </div>
           <div className="phase-bar-track">
             <div className="phase-bar-fill" style={{ width: `${(questionNum / questionTotal) * 100}%` }} />
           </div>
@@ -1100,11 +1418,8 @@ function App() {
         <h2>{currentScenario?.title}</h2>
         <p className="feedback-text">{selectedOption?.feedback || 'Feedback wird geladen...'}</p>
         <div className="result-stats">
-          <div className={`stat-change ${selectedOption?.scoreChange >= 0 ? 'positive' : 'negative'}`}>
-            Score: {selectedOption?.scoreChange > 0 ? '+' : ''}{selectedOption?.scoreChange}
-          </div>
-          <div className={`stat-change ${selectedOption?.motivationChange >= 0 ? 'positive' : 'negative'}`}>
-            Motivation: {selectedOption?.motivationChange > 0 ? '+' : ''}{selectedOption?.motivationChange}%
+          <div className={`stat-change ${(selectedOption?.scoreChange ?? 0) >= 0 ? 'positive' : 'negative'}`}>
+            {(selectedOption?.scoreChange ?? 0) >= 15 ? '⭐ Optimale Entscheidung' : (selectedOption?.scoreChange ?? 0) >= 0 ? '👍 Gute Entscheidung' : '⚠️ Verbesserungspotenzial'}
           </div>
         </div>
         <div className="feedback-actions">
@@ -1511,6 +1826,183 @@ function App() {
     )
   }
 
+  const renderSprintPlanning = () => {
+    const FIBONACCI = [1, 2, 3, 5, 8, 13, 21]
+    const backlogTickets = userTickets.filter(t => t.status === 'backlog')
+    const toggleTicket = (id) => {
+      setSprintSelection(prev =>
+        prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]
+      )
+    }
+
+    return (
+      <div className="sprint-planning-page">
+        <div className="sprint-planning-card">
+          <div className="sprint-planning-header">
+            <span className="sprint-planning-icon">🚀</span>
+            <div>
+              <h2>Sprint Planning</h2>
+              <p>Sprint 1 · VeloTech GmbH · Smartes Fahrradschloss</p>
+            </div>
+          </div>
+
+          <div className="sprint-planning-intro">
+            <p>Wähle die User Stories aus, die dein Team in <strong>Sprint 1</strong> umsetzen wird. Beachte die Kapazität: Das Team hat <strong>20 Story Points</strong> pro Sprint.</p>
+          </div>
+
+          <div className="sprint-capacity-bar">
+            <div className="sprint-capacity-label">
+              <span>Sprint-Kapazität</span>
+              <span className={`sprint-capacity-count ${sprintSelection.reduce((s, id) => s + (userTickets.find(t => t.id === id)?.storyPoints || 0), 0) > 20 ? 'over-capacity' : ''}`}>
+                {sprintSelection.reduce((s, id) => s + (userTickets.find(t => t.id === id)?.storyPoints || 0), 0)} / 20 SP
+              </span>
+            </div>
+            <div className="sprint-capacity-track">
+              <div
+                className="sprint-capacity-fill"
+                style={{
+                  width: `${Math.min(100, (sprintSelection.reduce((s, id) => s + (userTickets.find(t => t.id === id)?.storyPoints || 0), 0) / 20) * 100)}%`,
+                  background: sprintSelection.reduce((s, id) => s + (userTickets.find(t => t.id === id)?.storyPoints || 0), 0) > 20 ? '#ef4444' : '#e9198c'
+                }}
+              />
+            </div>
+          </div>
+
+          {backlogTickets.length === 0 ? (
+            <div className="sprint-planning-empty">
+              <p>⚠️ Kein Backlog vorhanden. Gehe zuerst in den Backlog und erstelle User Stories als Product Owner.</p>
+              <button className="secondary-button" onClick={() => { loadTickets(); setCurrentView('backlog') }}>
+                → Zum Backlog
+              </button>
+            </div>
+          ) : (
+            <div className="sprint-ticket-list">
+              {backlogTickets.map(ticket => {
+                const selected = sprintSelection.includes(ticket.id)
+                const priorityColor = { hoch: '#e9198c', mittel: '#4361ee', niedrig: '#6b7280' }
+                return (
+                  <div
+                    key={ticket.id}
+                    className={`sprint-ticket ${selected ? 'selected' : ''}`}
+                    onClick={() => toggleTicket(ticket.id)}
+                  >
+                    <div className="sprint-ticket-check">{selected ? '✓' : ''}</div>
+                    <div className="sprint-ticket-priority-dot" style={{ background: priorityColor[ticket.priority] }} />
+                    <div className="sprint-ticket-body">
+                      <span className="sprint-ticket-title">{ticket.title}</span>
+                      {ticket.description && <span className="sprint-ticket-desc">{ticket.description}</span>}
+                    </div>
+                    <span className="sprint-ticket-sp">{ticket.storyPoints} SP</span>
+                  </div>
+                )
+              })}
+            </div>
+          )}
+
+          <div className="sprint-planning-actions">
+            <button
+              className="start-game-button"
+              disabled={sprintSelection.length === 0}
+              onClick={handleSprintCommit}
+              style={{ opacity: sprintSelection.length === 0 ? 0.5 : 1 }}
+            >
+              Sprint 1 starten ({sprintSelection.length} {sprintSelection.length === 1 ? 'Story' : 'Stories'}) →
+            </button>
+            <button className="secondary-button" onClick={() => setCurrentView('phase_briefing')}>
+              ← Zurück
+            </button>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  const renderPhaseBriefing = () => {
+    const phase = PHASES[currentPhaseIndex]
+    const briefing = PHASE_BRIEFINGS[phase?.id]
+    if (!briefing) return null
+
+    return (
+      <div className="phase-briefing">
+        <div className="briefing-card">
+          <div className="briefing-header" style={{ '--briefing-color': briefing.color }}>
+            <span className="briefing-role-icon">{briefing.icon}</span>
+            <div>
+              <h2 className="briefing-role-title">{briefing.role}</h2>
+              <p className="briefing-subtitle">{briefing.subtitle}</p>
+            </div>
+          </div>
+
+          <div className="briefing-story">
+            <p>{briefing.story}</p>
+          </div>
+
+          <div className="briefing-mission">
+            <h3>{briefing.mission}</h3>
+            <ul className="briefing-tasks">
+              {briefing.tasks.map((t, i) => <li key={i}>{t}</li>)}
+            </ul>
+          </div>
+
+          <div className="briefing-tip">
+            <p>{briefing.tip}</p>
+          </div>
+
+          {phase.id === 'scrum_master' && userTickets.filter(t => t.status === 'backlog').length > 0 && (
+            <div className="briefing-backlog-preview">
+              <h4>📋 Dein Backlog ({userTickets.filter(t => t.status === 'backlog').length} Stories)</h4>
+              <div className="briefing-ticket-chips">
+                {userTickets.filter(t => t.status === 'backlog').slice(0, 4).map(t => (
+                  <span key={t.id} className="briefing-ticket-chip">
+                    {t.title} <strong>{t.storyPoints} SP</strong>
+                  </span>
+                ))}
+                {userTickets.filter(t => t.status === 'backlog').length > 4 && (
+                  <span className="briefing-ticket-chip more">+{userTickets.filter(t => t.status === 'backlog').length - 4} weitere</span>
+                )}
+              </div>
+            </div>
+          )}
+
+          {phase.id === 'developer' && userTickets.filter(t => t.status === 'sprint').length > 0 && (
+            <div className="briefing-backlog-preview">
+              <h4>⚡ Dein Sprint 1 ({userTickets.filter(t => t.status === 'sprint').length} Stories · {userTickets.filter(t => t.status === 'sprint').reduce((s, t) => s + t.storyPoints, 0)} SP)</h4>
+              <div className="briefing-ticket-chips">
+                {userTickets.filter(t => t.status === 'sprint').map(t => (
+                  <span key={t.id} className="briefing-ticket-chip sprint-chip">
+                    {t.title} <strong>{t.storyPoints} SP</strong>
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {phase.id === 'scrum_master' ? (
+            <button
+              className="start-game-button briefing-start-btn"
+              onClick={async () => {
+                await loadTickets()
+                setCurrentView('sprint_planning')
+              }}
+            >
+              Sprint Planning starten →
+            </button>
+          ) : (
+            <button
+              className="start-game-button briefing-start-btn"
+              onClick={async () => {
+                await loadScenarios(PHASES[currentPhaseIndex].id)
+                setCurrentView('scenario')
+              }}
+            >
+              Los geht's als {briefing.role} →
+            </button>
+          )}
+        </div>
+      </div>
+    )
+  }
+
   const renderKanbanBoard = () => {
     const columns = [
       { id: 'todo',        label: 'To Do',        icon: '📋', limit: null },
@@ -1533,7 +2025,6 @@ function App() {
             </p>
           </div>
           <div className="kanban-score">
-            <span>Score: {userProgress.totalScore}</span>
             <span className="kanban-done-badge">{doneCount} / {boardCards.length} Done</span>
           </div>
         </div>
@@ -1667,8 +2158,11 @@ function App() {
                 </div>
               </div>
               <div className="header-actions">
-                <button className="theme-toggle" onClick={toggleTheme}>
-                  {isDarkMode ? '☀️' : '🌙'}
+                <button className="settings-nav-btn" onClick={() => setShowAppSettings(true)}>
+                  ⚙️ Einstellungen
+                </button>
+                <button className="backlog-nav-btn" onClick={async () => { await loadTickets(); setCurrentView('backlog') }}>
+                  📋 Backlog
                 </button>
                 <button className="lib-nav-btn" onClick={async () => { await loadDocuments(); setLibCategoryFilter('Alle'); setCurrentView('library') }}>
                   📚 Bibliothek
@@ -1692,6 +2186,8 @@ function App() {
           </div>
           {currentView === 'dashboard' && renderDashboard()}
           {currentView === 'intro' && renderIntro()}
+          {currentView === 'phase_briefing' && renderPhaseBriefing()}
+          {currentView === 'sprint_planning' && renderSprintPlanning()}
           {currentView === 'scenario' && renderScenario()}
           {currentView === 'feedback' && renderFeedback()}
           {currentView === 'phase_complete' && renderPhaseComplete()}
@@ -1703,6 +2199,8 @@ function App() {
           )}
           {currentView === 'game_complete' && renderGameComplete()}
           {currentView === 'library' && renderLibrary()}
+          {currentView === 'backlog' && renderBacklog()}
+          {showAppSettings && renderAppSettings()}
         </>
       )}
     </div>
