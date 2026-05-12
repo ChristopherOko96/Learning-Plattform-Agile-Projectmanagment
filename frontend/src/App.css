@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   DARK NEON GLASSMORPHISM – Scrum Learning Platform
+   CLEAN DARK MODE – Scrum Learning Platform
    TH Köln – Bachelor-Projekt
    ═══════════════════════════════════════════════════════════════════════════ */
 
@@ -30,25 +30,26 @@
 
 /* DARK MODE */
 [data-theme="dark"] {
-  --donut-track: rgba(255,255,255,0.1);
-  --bg-primary: #0f0714;
-  --bg-secondary: #1a0d22;
-  --bg-card: rgba(255, 255, 255, 0.05);
-  --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.65);
+  --donut-track: rgba(255,255,255,0.08);
+  --bg-primary: #111418;
+  --bg-secondary: #181d24;
+  --bg-card: #1e242c;
+  --card-bg: #1e242c;
+  --text-primary: #e8edf3;
+  --text-secondary: #8b96a3;
   --text-white: #ffffff;
-  --text-muted: rgba(255, 255, 255, 0.5);
-  --border-color: rgba(233, 30, 140, 0.2);
-  --shadow-color: rgba(233, 30, 140, 0.25);
+  --text-muted: #5e6a78;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --shadow-color: rgba(0, 0, 0, 0.35);
   --accent-pink: #e91e8c;
-  --accent-pink-glow: rgba(233, 30, 140, 0.35);
+  --accent-pink-glow: rgba(233, 30, 140, 0.12);
   --accent-blue: #4361ee;
   --accent-cyan: #4cc9f0;
-  --accent-green: #06d6a0;
+  --accent-green: #22c55e;
   --primary-color: #e91e8c;
-  --error-bg: rgba(239, 68, 68, 0.15);
-  --error-text: #ff6b6b;
-  --success-bg: rgba(6, 214, 160, 0.12);
+  --error-bg: rgba(239, 68, 68, 0.12);
+  --error-text: #f87171;
+  --success-bg: rgba(34, 197, 94, 0.1);
 }
 
 /* ─── Base Reset ────────────────────────────────────────────────────────────── */
@@ -87,20 +88,8 @@ body[data-theme="dark"] {
   color: var(--text-primary);
 }
 
-/* Rosa Gitter-Overlay – nur im Dark Mode */
+/* Kein dekoratives Overlay */
 .app::before { content: none; }
-
-[data-theme="dark"] .app::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background-image:
-    linear-gradient(rgba(233, 30, 140, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(233, 30, 140, 0.06) 1px, transparent 1px);
-  background-size: 50px 50px;
-}
 
 /* ─── Header ────────────────────────────────────────────────────────────────── */
 
@@ -119,9 +108,9 @@ body[data-theme="dark"] {
 }
 
 [data-theme="dark"] .header {
-  background: linear-gradient(180deg, rgba(233, 30, 140, 0.08) 0%, rgba(15, 7, 20, 0.95) 100%);
-  border-bottom: 1px solid rgba(233, 30, 140, 0.15);
-  box-shadow: none;
+  background: rgba(24, 29, 36, 0.97);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
 .header-content {
@@ -165,6 +154,137 @@ body[data-theme="dark"] {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* ─── Dark Mode: Neutralize all pink glows → clean neutral shadows ──────────── */
+
+/* Cards & containers */
+[data-theme="dark"] .game-card,
+[data-theme="dark"] .scrum-intro,
+[data-theme="dark"] .role-card,
+[data-theme="dark"] .feedback,
+[data-theme="dark"] .settings-card,
+[data-theme="dark"] .leaderboard-card,
+[data-theme="dark"] .admin-panel,
+[data-theme="dark"] .library-card,
+[data-theme="dark"] .dashboard-next-card,
+[data-theme="dark"] .phase-progress-header,
+[data-theme="dark"] .phase-complete,
+[data-theme="dark"] .game-complete,
+[data-theme="dark"] .kanban-column,
+[data-theme="dark"] .sprint-planning-panel,
+[data-theme="dark"] .backlog-panel,
+[data-theme="dark"] .text-task-card,
+[data-theme="dark"] .ai-config-panel {
+  border-color: rgba(255, 255, 255, 0.09) !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .game-card:hover,
+[data-theme="dark"] .scrum-intro:hover,
+[data-theme="dark"] .role-card:hover,
+[data-theme="dark"] .feedback:hover,
+[data-theme="dark"] .library-card:hover {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Option buttons */
+[data-theme="dark"] .option-button {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+[data-theme="dark"] .option-button:hover {
+  background: rgba(255, 255, 255, 0.09) !important;
+  border-color: rgba(233, 30, 140, 0.4) !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3) !important;
+  transform: translateY(-2px);
+}
+[data-theme="dark"] .option-button::before {
+  display: none;
+}
+
+/* Pillars / small cards */
+[data-theme="dark"] .pillar,
+[data-theme="dark"] .phase-step-card,
+[data-theme="dark"] .scenario-type-badge,
+[data-theme="dark"] .kanban-card {
+  border-color: rgba(255, 255, 255, 0.09) !important;
+  box-shadow: none !important;
+}
+[data-theme="dark"] .pillar:hover,
+[data-theme="dark"] .kanban-card:hover {
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Scenario type badge */
+[data-theme="dark"] .scenario-type-badge {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-secondary);
+}
+
+/* Phase active step – keep accent but no neon glow */
+[data-theme="dark"] .phase-step.active {
+  box-shadow: none !important;
+}
+[data-theme="dark"] .phase-step.active:hover {
+  box-shadow: none !important;
+}
+
+/* Role cards shimmer – disable in dark mode */
+[data-theme="dark"] .role-card::before,
+[data-theme="dark"] .feedback::before { display: none; }
+
+/* Text colors in dark-specific elements */
+[data-theme="dark"] .scrum-intro h3,
+[data-theme="dark"] .role-card h3,
+[data-theme="dark"] .pillar h4 { color: var(--text-primary); }
+
+[data-theme="dark"] .scrum-intro p,
+[data-theme="dark"] .role-card p,
+[data-theme="dark"] .pillar p { color: var(--text-secondary); }
+
+/* Auth, settings, modal cards */
+[data-theme="dark"] .auth-card,
+[data-theme="dark"] .app-settings-card,
+[data-theme="dark"] .donut-card,
+[data-theme="dark"] .dashboard-score-box {
+  background: var(--bg-card);
+  border-color: rgba(255,255,255,0.09) !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.25) !important;
+}
+
+/* Sprint planning, text task */
+[data-theme="dark"] .sprint-planning-card,
+[data-theme="dark"] .text-task-card,
+[data-theme="dark"] .next-phase-card,
+[data-theme="dark"] .phase-complete,
+[data-theme="dark"] .game-complete {
+  background: var(--bg-card);
+  border-color: rgba(255,255,255,0.09) !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3) !important;
+}
+
+/* lib cards */
+[data-theme="dark"] .lib-card {
+  background: var(--bg-card);
+  border-color: rgba(255,255,255,0.09) !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2) !important;
+}
+[data-theme="dark"] .lib-card:hover {
+  border-color: rgba(255,255,255,0.18) !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.35) !important;
+}
+
+/* Dashboard next card – keep subtle pink accent on left border only */
+[data-theme="dark"] .dashboard-next-card {
+  background: linear-gradient(135deg, rgba(233,30,140,0.06), rgba(67,97,238,0.06));
+  border-color: rgba(233,30,140,0.2) !important;
+  box-shadow: none !important;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── */
 
 .title-section p {
   font-size: 0.85rem;
@@ -581,14 +701,7 @@ body[data-theme="dark"] {
 /* ─── Progress Bar ──────────────────────────────────────────────────────────── */
 
 .progress-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2.5rem;
-  padding: 1.5rem 2rem;
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 14px;
-  border: 1px solid rgba(233, 30, 140, 0.15);
+  margin-bottom: 1.5rem;
 }
 
 .progress-info {
@@ -2338,13 +2451,16 @@ body[data-theme="dark"] {
   background: transparent;
   border: 1px solid rgba(255,255,255,0.15);
   color: var(--text-secondary);
-  font-size: 0.8rem;
-  padding: 0.35rem 0.8rem;
+  font-size: 0.85rem;
+  padding: 0.55rem 1.2rem;
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.15s, color 0.15s;
   white-space: nowrap;
   flex-shrink: 0;
+  margin-right: 1rem;
+  margin-bottom: 0.75rem;
+  display: inline-block;
 }
 
 .back-to-dashboard-btn:hover {
@@ -4154,7 +4270,6 @@ body[data-theme="dark"] {
 [data-theme="light"] .feedback p { color: #065f46; background: #d1fae5; border-color: #6ee7b7; }
 
 /* ── Progress / Stat ── */
-[data-theme="light"] .progress-bar { background: #f9fafb; border-color: #e5e7eb; }
 [data-theme="light"] .progress-info { color: #374151; }
 [data-theme="light"] .result-stats div { background: #f9fafb; border-color: #e5e7eb; color: #374151; }
 [data-theme="light"] .stat { background: #f9fafb; border-color: #e5e7eb; }
@@ -4289,7 +4404,14 @@ body[data-theme="dark"] {
 .phase-briefing {
   padding: 2rem 1rem;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.briefing-back-btn {
+  align-self: flex-start;
+  margin-left: 0;
 }
 .briefing-card {
   background: var(--card-bg, #1a1a2e);
@@ -4333,9 +4455,11 @@ body[data-theme="dark"] {
 .briefing-start-btn { margin: 0 2rem 2rem; width: calc(100% - 4rem); }
 
 /* Light mode overrides */
-[data-theme="light"] .briefing-card { background: #fff; }
-[data-theme="light"] .briefing-tasks li { border-bottom-color: rgba(0,0,0,0.06); }
-[data-theme="light"] .briefing-tip { background: rgba(233,25,140,0.04); }
+[data-theme="light"] .briefing-card { background: #fff; border-color: #e5e7eb; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+[data-theme="light"] .briefing-tasks li { border-bottom-color: rgba(0,0,0,0.06); color: #374151; }
+[data-theme="light"] .briefing-mission h3 { color: #6b7280; }
+[data-theme="light"] .briefing-story { color: #374151; }
+[data-theme="light"] .briefing-tip { background: rgba(233,25,140,0.04); color: #374151; }
 [data-theme="light"] .dashboard-level-box { background: rgba(233,25,140,0.05); }
 
 /* ─── Sprint Planning ────────────────────────────────────────────────────── */
@@ -4516,3 +4640,119 @@ body[data-theme="dark"] {
   background: #f9fafb;
   border-color: #e5e7eb;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LIGHT MODE – Systemische Text-Fixes (hardcoded white → dark)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Header / Navbar */
+[data-theme="light"] .header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+}
+[data-theme="light"] .settings-button,
+[data-theme="light"] .backlog-nav-btn-header { color: #374151; }
+
+/* Dashboard */
+[data-theme="light"] .dashboard-welcome h2 { color: #111111; }
+[data-theme="light"] .dashboard-welcome p   { color: #4b5563; }
+[data-theme="light"] .dashboard             { background: #f9fafb; }
+
+/* Phase-Step (Phasen-Navigationsleiste im Spiel) */
+[data-theme="light"] .phase-step            { color: #6b7280; }
+[data-theme="light"] .phase-step.active     { background: linear-gradient(135deg, #e91e8c, #4361ee) !important; color: #ffffff !important; border-color: transparent !important; }
+[data-theme="light"] .phase-question-counter { color: #6b7280; }
+
+/* Szenario / Spielansicht */
+[data-theme="light"] .scenario > h2,
+[data-theme="light"] h2.scenario-title      { color: #111111; }
+[data-theme="light"] .scenario-description  { color: #374151; background: rgba(233,30,140,0.05); }
+[data-theme="light"] .feedback h2           { color: #111111; }
+[data-theme="light"] .feedback-text         { color: #374151; }
+[data-theme="light"] .result-icon           { color: #111111; }
+
+/* Rolle-Auswahl (role-card) */
+[data-theme="light"] .role-card             { background: #ffffff; border-color: #e5e7eb; }
+[data-theme="light"] .role-card h3          { color: #111111; }
+[data-theme="light"] .role-card p           { color: #4b5563; }
+[data-theme="light"] .role-card::before     { display: none; }
+
+/* Scrum Intro & Pillars */
+[data-theme="light"] .scrum-intro           { background: #ffffff; border-color: #e5e7eb; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+[data-theme="light"] .scrum-intro h3        { color: #111111; }
+[data-theme="light"] .scrum-intro p         { color: #4b5563; }
+[data-theme="light"] .pillar                { background: #f9fafb; border-color: #e5e7eb; }
+[data-theme="light"] .pillar h4             { color: #111111; }
+[data-theme="light"] .pillar p              { color: #4b5563; }
+
+/* Phase Complete / Game Complete */
+[data-theme="light"] .phase-complete        { background: #ffffff; border-color: #e5e7eb; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+[data-theme="light"] .phase-complete h2     { color: #111111; }
+[data-theme="light"] .phase-complete p      { color: #4b5563; }
+[data-theme="light"] .game-complete         { background: #ffffff; border-color: #e5e7eb; }
+[data-theme="light"] .game-complete h2      { color: #111111; }
+[data-theme="light"] .game-complete p       { color: #4b5563; }
+
+/* Stat-Boxen */
+[data-theme="light"] .stat                  { background: #f9fafb; border-color: #e5e7eb; }
+[data-theme="light"] .stat-value            { color: #111111; }
+[data-theme="light"] .stat-label            { color: #6b7280; }
+
+/* Phase-Übergangskarte */
+[data-theme="light"] .next-phase-card       { background: #f9fafb; border-color: #e5e7eb; }
+[data-theme="light"] .next-phase-card strong { color: #111111; }
+[data-theme="light"] .next-phase-card p     { color: #4b5563; }
+
+/* Auth */
+[data-theme="light"] .auth-card             { background: #ffffff; border-color: #e5e7eb; box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+[data-theme="light"] .auth-header h2        { color: #111111; }
+[data-theme="light"] .auth-header p         { color: #6b7280; }
+
+/* Donut-Cards (Lernfortschritt) */
+[data-theme="light"] .donut-card            { background: #ffffff; border-color: #e5e7eb; }
+[data-theme="light"] .donut-card-label      { color: #374151; }
+[data-theme="light"] .donut-card-count      { color: #6b7280; }
+
+/* Dashboard Level-Box (Agile Champion) */
+[data-theme="light"] .dashboard-level-title { color: #111111; }
+[data-theme="light"] .dashboard-level-sub   { color: #6b7280; }
+
+/* Feedback-Antwort-Boxen */
+[data-theme="light"] .feedback-result-correct { background: #d1fae5; border-color: #6ee7b7; color: #065f46; }
+[data-theme="light"] .feedback-result-wrong   { background: #fee2e2; border-color: #fca5a5; color: #b91c1c; }
+
+/* Kanban */
+[data-theme="light"] .kanban-header h2      { color: #111111; }
+[data-theme="light"] .kanban-subtitle       { color: #6b7280; }
+
+/* Admin */
+[data-theme="light"] .admin-header h2       { color: #111111; }
+[data-theme="light"] .admin-subtitle        { color: #6b7280; }
+[data-theme="light"] .admin-panel           { background: #ffffff; border-color: #e5e7eb; }
+
+/* Leaderboard */
+[data-theme="light"] .leaderboard-card      { background: #ffffff; border-color: #e5e7eb; }
+
+/* Intro-Seite (Spielstart) */
+[data-theme="light"] .intro-header h2       { color: #111111; }
+[data-theme="light"] .intro-subtitle        { color: #4b5563; }
+[data-theme="light"] .intro-story           { background: #ffffff; border-color: #e5e7eb; }
+[data-theme="light"] .intro-story p         { color: #374151; }
+[data-theme="light"] .journey-overview h3   { color: #111111; }
+[data-theme="light"] .journey-subtitle      { color: #4b5563; }
+[data-theme="light"] .learning-tips h3      { color: #111111; }
+[data-theme="light"] .learning-tips li      { color: #374151; }
+[data-theme="light"] .game-complete-roles p { color: #4b5563; }
+
+/* Sprint Planning */
+[data-theme="light"] .sprint-planning-card  { background: #ffffff; border-color: #e5e7eb; }
+[data-theme="light"] .sp-title              { color: #111111; }
+[data-theme="light"] .sp-subtitle           { color: #6b7280; }
+[data-theme="light"] .sprint-ticket-title   { color: #111111; }
+[data-theme="light"] .sprint-ticket-desc    { color: #6b7280; }
+
+/* Text-Aufgaben */
+[data-theme="light"] .text-task-card        { background: #ffffff; border-color: #e5e7eb; }
+[data-theme="light"] .text-task-title       { color: #111111; }
+[data-theme="light"] .text-task-desc        { color: #374151; }

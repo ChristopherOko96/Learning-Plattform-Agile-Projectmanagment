@@ -219,7 +219,9 @@ function App() {
   }, []) // intentionally runs only on mount; authToken from localStorage is stable at init
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light')
+    const theme = isDarkMode ? 'dark' : 'light'
+    document.documentElement.setAttribute('data-theme', theme)
+    document.body.setAttribute('data-theme', theme)
   }, [isDarkMode])
 
   const toggleTheme = () => setIsDarkMode(prev => !prev)
@@ -2078,6 +2080,9 @@ function App() {
 
     return (
       <div className="phase-briefing">
+        <button className="back-to-dashboard-btn briefing-back-btn" onClick={() => setCurrentView('dashboard')}>
+          ← Dashboard
+        </button>
         <div className="briefing-card">
           <div className="briefing-header" style={{ '--briefing-color': briefing.color }}>
             <span className="briefing-role-icon">{briefing.icon}</span>
