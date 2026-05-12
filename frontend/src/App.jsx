@@ -2320,9 +2320,11 @@ function App() {
                     📋 Backlog
                   </button>
                 )}
-                <button className="lib-nav-btn" onClick={async () => { await loadDocuments(); setLibCategoryFilter('Alle'); setCurrentView('library') }}>
-                  📚 Bibliothek
-                </button>
+                {isAdmin && (
+                  <button className="lib-nav-btn" onClick={async () => { await loadDocuments(); setLibCategoryFilter('Alle'); setCurrentView('library') }}>
+                    📚 Bibliothek
+                  </button>
+                )}
                 {isAdmin && (
                   <button className="admin-nav-btn" onClick={async () => {
                     await Promise.all([loadAdminScenarios(), loadAdminDocuments()])
