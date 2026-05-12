@@ -4424,3 +4424,95 @@ body[data-theme="dark"] {
 [data-theme="light"] .sprint-ticket.selected { background: rgba(67,97,238,0.07); }
 [data-theme="light"] .sprint-capacity-track { background: rgba(0,0,0,0.06); }
 [data-theme="light"] .briefing-backlog-preview { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.06); }
+
+/* ── AI Config Panel ──────────────────────────────────────────────────── */
+.ai-config-panel {
+  padding: 0.5rem 0;
+}
+.ai-config-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.ai-config-header h3 { margin: 0 0 0.25rem; font-size: 1.1rem; }
+.ai-config-header p  { margin: 0; font-size: 0.85rem; color: var(--text-secondary); max-width: 560px; }
+
+.admin-save-btn.saved { background: #22c55e !important; }
+
+.ai-config-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+.ai-config-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.ai-config-field.full { grid-column: 1 / -1; }
+
+.ai-config-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.ai-config-desc {
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.ai-config-select,
+.ai-config-input {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-primary);
+  padding: 0.55rem 0.75rem;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+}
+.ai-config-select:focus,
+.ai-config-input:focus {
+  outline: none;
+  border-color: #e9198c;
+}
+
+.ai-config-textarea {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--text-primary);
+  padding: 0.85rem 1rem;
+  font-size: 0.85rem;
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 1.6;
+  resize: vertical;
+  min-height: 280px;
+  transition: border-color 0.2s;
+}
+.ai-config-textarea:focus {
+  outline: none;
+  border-color: #e9198c;
+  box-shadow: 0 0 0 3px rgba(233,25,140,0.08);
+}
+.ai-config-char-count {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+/* Light mode */
+[data-theme="light"] .ai-config-select,
+[data-theme="light"] .ai-config-input,
+[data-theme="light"] .ai-config-textarea {
+  background: #f9fafb;
+  border-color: #e5e7eb;
+}

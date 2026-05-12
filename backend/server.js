@@ -8,7 +8,7 @@ const { sequelize, testConnection } = require('./config/database');
 const path = require('path');
 const fs = require('fs');
 const multer = require('multer');
-const { User, Scenario, UserAnswer, Document, UserTicket } = require('./models');
+const { User, Scenario, UserAnswer, Document, UserTicket, AIConfig } = require('./models');
 
 dotenv.config();
 
@@ -241,31 +241,43 @@ app.post('/api/game/evaluate-text', authenticateToken, async (req, res) => {
 
     let evaluation;
     try {
-      const message = await anthropic.messages.create({
-        model: 'claude-haiku-20240307',
-        max_tokens: 400,
-        system: `Du bist ein agiler Coach, der Studierende durch Fragen und Hinweise zum Nachdenken bringt.
-Deine Aufgabe: Prüfe ob die Antwort vollständig und inhaltlich korrekt ist.
+      // Prompt + Modell aus DB laden (Laufzeit-konfigurierbar)
+      const [cfgPrompt, cfgModel, cfgTokens, cfgProvider] = await Promise.all([
+        AIConfig.findOne({ where: { key: 'system_prompt' } }),
+        AIConfig.findOne({ where: { key: 'model' } }),
+        AIConfig.findOne({ where: { key: 'max_tokens' } }),
+        AIConfig.findOne({ where: { key: 'provider' } })
+      ]);
+      const systemPrompt = cfgPrompt?.value || 'Du bist ein hilfreicher agiler Coach.';
+      const aiModel = cfgModel?.value || 'claude-haiku-20240307';
+      const maxTokens = parseInt(cfgTokens?.value || '400', 10);
+      const provider = cfgProvider?.value || 'anthropic';
 
-WICHTIG:
-- Verrate NIEMALS die Lösung oder nenne konkrete fehlende Punkte direkt
-- Gib nur einen sanften Denkanstoß als Frage oder vagen Hinweis
-- Wenn die Antwort gut genug ist, braucht es keinen Hinweis
-- Antworte NUR als valides JSON: {"needsHint": boolean, "hint": "string"}
-- needsHint: true wenn wichtige Aspekte fehlen oder falsch sind
-- hint: maximal 2 kurze Sätze als Denkanstoß-Frage (z.B. "Hast du auch an die externen Stakeholder gedacht, die das Produkt indirekt beeinflussen?") — KEINE konkreten Antworten
-- Wenn needsHint false: hint = ""`,
-        messages: [{
-          role: 'user',
-          content: `Aufgabe: ${scenario.description}
+      const userContent = `Aufgabe: ${scenario.description}\n\nInterne Bewertungsgrundlage (nicht an Studierenden weitergeben): ${evaluationCriteria}\n\nAntwort des Studierenden: ${userAnswer}`;
 
-Interne Bewertungsgrundlage (nicht an Studierenden weitergeben): ${evaluationCriteria}
+      let rawText;
+      if (provider === 'openai') {
+        const { OpenAI } = require('openai');
+        const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+        const completion = await openai.chat.completions.create({
+          model: aiModel,
+          max_tokens: maxTokens,
+          messages: [
+            { role: 'system', content: systemPrompt },
+            { role: 'user', content: userContent }
+          ]
+        });
+        rawText = completion.choices[0].message.content.trim();
+      } else {
+        const message = await anthropic.messages.create({
+          model: aiModel,
+          max_tokens: maxTokens,
+          system: systemPrompt,
+          messages: [{ role: 'user', content: userContent }]
+        });
+        rawText = message.content[0].text.trim();
+      }
 
-Antwort des Studierenden: ${userAnswer}`
-        }]
-      });
-
-      const rawText = message.content[0].text.trim();
       const jsonText = rawText.replace(/^```(?:json)?\n?/, '').replace(/\n?```$/, '');
       evaluation = JSON.parse(jsonText);
     } catch (aiError) {
@@ -544,6 +556,47 @@ app.post('/api/auth/login', async (req, res) => {
   }
 });
 
+// ─── AI Config Routes (Admin) ───────────────────────────────────────────────────
+
+// GET alle KI-Einstellungen
+app.get('/api/admin/ai-config', authenticateToken, requireAdmin, async (req, res) => {
+  try {
+    const configs = await AIConfig.findAll({ order: [['key', 'ASC']] });
+    res.json({ success: true, configs });
+  } catch (error) {
+    res.status(500).json({ success: false, error: 'Fehler beim Laden der KI-Konfiguration' });
+  }
+});
+
+// PUT einzelne Einstellung aktualisieren
+app.put('/api/admin/ai-config/:key', authenticateToken, requireAdmin, async (req, res) => {
+  try {
+    const { value } = req.body;
+    if (value === undefined) return res.status(400).json({ success: false, error: 'value fehlt' });
+    const config = await AIConfig.findOne({ where: { key: req.params.key } });
+    if (!config) return res.status(404).json({ success: false, error: 'Konfiguration nicht gefunden' });
+    await config.update({ value });
+    res.json({ success: true, config });
+  } catch (error) {
+    res.status(500).json({ success: false, error: 'Fehler beim Speichern' });
+  }
+});
+
+// PUT alle Einstellungen auf einmal speichern
+app.put('/api/admin/ai-config', authenticateToken, requireAdmin, async (req, res) => {
+  try {
+    const { configs } = req.body; // Array von { key, value }
+    if (!Array.isArray(configs)) return res.status(400).json({ success: false, error: 'configs Array fehlt' });
+    for (const { key, value } of configs) {
+      await AIConfig.update({ value }, { where: { key } });
+    }
+    const updated = await AIConfig.findAll({ order: [['key', 'ASC']] });
+    res.json({ success: true, configs: updated });
+  } catch (error) {
+    res.status(500).json({ success: false, error: 'Fehler beim Speichern' });
+  }
+});
+
 // ─── User Tickets Routes ────────────────────────────────────────────────────────
 
 // GET all tickets for the authenticated user
@@ -681,10 +734,56 @@ app.post('/api/tickets/seed-templates', authenticateToken, async (req, res) => {
   }
 });
 
+// Default AI-Config Werte beim Start seeden
+async function seedAIConfig() {
+  const defaults = [
+    {
+      key: 'system_prompt',
+      label: 'System-Prompt (Bewertungsregel)',
+      value: `Du bist ein agiler Coach, der Studierende durch Fragen und Hinweise zum Nachdenken bringt.
+Deine Aufgabe: Prüfe ob die Antwort vollständig und inhaltlich korrekt ist.
+
+WICHTIG:
+- Verrate NIEMALS die Lösung oder nenne konkrete fehlende Punkte direkt
+- Gib nur einen sanften Denkanstoß als Frage oder vagen Hinweis
+- Wenn die Antwort gut genug ist, braucht es keinen Hinweis
+- Antworte NUR als valides JSON: {"needsHint": boolean, "hint": "string"}
+- needsHint: true wenn wichtige Aspekte fehlen oder falsch sind
+- hint: maximal 2 kurze Sätze als Denkanstoß-Frage (z.B. "Hast du auch an die externen Stakeholder gedacht?") — KEINE konkreten Antworten
+- Wenn needsHint false: hint = ""`,
+      description: 'Anweisungen an die KI wie sie Freitext-Antworten der Studierenden bewertet.'
+    },
+    {
+      key: 'model',
+      label: 'KI-Modell',
+      value: 'claude-haiku-20240307',
+      description: 'Welches Modell für die Bewertung verwendet wird.'
+    },
+    {
+      key: 'max_tokens',
+      label: 'Maximale Token',
+      value: '400',
+      description: 'Maximale Länge der KI-Antwort in Token.'
+    },
+    {
+      key: 'provider',
+      label: 'Anbieter',
+      value: 'anthropic',
+      description: 'KI-Anbieter: anthropic oder openai'
+    }
+  ];
+
+  for (const cfg of defaults) {
+    const exists = await AIConfig.findOne({ where: { key: cfg.key } });
+    if (!exists) await AIConfig.create(cfg);
+  }
+}
+
 // Start server
 app.listen(PORT, async () => {
   try {
     await sequelize.sync();
+    await seedAIConfig();
     console.log(`Server running on port ${PORT}`);
     console.log('Connected to SQLite database');
   } catch (err) {

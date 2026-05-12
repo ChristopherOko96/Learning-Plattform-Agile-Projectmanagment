@@ -184,9 +184,12 @@ function App() {
   const [adminScenarios, setAdminScenarios] = useState([])
   const [adminPhaseFilter, setAdminPhaseFilter] = useState('product_owner')
   const [editingScenario, setEditingScenario] = useState(null)
-  const [adminTab, setAdminTab] = useState('scenarios') // 'scenarios' | 'documents'
+  const [adminTab, setAdminTab] = useState('scenarios') // 'scenarios' | 'documents' | 'ai'
   const [adminDocuments, setAdminDocuments] = useState([])
   const [editingDocument, setEditingDocument] = useState(null)
+  const [aiConfigs, setAiConfigs] = useState([])
+  const [aiConfigSaving, setAiConfigSaving] = useState(false)
+  const [aiConfigSaved, setAiConfigSaved] = useState(false)
 
   // Auth state
   const [user, setUser] = useState(null)
@@ -489,6 +492,35 @@ function App() {
       await Promise.all([loadAdminDocuments(), loadDocuments()])
     } catch (err) {
       console.error('Doc delete error:', err)
+    }
+  }
+
+  const loadAiConfigs = async () => {
+    try {
+      const { data } = await axios.get(`${API_BASE_URL}/admin/ai-config`)
+      if (data.success) setAiConfigs(data.configs)
+    } catch (err) {
+      console.error('AI config load error:', err)
+    }
+  }
+
+  const handleAiConfigChange = (key, value) => {
+    setAiConfigs(prev => prev.map(c => c.key === key ? { ...c, value } : c))
+    setAiConfigSaved(false)
+  }
+
+  const handleAiConfigSave = async () => {
+    setAiConfigSaving(true)
+    try {
+      await axios.put(`${API_BASE_URL}/admin/ai-config`, {
+        configs: aiConfigs.map(c => ({ key: c.key, value: c.value }))
+      })
+      setAiConfigSaved(true)
+      setTimeout(() => setAiConfigSaved(false), 3000)
+    } catch (err) {
+      console.error('AI config save error:', err)
+    } finally {
+      setAiConfigSaving(false)
     }
   }
 
@@ -1509,6 +1541,12 @@ function App() {
             📚 Bibliothek
             <span className="admin-tab-count">{adminDocuments.length}</span>
           </button>
+          <button
+            className={`admin-main-tab ${adminTab === 'ai' ? 'active' : ''}`}
+            onClick={() => { setAdminTab('ai'); loadAiConfigs() }}
+          >
+            🤖 KI-Einstellungen
+          </button>
         </div>
 
         {/* ── Szenarien-Tab ── */}
@@ -1612,6 +1650,115 @@ function App() {
             </div>
           </>
         )}
+
+        {/* ── KI-Einstellungen-Tab ── */}
+        {adminTab === 'ai' && (
+          <div className="ai-config-panel">
+            <div className="ai-config-header">
+              <div>
+                <h3>🤖 KI-Bewertungs-Einstellungen</h3>
+                <p>Konfiguriere wie die KI Freitext-Antworten der Studierenden bewertet. Änderungen wirken sofort ohne Neustart.</p>
+              </div>
+              <button
+                className={`admin-save-btn ${aiConfigSaved ? 'saved' : ''}`}
+                onClick={handleAiConfigSave}
+                disabled={aiConfigSaving}
+              >
+                {aiConfigSaving ? '⏳ Speichert…' : aiConfigSaved ? '✅ Gespeichert!' : '💾 Speichern'}
+              </button>
+            </div>
+
+            {aiConfigs.length === 0 ? (
+              <p className="admin-empty">Lade Konfiguration…</p>
+            ) : (
+              <div className="ai-config-form">
+
+                {/* Provider */}
+                <div className="ai-config-field">
+                  <label className="ai-config-label">
+                    Anbieter
+                    <span className="ai-config-desc">anthropic (Claude) oder openai (GPT)</span>
+                  </label>
+                  <select
+                    className="ai-config-select"
+                    value={aiConfigs.find(c => c.key === 'provider')?.value || 'anthropic'}
+                    onChange={e => handleAiConfigChange('provider', e.target.value)}
+                  >
+                    <option value="anthropic">🟣 Anthropic (Claude)</option>
+                    <option value="openai">🟢 OpenAI (GPT)</option>
+                  </select>
+                </div>
+
+                {/* Modell */}
+                <div className="ai-config-field">
+                  <label className="ai-config-label">
+                    Modell
+                    <span className="ai-config-desc">Welches Modell für die Bewertung verwendet wird</span>
+                  </label>
+                  {aiConfigs.find(c => c.key === 'provider')?.value === 'openai' ? (
+                    <select
+                      className="ai-config-select"
+                      value={aiConfigs.find(c => c.key === 'model')?.value || ''}
+                      onChange={e => handleAiConfigChange('model', e.target.value)}
+                    >
+                      <option value="gpt-4o-mini">gpt-4o-mini (schnell, günstig)</option>
+                      <option value="gpt-4o">gpt-4o (leistungsstark)</option>
+                      <option value="gpt-4-turbo">gpt-4-turbo</option>
+                    </select>
+                  ) : (
+                    <select
+                      className="ai-config-select"
+                      value={aiConfigs.find(c => c.key === 'model')?.value || ''}
+                      onChange={e => handleAiConfigChange('model', e.target.value)}
+                    >
+                      <option value="claude-haiku-20240307">claude-haiku (schnell, günstig)</option>
+                      <option value="claude-sonnet-4-5">claude-sonnet-4-5 (leistungsstark)</option>
+                      <option value="claude-opus-4-5">claude-opus-4-5 (präzise)</option>
+                    </select>
+                  )}
+                </div>
+
+                {/* Max Tokens */}
+                <div className="ai-config-field">
+                  <label className="ai-config-label">
+                    Max. Token
+                    <span className="ai-config-desc">Maximale Länge der KI-Antwort (200–1000 empfohlen)</span>
+                  </label>
+                  <input
+                    type="number"
+                    className="ai-config-input"
+                    min="100" max="2000" step="50"
+                    value={aiConfigs.find(c => c.key === 'max_tokens')?.value || '400'}
+                    onChange={e => handleAiConfigChange('max_tokens', e.target.value)}
+                  />
+                </div>
+
+                {/* System Prompt */}
+                <div className="ai-config-field full">
+                  <label className="ai-config-label">
+                    System-Prompt (Regelwerk)
+                    <span className="ai-config-desc">
+                      Anweisungen an die KI — wie bei einer CLAUDE.md. Definiert Verhalten, Ton und Bewertungslogik.
+                    </span>
+                  </label>
+                  <textarea
+                    className="ai-config-textarea"
+                    rows={16}
+                    value={aiConfigs.find(c => c.key === 'system_prompt')?.value || ''}
+                    onChange={e => handleAiConfigChange('system_prompt', e.target.value)}
+                    placeholder="Systemanweisungen für die KI..."
+                    spellCheck={false}
+                  />
+                  <div className="ai-config-char-count">
+                    {(aiConfigs.find(c => c.key === 'system_prompt')?.value || '').length} Zeichen
+                  </div>
+                </div>
+
+              </div>
+            )}
+          </div>
+        )}
+
       </div>
     )
   }

@@ -224,6 +224,32 @@ const UserTicket = sequelize.define('UserTicket', {
   }
 });
 
+// AIConfig model – KI-Einstellungen (system prompt, modell, tokens)
+const AIConfig = sequelize.define('AIConfig', {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
+  key: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true
+  },
+  value: {
+    type: DataTypes.TEXT,
+    allowNull: false
+  },
+  label: {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
+  description: {
+    type: DataTypes.TEXT,
+    allowNull: true
+  }
+});
+
 // Define associations
 User.hasMany(UserAnswer, { foreignKey: 'userId', onDelete: 'CASCADE' });
 UserAnswer.belongsTo(User, { foreignKey: 'userId' });
@@ -234,4 +260,4 @@ UserAnswer.belongsTo(Scenario, { foreignKey: 'scenarioId' });
 User.hasMany(UserTicket, { foreignKey: 'userId', onDelete: 'CASCADE' });
 UserTicket.belongsTo(User, { foreignKey: 'userId' });
 
-module.exports = { User, Scenario, UserAnswer, Document, UserTicket };
+module.exports = { User, Scenario, UserAnswer, Document, UserTicket, AIConfig };
