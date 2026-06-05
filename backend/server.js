@@ -734,6 +734,117 @@ app.post('/api/tickets/seed-templates', authenticateToken, async (req, res) => {
   }
 });
 
+// ─── SprintLock: KI-Evaluation für Freitext-Antworten ───────────────────────
+const { situationPrompts } = require('./config/prompts');
+
+// Hilfsfunktion: stateChanges auf sinnvolle Grenzen clampen
+function clampStateChanges(changes) {
+  const clamp = (val, min, max) => Math.max(min, Math.min(max, Number(val) || 0));
+  return {
+    teamMorale:    clamp(changes.teamMorale,    -2, 2),
+    ceoRelation:   clamp(changes.ceoRelation,   -2, 2),
+    technicalDebt: clamp(changes.technicalDebt, -1, 2),
+    velocity:      clamp(changes.velocity,      -5, 5)
+  };
+}
+
+// Fallback-Antwort wenn die KI nicht erreichbar ist
+const AI_FALLBACK = {
+  evaluation: 'partial',
+  feedback: 'Deine Antwort wurde gespeichert. KI-Bewertung momentan nicht verfügbar.',
+  consequence: 'Der Spielverlauf wird mit neutralen Auswirkungen fortgesetzt.',
+  stateChanges: { teamMorale: 0, ceoRelation: 0, technicalDebt: 0, velocity: 0 },
+  ahaMessage: ''
+};
+
+// POST /api/game/evaluate – Spieler-Freitext für eine Kernsituation bewerten
+app.post('/api/game/evaluate', authenticateToken, async (req, res) => {
+  const { situationId, playerInput, gameState } = req.body;
+
+  // Eingabe validieren
+  if (!situationId || !situationPrompts[situationId]) {
+    return res.status(400).json({
+      success: false,
+      error: `Unbekannte situationId. Erlaubt: ${Object.keys(situationPrompts).join(', ')}`
+    });
+  }
+  if (!playerInput || playerInput.trim().length < 10) {
+    return res.status(400).json({
+      success: false,
+      error: 'playerInput muss mindestens 10 Zeichen lang sein'
+    });
+  }
+  if (!gameState) {
+    return res.status(400).json({
+      success: false,
+      error: 'gameState fehlt'
+    });
+  }
+
+  // Passenden Situations-Prompt laden
+  const promptConfig = situationPrompts[situationId];
+
+  // User-Message: aktuellen Spielzustand + Spieler-Eingabe kombinieren
+  const userMessage = `Aktueller Spielzustand:
+- Sprint: ${gameState.sprint ?? '–'}
+- Velocity: ${gameState.velocity ?? '–'}
+- Team-Moral: ${gameState.teamMorale ?? '–'}
+- CEO-Relation: ${gameState.ceoRelation ?? '–'}
+- Technische Schulden: ${gameState.technicalDebt ?? '–'}
+- Backlog-Gesundheit: ${gameState.backlogHealth ?? '–'}
+
+Antwort des Spielers: "${playerInput.trim()}"`;
+
+  let evaluation;
+  try {
+    // Modell aus DB laden (wie beim bestehenden evaluate-text Endpunkt)
+    const [cfgModel, cfgTokens] = await Promise.all([
+      AIConfig.findOne({ where: { key: 'model' } }),
+      AIConfig.findOne({ where: { key: 'max_tokens' } })
+    ]);
+    const aiModel  = cfgModel?.value  || 'claude-haiku-20240307';
+    const maxTokens = parseInt(cfgTokens?.value || '600', 10);
+
+    // KI-Anfrage mit dem situations-spezifischen System-Prompt
+    const message = await anthropic.messages.create({
+      model: aiModel,
+      max_tokens: maxTokens,
+      system: promptConfig.systemPrompt,
+      messages: [{ role: 'user', content: userMessage }]
+    });
+
+    const rawText = message.content[0].text.trim();
+    // Markdown-Codeblock-Wrapper entfernen, falls vorhanden
+    const jsonText = rawText.replace(/^```(?:json)?\n?/, '').replace(/\n?```$/, '');
+    const parsed = JSON.parse(jsonText);
+
+    // stateChanges gegen extreme Sprünge absichern
+    evaluation = {
+      evaluation:   parsed.evaluation   || 'partial',
+      feedback:     parsed.feedback     || '',
+      consequence:  parsed.consequence  || '',
+      stateChanges: clampStateChanges(parsed.stateChanges || {}),
+      ahaMessage:   parsed.ahaMessage   || ''
+    };
+  } catch (aiError) {
+    // KI nicht erreichbar oder JSON-Parse-Fehler → Fallback
+    console.error('SprintLock evaluate error:', aiError.message || aiError);
+    evaluation = AI_FALLBACK;
+
+    return res.status(503).json({
+      success: false,
+      error: 'KI-Bewertung momentan nicht verfügbar',
+      fallback: evaluation
+    });
+  }
+
+  res.json({
+    success: true,
+    situationId,
+    ...evaluation
+  });
+});
+
 // Default AI-Config Werte beim Start seeden
 async function seedAIConfig() {
   const defaults = [
